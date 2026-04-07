@@ -5,8 +5,8 @@ apis:
   - aid: elastic:elastic
     name: Elastic API
     tags:
-      - Search
       - Analysis
+      - Search
       - Visualizations
     humanURL: >-
       https://www.elastic.co/guide/en/elasticsearch/reference/current/security-api-get-role.html
@@ -20,8 +20,8 @@ apis:
       roles API ...
 name: Elastic
 tags:
-  - Search
   - Analysis
+  - Search
   - Visualizations
 type: Index
 image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
