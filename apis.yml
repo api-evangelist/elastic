@@ -30,14 +30,10 @@ created: '2025-01-08'
 modified: '2026-03-16'
 position: Consumer
 description: >-
-  Elastic is a software company that provides a range of tools and services for
-  organizations to search, analyze, and visualize their data in real-time. Their
-  flagship product, the Elastic Stack, combines powerful search capabilities
-  with analytics and visualization tools to help businesses gain actionable
-  insights from their data. With solutions for a variety of use cases, including
-  security monitoring, log analysis, and application performance management,
-  Elastic enables organizations to unlock the full potential of their data and
-  make informed decisions that drive success.
+  Elastic is a software company that provides a range of tools and services for organizations
+  to search, analyze, and visualize their data in real-time. Their flagship product,
+  the Elastic Stack, combines powerful search capabilities with analytics and visualization
+  tools to help businesses gain actionable insights from their data.
 maintainers:
   - FN: Kin Lane
     email: kin@apievangelist.com
