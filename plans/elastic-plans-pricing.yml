@@ -1,0 +1,85 @@
+specification: API Commons Plans
+specificationVersion: '0.1'
+schema: https://raw.githubusercontent.com/api-evangelist/interface-research/main/schema/api-commons.yml#/$defs/Plans
+provider: Elastic
+providerId: elastic
+created: '2026-05-04'
+modified: '2026-05-04'
+reconciled: true
+tags:
+  - Search
+  - Observability
+  - Security
+description: 'Elastic Cloud deployment options: Hosted (resource-based), Serverless (usage-based), Self-managed
+  (license-based).'
+sources:
+  - https://www.elastic.co/pricing
+plans:
+  - id: elastic-hosted
+    name: Elastic Cloud Hosted
+    type: usage-based
+    description: Resource-based pricing. Standard, Gold, Platinum, Enterprise tiers.
+    entries:
+      - label: Hardware (per hour)
+        name: hardware
+        type: metered
+        metric: hour
+        limit: -1
+        timeFrame: usage
+        geo: global
+        unit: 1
+        price: varies
+        userMultiplied: false
+    elements:
+      - name: Standard
+      - name: Gold
+      - name: Platinum
+      - name: Enterprise
+      - name: Multi-cloud (AWS/GCP/Azure)
+  - id: elastic-serverless
+    name: Elastic Serverless
+    type: usage-based
+    description: 'Usage-based: Search, Observability, Security projects with VCU + storage.'
+    entries:
+      - label: VCU per hour
+        name: vcu
+        type: metered
+        metric: VCU-hour
+        limit: -1
+        timeFrame: usage
+        geo: global
+        unit: 1
+        price: varies
+        userMultiplied: false
+      - label: Storage GB
+        name: storage
+        type: metered
+        metric: GB-month
+        limit: -1
+        timeFrame: month
+        geo: global
+        unit: 1
+        price: varies
+        userMultiplied: false
+    elements:
+      - name: Auto-scaling
+      - name: Search/Observability/Security solutions
+      - name: Pay only for active usage
+  - id: elastic-self-managed
+    name: Self-Managed
+    type: enterprise
+    description: License-based for on-prem.
+    entries:
+      - label: Annual license (custom)
+        name: license
+        type: subscription
+        metric: year
+        limit: -1
+        timeFrame: year
+        geo: global
+        unit: 1
+        price: custom
+        userMultiplied: false
+    elements:
+      - name: Standard / Gold / Platinum / Enterprise
+      - name: On-prem deployment
