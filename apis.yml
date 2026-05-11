@@ -75,6 +75,8 @@ apis:
         url: https://www.elastic.co/docs/api/doc/cloud
       - type: OpenAPI
         url: openapi/elastic-cloud-openapi.yml
+integrations:
+  - name: Become a partner
 maintainers:
   - FN: Kin Lane
     email: kin@apievangelist.com
@@ -118,3 +120,5 @@ common:
     sources:
       - https://www.elastic.co/pricing
     updated: '2026-05-04'
+  - type: Integrations
+    url: https://www.elastic.co/integrations
