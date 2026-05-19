@@ -1,0 +1,174 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Elasticsearch REST API — Documents
+  description: 'Elasticsearch REST API — Documents. 3 operations. Lead operation: Get a document by ID. Self-contained Naftiko
+    capability covering one Elastic business surface.'
+  tags:
+  - Elastic
+  - Documents
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    ELASTIC_API_KEY: ELASTIC_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: elasticsearch-documents
+    baseUri: https://{deployment}.es.{region}.cloud.es.io:9243
+    description: Elasticsearch REST API — Documents business capability. Self-contained, no shared references.
+    resources:
+    - name: index-_doc-id
+      path: /{index}/_doc/{id}
+      operations:
+      - name: getdocument
+        method: GET
+        description: Get a document by ID
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: index
+          in: path
+          type: string
+          required: true
+        - name: id
+          in: path
+          type: string
+          required: true
+      - name: indexdocument
+        method: PUT
+        description: Index a document with explicit ID
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: index
+          in: path
+          type: string
+          required: true
+        - name: id
+          in: path
+          type: string
+          required: true
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+      - name: deletedocument
+        method: DELETE
+        description: Delete a document by ID
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: index
+          in: path
+          type: string
+          required: true
+        - name: id
+          in: path
+          type: string
+          required: true
+    authentication:
+      type: apikey
+      key: Authorization
+      value: '{{env.ELASTIC_API_KEY}}'
+      placement: header
+  exposes:
+  - type: rest
+    namespace: elasticsearch-documents-rest
+    port: 8080
+    description: REST adapter for Elasticsearch REST API — Documents. One Spectral-compliant resource per consumed operation,
+      prefixed with /v1.
+    resources:
+    - path: /v1/{index}/doc/{id}
+      name: index-doc-id
+      description: REST surface for index-_doc-id.
+      operations:
+      - method: GET
+        name: getdocument
+        description: Get a document by ID
+        call: elasticsearch-documents.getdocument
+        with:
+          index: rest.index
+          id: rest.id
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: PUT
+        name: indexdocument
+        description: Index a document with explicit ID
+        call: elasticsearch-documents.indexdocument
+        with:
+          index: rest.index
+          id: rest.id
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: DELETE
+        name: deletedocument
+        description: Delete a document by ID
+        call: elasticsearch-documents.deletedocument
+        with:
+          index: rest.index
+          id: rest.id
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: elasticsearch-documents-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Elasticsearch REST API — Documents. One tool per consumed operation, routed inline through
+      this capability's consumes block.
+    tools:
+    - name: get-document-id
+      description: Get a document by ID
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: elasticsearch-documents.getdocument
+      with:
+        index: tools.index
+        id: tools.id
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: index-document-explicit-id
+      description: Index a document with explicit ID
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: elasticsearch-documents.indexdocument
+      with:
+        index: tools.index
+        id: tools.id
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: delete-document-id
+      description: Delete a document by ID
+      hints:
+        readOnly: false
+        destructive: true
+        idempotent: true
+      call: elasticsearch-documents.deletedocument
+      with:
+        index: tools.index
+        id: tools.id
+      outputParameters:
+      - type: object
+        mapping: $.

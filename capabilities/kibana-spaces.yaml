@@ -1,0 +1,72 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Kibana API — Spaces
+  description: 'Kibana API — Spaces. 1 operations. Lead operation: List Kibana Spaces. Self-contained Naftiko capability covering
+    one Elastic business surface.'
+  tags:
+  - Elastic
+  - Spaces
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    ELASTIC_API_KEY: ELASTIC_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: kibana-spaces
+    baseUri: https://{deployment}.kb.{region}.cloud.es.io:9243
+    description: Kibana API — Spaces business capability. Self-contained, no shared references.
+    resources:
+    - name: api-spaces-space
+      path: /api/spaces/space
+      operations:
+      - name: listspaces
+        method: GET
+        description: List Kibana Spaces
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    authentication:
+      type: apikey
+      key: Authorization
+      value: '{{env.ELASTIC_API_KEY}}'
+      placement: header
+  exposes:
+  - type: rest
+    namespace: kibana-spaces-rest
+    port: 8080
+    description: REST adapter for Kibana API — Spaces. One Spectral-compliant resource per consumed operation, prefixed with
+      /v1.
+    resources:
+    - path: /v1/api/spaces/space
+      name: api-spaces-space
+      description: REST surface for api-spaces-space.
+      operations:
+      - method: GET
+        name: listspaces
+        description: List Kibana Spaces
+        call: kibana-spaces.listspaces
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: kibana-spaces-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Kibana API — Spaces. One tool per consumed operation, routed inline through this capability's
+      consumes block.
+    tools:
+    - name: list-kibana-spaces
+      description: List Kibana Spaces
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: kibana-spaces.listspaces
+      outputParameters:
+      - type: object
+        mapping: $.

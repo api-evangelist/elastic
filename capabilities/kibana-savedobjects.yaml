@@ -1,0 +1,177 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Kibana API — SavedObjects
+  description: 'Kibana API — SavedObjects. 3 operations. Lead operation: Find saved objects. Self-contained Naftiko capability
+    covering one Elastic business surface.'
+  tags:
+  - Elastic
+  - SavedObjects
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    ELASTIC_API_KEY: ELASTIC_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: kibana-savedobjects
+    baseUri: https://{deployment}.kb.{region}.cloud.es.io:9243
+    description: Kibana API — SavedObjects business capability. Self-contained, no shared references.
+    resources:
+    - name: api-saved_objects-_find
+      path: /api/saved_objects/_find
+      operations:
+      - name: findsavedobjects
+        method: GET
+        description: Find saved objects
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: type
+          in: query
+          type: string
+        - name: search
+          in: query
+          type: string
+        - name: per_page
+          in: query
+          type: integer
+    - name: api-saved_objects-type-id
+      path: /api/saved_objects/{type}/{id}
+      operations:
+      - name: getsavedobject
+        method: GET
+        description: Get a saved object
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: type
+          in: path
+          type: string
+          required: true
+        - name: id
+          in: path
+          type: string
+          required: true
+      - name: deletesavedobject
+        method: DELETE
+        description: Delete a saved object
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: type
+          in: path
+          type: string
+          required: true
+        - name: id
+          in: path
+          type: string
+          required: true
+    authentication:
+      type: apikey
+      key: Authorization
+      value: '{{env.ELASTIC_API_KEY}}'
+      placement: header
+  exposes:
+  - type: rest
+    namespace: kibana-savedobjects-rest
+    port: 8080
+    description: REST adapter for Kibana API — SavedObjects. One Spectral-compliant resource per consumed operation, prefixed
+      with /v1.
+    resources:
+    - path: /v1/api/saved-objects/find
+      name: api-saved-objects-find
+      description: REST surface for api-saved_objects-_find.
+      operations:
+      - method: GET
+        name: findsavedobjects
+        description: Find saved objects
+        call: kibana-savedobjects.findsavedobjects
+        with:
+          type: rest.type
+          search: rest.search
+          per_page: rest.per_page
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/api/saved-objects/{type}/{id}
+      name: api-saved-objects-type-id
+      description: REST surface for api-saved_objects-type-id.
+      operations:
+      - method: GET
+        name: getsavedobject
+        description: Get a saved object
+        call: kibana-savedobjects.getsavedobject
+        with:
+          type: rest.type
+          id: rest.id
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: DELETE
+        name: deletesavedobject
+        description: Delete a saved object
+        call: kibana-savedobjects.deletesavedobject
+        with:
+          type: rest.type
+          id: rest.id
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: kibana-savedobjects-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Kibana API — SavedObjects. One tool per consumed operation, routed inline through this capability's
+      consumes block.
+    tools:
+    - name: find-saved-objects
+      description: Find saved objects
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: kibana-savedobjects.findsavedobjects
+      with:
+        type: tools.type
+        search: tools.search
+        per_page: tools.per_page
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: get-saved-object
+      description: Get a saved object
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: kibana-savedobjects.getsavedobject
+      with:
+        type: tools.type
+        id: tools.id
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: delete-saved-object
+      description: Delete a saved object
+      hints:
+        readOnly: false
+        destructive: true
+        idempotent: true
+      call: kibana-savedobjects.deletesavedobject
+      with:
+        type: tools.type
+        id: tools.id
+      outputParameters:
+      - type: object
+        mapping: $.
