@@ -1,0 +1,22 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/Document",
+  "title": "Document",
+  "type": "object",
+  "properties": {
+    "_index": {
+      "type": "string"
+    },
+    "_id": {
+      "type": "string"
+    },
+    "_score": {
+      "type": "number",
+      "nullable": true
+    },
+    "_source": {
+      "type": "object",
+      "additionalProperties": true
+    }
+  }
+}

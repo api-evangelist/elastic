@@ -1,0 +1,105 @@
+{
+  "provider": "Elastic",
+  "providerId": "elastic",
+  "kind": "json-structure",
+  "description": "Structural overview of the Elastic API surface; extracted from openapi/.",
+  "schemaCount": 2,
+  "operationCount": 9,
+  "schemas": [
+    {
+      "name": "SearchResponse",
+      "type": "object",
+      "propertyCount": 3,
+      "required": []
+    },
+    {
+      "name": "Document",
+      "type": "object",
+      "propertyCount": 4,
+      "required": []
+    }
+  ],
+  "operations": [
+    {
+      "method": "GET",
+      "path": "/_search",
+      "operationId": "searchAllIndices",
+      "summary": "Search across all indices",
+      "tags": [
+        "Search"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/{index}/_search",
+      "operationId": "searchIndex",
+      "summary": "Search a specific index",
+      "tags": [
+        "Search"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/{index}/_doc/{id}",
+      "operationId": "getDocument",
+      "summary": "Get a document by ID",
+      "tags": [
+        "Documents"
+      ]
+    },
+    {
+      "method": "PUT",
+      "path": "/{index}/_doc/{id}",
+      "operationId": "indexDocument",
+      "summary": "Index a document with explicit ID",
+      "tags": [
+        "Documents"
+      ]
+    },
+    {
+      "method": "DELETE",
+      "path": "/{index}/_doc/{id}",
+      "operationId": "deleteDocument",
+      "summary": "Delete a document by ID",
+      "tags": [
+        "Documents"
+      ]
+    },
+    {
+      "method": "PUT",
+      "path": "/{index}",
+      "operationId": "createIndex",
+      "summary": "Create an index",
+      "tags": [
+        "Indices"
+      ]
+    },
+    {
+      "method": "DELETE",
+      "path": "/{index}",
+      "operationId": "deleteIndex",
+      "summary": "Delete an index",
+      "tags": [
+        "Indices"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/_cluster/health",
+      "operationId": "getClusterHealth",
+      "summary": "Get cluster health",
+      "tags": [
+        "Cluster"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/_security/role/{name}",
+      "operationId": "getRole",
+      "summary": "Get a security role",
+      "tags": [
+        "Security"
+      ]
+    }
+  ]
+}

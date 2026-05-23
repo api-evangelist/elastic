@@ -1,0 +1,15 @@
+name: Elastic Domain Vocabulary
+provider: Elastic
+providerId: elastic
+description: Tag-derived vocabulary for the Elastic API surface; sourced from openapi/ tags.
+terms:
+- term: Search
+  description: Search and query operations across indices.
+- term: Documents
+  description: Index, update, retrieve, and delete documents.
+- term: Indices
+  description: Manage indices, mappings, and settings.
+- term: Cluster
+  description: Cluster health, state, and statistics.
+- term: Security
+  description: Roles, users, API keys, and access control.
