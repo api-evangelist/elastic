@@ -1,0 +1,980 @@
+"""
+Elastic GraphQL Schema
+Conceptual schema for the Elastic platform (Elasticsearch, Kibana, APM, ML, Security, Fleet).
+Source: https://www.elastic.co/docs/api/doc/elasticsearch
+GitHub: https://github.com/elastic
+"""
+
+scalar DateTime
+scalar JSON
+
+# ---------------------------------------------------------------------------
+# Index and Data Management
+# ---------------------------------------------------------------------------
+
+"""A single Elasticsearch index."""
+type Index {
+  name: String!
+  status: String
+  health: String
+  numberOfShards: Int
+  numberOfReplicas: Int
+  docsCount: Int
+  docsDeleted: Int
+  storeSizeBytes: Int
+  mapping: IndexMapping
+  settings: IndexSettings
+  stats: IndexStats
+  aliases: [Alias!]
+}
+
+"""Field mapping definition for an index."""
+type IndexMapping {
+  indexName: String!
+  properties: JSON
+  dynamic: String
+  meta: JSON
+}
+
+"""Settings for an Elasticsearch index."""
+type IndexSettings {
+  indexName: String!
+  numberOfShards: Int
+  numberOfReplicas: Int
+  refreshInterval: String
+  analysisSettings: JSON
+  lifecyclePolicy: String
+  codec: String
+}
+
+"""Index-level statistics."""
+type IndexStats {
+  indexName: String!
+  primaries: JSON
+  total: JSON
+  docsCount: Int
+  docsDeleted: Int
+  storeSizeBytes: Int
+  indexingTotal: Int
+  searchQueryTotal: Int
+}
+
+"""A single shard within an Elasticsearch index."""
+type IndexShard {
+  indexName: String!
+  shardNumber: Int!
+  primary: Boolean!
+  state: String
+  docs: Int
+  storeSizeBytes: Int
+  nodeId: String
+  nodeName: String
+  unassignedReason: String
+}
+
+"""An index template that auto-applies settings/mappings to matching indices."""
+type IndexTemplate {
+  name: String!
+  indexPatterns: [String!]
+  priority: Int
+  composedOf: [String!]
+  template: JSON
+  version: Int
+  meta: JSON
+}
+
+"""A component template reusable across index templates."""
+type ComponentTemplate {
+  name: String!
+  template: JSON
+  version: Int
+  meta: JSON
+}
+
+"""A data stream backed by a series of time-series indices."""
+type DataStream {
+  name: String!
+  status: String
+  template: String
+  ilmPolicy: String
+  indices: [String!]
+  timestampField: String
+  generation: Int
+  hidden: Boolean
+}
+
+"""An index alias pointing to one or more indices."""
+type Alias {
+  name: String!
+  indices: [String!]
+  filter: JSON
+  routing: String
+  isWriteIndex: Boolean
+}
+
+# ---------------------------------------------------------------------------
+# Documents and Ingest
+# ---------------------------------------------------------------------------
+
+"""A single document stored in Elasticsearch."""
+type Document {
+  id: String!
+  index: String!
+  version: Int
+  seqNo: Int
+  primaryTerm: Int
+  found: Boolean
+  source: JSON
+  fields: JSON
+}
+
+"""An ingest pipeline definition."""
+type Pipeline {
+  id: String!
+  description: String
+  processors: [PipelineProcessor!]
+  onFailure: [PipelineProcessor!]
+  version: Int
+  meta: JSON
+}
+
+"""A single processor step within an ingest pipeline."""
+type PipelineProcessor {
+  type: String!
+  tag: String
+  description: String
+  config: JSON
+  onFailure: [PipelineProcessor!]
+}
+
+"""Result of an ingest simulate or put operation."""
+type Ingest {
+  pipelineId: String!
+  success: Boolean!
+  docs: [JSON]
+  errors: [String]
+}
+
+# ---------------------------------------------------------------------------
+# Search and Query DSL
+# ---------------------------------------------------------------------------
+
+"""A packaged search request configuration."""
+type SearchRequest {
+  id: String
+  index: String!
+  query: JSON
+  size: Int
+  from: Int
+  sort: JSON
+  aggregations: JSON
+  highlight: JSON
+  source: JSON
+  trackTotalHits: Boolean
+}
+
+"""Top-level search response wrapper."""
+type SearchResult {
+  took: Int!
+  timedOut: Boolean!
+  totalHits: Int
+  totalRelation: String
+  maxScore: Float
+  hits: [SearchHit!]
+  aggregations: [Aggregation!]
+  scrollId: String
+  pitId: String
+}
+
+"""A single hit within a search response."""
+type SearchHit {
+  index: String!
+  id: String!
+  score: Float
+  source: JSON
+  fields: JSON
+  highlight: JSON
+  innerHits: JSON
+  sort: [JSON]
+}
+
+"""A compound bool query wrapping must/should/filter/must_not clauses."""
+type BoolQuery {
+  must: [JSON]
+  should: [JSON]
+  filter: [JSON]
+  mustNot: [JSON]
+  minimumShouldMatch: Int
+  boost: Float
+}
+
+"""A full-text match query."""
+type MatchQuery {
+  field: String!
+  query: String!
+  operator: String
+  fuzziness: String
+  analyzer: String
+  boost: Float
+}
+
+"""An exact-value term query."""
+type TermQuery {
+  field: String!
+  value: JSON!
+  boost: Float
+  caseInsensitive: Boolean
+}
+
+"""A range query for numeric, date, or string fields."""
+type RangeQuery {
+  field: String!
+  gte: JSON
+  gt: JSON
+  lte: JSON
+  lt: JSON
+  format: String
+  timeZone: String
+  boost: Float
+}
+
+"""A wildcard pattern query."""
+type WildcardQuery {
+  field: String!
+  value: String!
+  boost: Float
+  caseInsensitive: Boolean
+}
+
+"""A fuzzy similarity query."""
+type FuzzyQuery {
+  field: String!
+  value: String!
+  fuzziness: String
+  prefixLength: Int
+  maxExpansions: Int
+  boost: Float
+}
+
+"""A geo-bounding-box or geo-distance query."""
+type GeoQuery {
+  field: String!
+  type: String!
+  params: JSON!
+  boost: Float
+}
+
+"""A nested-object query scoped to nested documents."""
+type NestedQuery {
+  path: String!
+  query: JSON!
+  scoreMode: String
+  boost: Float
+}
+
+"""A percolate query that matches stored queries against a document."""
+type PercolateQuery {
+  field: String!
+  document: JSON
+  index: String
+  id: String
+  boost: Float
+}
+
+"""An aggregation definition and its result."""
+type Aggregation {
+  name: String!
+  type: String!
+  params: JSON
+  buckets: [Bucket]
+  metric: Metric
+}
+
+"""A bucket within a terms/histogram/date-histogram aggregation."""
+type Bucket {
+  key: JSON!
+  docCount: Int!
+  subAggregations: [Aggregation]
+}
+
+"""A single-value metric result (avg, sum, min, max, cardinality, etc.)."""
+type Metric {
+  name: String!
+  value: Float
+  valueAsString: String
+}
+
+# ---------------------------------------------------------------------------
+# Cluster and Node Administration
+# ---------------------------------------------------------------------------
+
+"""High-level cluster information."""
+type Cluster {
+  name: String!
+  uuid: String
+  status: String
+  numberOfNodes: Int
+  numberOfDataNodes: Int
+  numberOfShards: Int
+  numberOfUnassignedShards: Int
+  version: String
+  nodes: [Node!]
+  health: ClusterHealth
+}
+
+"""Current health of a cluster."""
+type ClusterHealth {
+  clusterName: String!
+  status: String!
+  numberOfNodes: Int
+  numberOfDataNodes: Int
+  activeShards: Int
+  unassignedShards: Int
+  activeShardsPercent: Float
+  timedOut: Boolean
+}
+
+"""A point-in-time snapshot of cluster state metadata."""
+type ClusterState {
+  clusterName: String!
+  version: Int
+  stateUUID: String
+  masterNode: String
+  nodes: JSON
+  routingTable: JSON
+  metadata: JSON
+}
+
+"""A single Elasticsearch node."""
+type Node {
+  id: String!
+  name: String!
+  host: String
+  ip: String
+  roles: [String!]
+  version: String
+  attributes: JSON
+  stats: NodeStats
+}
+
+"""Performance and resource stats for a node."""
+type NodeStats {
+  nodeId: String!
+  nodeName: String!
+  indices: JSON
+  os: JSON
+  process: JSON
+  jvm: JSON
+  threadPool: JSON
+  transport: JSON
+  http: JSON
+  breakers: JSON
+  timestamp: DateTime
+}
+
+# ---------------------------------------------------------------------------
+# Snapshots and Repositories
+# ---------------------------------------------------------------------------
+
+"""A snapshot of one or more indices."""
+type Snapshot {
+  id: String!
+  repository: String!
+  state: String
+  startTime: DateTime
+  endTime: DateTime
+  durationMillis: Int
+  indices: [String!]
+  shards: JSON
+  failures: [String]
+  version: String
+  uuid: String
+}
+
+"""A snapshot repository (S3, GCS, Azure, FS, etc.)."""
+type Repository {
+  name: String!
+  type: String!
+  settings: JSON
+  verified: Boolean
+}
+
+# ---------------------------------------------------------------------------
+# Tasks
+# ---------------------------------------------------------------------------
+
+"""A long-running async task tracked by the Task API."""
+type Task {
+  id: String!
+  nodeId: String
+  type: String
+  action: String
+  status: JSON
+  description: String
+  startTimeMillis: Int
+  runningTimeNanos: Int
+  cancellable: Boolean
+  cancelled: Boolean
+  parentTaskId: String
+}
+
+# ---------------------------------------------------------------------------
+# Index Lifecycle Management (ILM)
+# ---------------------------------------------------------------------------
+
+"""A reference to an ILM policy attached to an index."""
+type Lifecycle {
+  indexName: String!
+  policyName: String
+  phase: String
+  action: String
+  step: String
+  stepTime: DateTime
+  failed: Boolean
+  failedStep: String
+  isAutoRetry: Boolean
+}
+
+"""An ILM policy definition."""
+type ILMPolicy {
+  name: String!
+  version: Int
+  modifiedDate: DateTime
+  phases: [ILMPhase!]
+}
+
+"""A phase within an ILM policy (hot/warm/cold/frozen/delete)."""
+type ILMPhase {
+  name: String!
+  minAge: String
+  actions: [ILMAction!]
+}
+
+"""An action within an ILM phase (rollover, shrink, freeze, delete, etc.)."""
+type ILMAction {
+  type: String!
+  params: JSON
+}
+
+# ---------------------------------------------------------------------------
+# Rollup and Transforms
+# ---------------------------------------------------------------------------
+
+"""A rollup job that summarises historical data into compressed indices."""
+type Rollup {
+  id: String!
+  status: String
+  indexPattern: String
+  rollupIndex: String
+  cron: String
+  pageSize: Int
+  groups: JSON
+  metrics: JSON
+}
+
+"""Runtime statistics for a rollup job."""
+type RollupJob {
+  id: String!
+  state: String
+  currentPosition: JSON
+  stats: JSON
+}
+
+"""A transform job that pivots data into a destination index."""
+type Transform {
+  id: String!
+  description: String
+  sourceIndex: [String!]
+  destIndex: String
+  pivotConfig: JSON
+  syncConfig: JSON
+  frequency: String
+  settings: JSON
+  createTime: DateTime
+  version: String
+}
+
+"""Progress statistics for a running transform."""
+type TransformProgress {
+  transformId: String!
+  state: String
+  docsRemaining: Int
+  docsProcessed: Int
+  docsIndexed: Int
+  percentComplete: Float
+}
+
+# ---------------------------------------------------------------------------
+# Machine Learning
+# ---------------------------------------------------------------------------
+
+"""An Elasticsearch ML anomaly detection job."""
+type MlJob {
+  id: String!
+  description: String
+  state: String
+  analysisConfig: JSON
+  dataDescription: JSON
+  createTime: DateTime
+  finishedTime: DateTime
+  modelSizeBytes: Int
+  modelSnapshotId: String
+  counts: JSON
+}
+
+"""A datafeed that provides data to an ML job."""
+type MlDatafeed {
+  id: String!
+  jobId: String!
+  indices: [String!]
+  query: JSON
+  scrollSize: Int
+  frequency: String
+  state: String
+  timing: JSON
+}
+
+"""A ML forecast run on an anomaly detection job."""
+type Forecast {
+  id: String!
+  jobId: String!
+  status: String
+  createTime: DateTime
+  endTime: DateTime
+  durationMillis: Int
+  memoryBytes: Int
+  messages: [String]
+}
+
+"""A trained model (NLP, classification, regression, ELSER)."""
+type TrainedModel {
+  modelId: String!
+  modelType: String
+  createdBy: String
+  createTime: DateTime
+  version: String
+  description: String
+  tags: [String]
+  inputFieldNames: [String]
+  estimatedHeapMemoryBytes: Int
+  estimatedOperations: Int
+  licenseLevel: String
+}
+
+"""A single anomaly record produced by an ML job."""
+type Anomaly {
+  jobId: String!
+  timestamp: DateTime!
+  detectorIndex: Int
+  isInterim: Boolean
+  score: Float
+  anomalyScore: Float
+  normalizedProbability: Float
+  fieldName: String
+  byFieldValue: String
+  overFieldValue: String
+  partitionFieldValue: String
+  causes: JSON
+}
+
+# ---------------------------------------------------------------------------
+# Watcher and Alerting
+# ---------------------------------------------------------------------------
+
+"""A Watcher watch definition."""
+type WatcherWatch {
+  id: String!
+  status: WatchStatus
+  trigger: JSON
+  input: JSON
+  condition: JSON
+  actions: JSON
+  transform: JSON
+  throttlePeriod: String
+  metadata: JSON
+}
+
+"""Execution status of a watch."""
+type WatchStatus {
+  watchId: String!
+  state: String
+  active: Boolean
+  version: Int
+  lastChecked: DateTime
+  lastMetCondition: DateTime
+  actions: JSON
+}
+
+"""A recorded execution of a Watcher watch."""
+type WatchExecution {
+  watchId: String!
+  watchHistoryId: String!
+  triggeredTime: DateTime
+  startTime: DateTime
+  stopTime: DateTime
+  watchDurationMillis: Int
+  state: String
+  condition: JSON
+  input: JSON
+  actions: JSON
+  result: JSON
+}
+
+"""An alert/rule managed by Kibana Alerting."""
+type Alert {
+  id: String!
+  name: String!
+  ruleTypeId: String
+  enabled: Boolean
+  consumer: String
+  schedule: JSON
+  actions: JSON
+  params: JSON
+  createdAt: DateTime
+  updatedAt: DateTime
+  lastExecutionDate: DateTime
+  lastExecutionStatus: String
+}
+
+# ---------------------------------------------------------------------------
+# Cross-Cluster Replication (CCR)
+# ---------------------------------------------------------------------------
+
+"""A CCR follower index."""
+type CCR {
+  followerIndex: String!
+  remoteCluster: String!
+  leaderIndex: String!
+  status: String
+  settings: JSON
+}
+
+"""Detailed replication stats for a CCR follower."""
+type CCRInfo {
+  followerIndex: String!
+  leaderIndex: String!
+  remoteCluster: String!
+  globalCheckpoint: Int
+  followerCheckpoint: Int
+  outstandingReadRequests: Int
+  outstandingWriteRequests: Int
+  writeBufferOperationCount: Int
+  writeBufferSizeBytes: Int
+  totalFetchTimeMillis: Int
+  numberOfSuccessfulFetches: Int
+  numberOfFailedFetches: Int
+  operationsFetched: Int
+  totalIndexTimeMillis: Int
+}
+
+# ---------------------------------------------------------------------------
+# Enrich
+# ---------------------------------------------------------------------------
+
+"""An enrich policy definition."""
+type EnrichPolicy {
+  name: String!
+  type: String
+  indices: [String!]
+  matchField: String
+  enrichFields: [String!]
+  query: JSON
+}
+
+"""Status of an enrich policy execution."""
+type Enrich {
+  policyName: String!
+  phase: String
+  step: String
+}
+
+# ---------------------------------------------------------------------------
+# Fleet and APM
+# ---------------------------------------------------------------------------
+
+"""A Fleet-managed agent."""
+type FleetAgent {
+  id: String!
+  active: Boolean
+  status: String
+  policyId: String
+  version: String
+  localMetadata: JSON
+  enrolledAt: DateTime
+  lastCheckin: DateTime
+  tags: [String]
+}
+
+"""A Fleet deployment or namespace grouping agents."""
+type Fleet {
+  id: String!
+  name: String
+  namespace: String
+  agents: [FleetAgent!]
+  agentCount: Int
+}
+
+"""An APM-instrumented service."""
+type APMService {
+  name: String!
+  environment: String
+  language: String
+  framework: String
+  agentName: String
+  agentVersion: String
+  latencyP50: Float
+  latencyP95: Float
+  latencyP99: Float
+  throughput: Float
+  errorRate: Float
+}
+
+"""An APM distributed trace."""
+type APMTrace {
+  traceId: String!
+  transactionId: String!
+  serviceName: String
+  name: String
+  type: String
+  durationUs: Int
+  outcome: String
+  timestamp: DateTime
+  spans: JSON
+}
+
+"""A log entry ingested into Elasticsearch."""
+type LogEntry {
+  id: String!
+  index: String!
+  timestamp: DateTime
+  message: String
+  level: String
+  service: String
+  host: String
+  dataset: String
+  fields: JSON
+}
+
+"""A metric document stored in a metrics-* data stream."""
+type MetricDocument {
+  id: String!
+  index: String!
+  timestamp: DateTime
+  host: String
+  service: String
+  metricset: String
+  metrics: JSON
+  labels: JSON
+}
+
+# ---------------------------------------------------------------------------
+# Security
+# ---------------------------------------------------------------------------
+
+"""An Elasticsearch security user."""
+type SecurityUser {
+  username: String!
+  fullName: String
+  email: String
+  roles: [String!]
+  enabled: Boolean
+  metadata: JSON
+}
+
+"""An Elasticsearch security role with privilege definitions."""
+type SecurityRole {
+  name: String!
+  clusterPrivileges: [String!]
+  indicesPrivileges: JSON
+  applicationPrivileges: JSON
+  runAs: [String]
+  metadata: JSON
+  transientMetadata: JSON
+}
+
+"""An Elasticsearch API key."""
+type ApiKey {
+  id: String!
+  name: String!
+  username: String
+  realm: String
+  creation: DateTime
+  expiration: DateTime
+  invalidated: Boolean
+  invalidation: DateTime
+  metadata: JSON
+  roleDescriptors: JSON
+}
+
+# ---------------------------------------------------------------------------
+# Root Operations
+# ---------------------------------------------------------------------------
+
+type Query {
+  # Indices
+  index(name: String!): Index
+  indices(pattern: String, health: String): [Index!]
+  indexMapping(name: String!): IndexMapping
+  indexSettings(name: String!): IndexSettings
+  indexStats(name: String!): IndexStats
+  indexShards(name: String!): [IndexShard!]
+  indexTemplates(pattern: String): [IndexTemplate!]
+  componentTemplates(pattern: String): [ComponentTemplate!]
+  dataStreams(pattern: String): [DataStream!]
+  aliases(pattern: String): [Alias!]
+
+  # Documents
+  getDocument(index: String!, id: String!): Document
+  searchDocuments(index: String!, query: JSON, size: Int, from: Int): SearchResult
+
+  # Ingest
+  pipeline(id: String!): Pipeline
+  pipelines: [Pipeline!]
+
+  # Cluster
+  cluster: Cluster
+  clusterHealth: ClusterHealth
+  clusterState: ClusterState
+  nodes: [Node!]
+  node(id: String!): Node
+
+  # Snapshots
+  snapshot(repository: String!, id: String!): Snapshot
+  snapshots(repository: String!): [Snapshot!]
+  repository(name: String!): Repository
+  repositories: [Repository!]
+
+  # Tasks
+  task(id: String!): Task
+  tasks(action: String, nodeId: String): [Task!]
+
+  # ILM
+  lifecycleForIndex(indexName: String!): Lifecycle
+  ilmPolicy(name: String!): ILMPolicy
+  ilmPolicies: [ILMPolicy!]
+
+  # Rollup and Transforms
+  rollupJob(id: String!): RollupJob
+  rollupJobs: [RollupJob!]
+  transform(id: String!): Transform
+  transforms(size: Int, from: Int): [Transform!]
+  transformProgress(id: String!): TransformProgress
+
+  # ML
+  mlJob(id: String!): MlJob
+  mlJobs: [MlJob!]
+  mlDatafeed(id: String!): MlDatafeed
+  mlDatafeeds: [MlDatafeed!]
+  forecasts(jobId: String!): [Forecast!]
+  trainedModel(modelId: String!): TrainedModel
+  trainedModels: [TrainedModel!]
+  anomalies(jobId: String!, start: DateTime, end: DateTime, score: Float): [Anomaly!]
+
+  # Watcher
+  watch(id: String!): WatcherWatch
+  watches: [WatcherWatch!]
+  watchExecutions(watchId: String!, size: Int): [WatchExecution!]
+
+  # Alerts (Kibana)
+  alert(id: String!): Alert
+  alerts(consumer: String, ruleTypeId: String): [Alert!]
+
+  # CCR
+  ccrFollower(index: String!): CCR
+  ccrFollowers: [CCR!]
+  ccrInfo(index: String!): CCRInfo
+
+  # Enrich
+  enrichPolicy(name: String!): EnrichPolicy
+  enrichPolicies: [EnrichPolicy!]
+
+  # Fleet
+  fleet(id: String!): Fleet
+  fleetAgent(id: String!): FleetAgent
+  fleetAgents(policyId: String, status: String): [FleetAgent!]
+
+  # APM
+  apmService(name: String!, environment: String): APMService
+  apmServices(environment: String): [APMService!]
+  apmTrace(traceId: String!, transactionId: String!): APMTrace
+
+  # Logs and Metrics
+  logEntries(index: String!, query: JSON, size: Int, from: Int): [LogEntry!]
+  metricDocuments(index: String!, query: JSON, size: Int, from: Int): [MetricDocument!]
+
+  # Security
+  securityUser(username: String!): SecurityUser
+  securityUsers: [SecurityUser!]
+  securityRole(name: String!): SecurityRole
+  securityRoles: [SecurityRole!]
+  apiKey(id: String!): ApiKey
+  apiKeys(username: String): [ApiKey!]
+}
+
+type Mutation {
+  # Index management
+  createIndex(name: String!, settings: JSON, mappings: JSON): Index
+  deleteIndex(name: String!): Boolean
+  putIndexMapping(name: String!, mappings: JSON!): Boolean
+  putIndexSettings(name: String!, settings: JSON!): Boolean
+  createAlias(indexName: String!, aliasName: String!, filter: JSON): Alias
+  deleteAlias(indexName: String!, aliasName: String!): Boolean
+  createIndexTemplate(name: String!, indexPatterns: [String!]!, template: JSON): IndexTemplate
+  deleteIndexTemplate(name: String!): Boolean
+  createComponentTemplate(name: String!, template: JSON!): ComponentTemplate
+
+  # Documents
+  indexDocument(index: String!, id: String, document: JSON!): Document
+  updateDocument(index: String!, id: String!, doc: JSON!): Document
+  deleteDocument(index: String!, id: String!): Boolean
+  bulkIndex(index: String!, documents: [JSON!]!): JSON
+
+  # Pipelines
+  putPipeline(id: String!, description: String, processors: JSON!): Pipeline
+  deletePipeline(id: String!): Boolean
+
+  # Snapshots
+  createRepository(name: String!, type: String!, settings: JSON!): Repository
+  deleteRepository(name: String!): Boolean
+  takeSnapshot(repository: String!, snapshot: String!, indices: [String]): Snapshot
+  restoreSnapshot(repository: String!, snapshot: String!, indices: [String], renamePattern: String): Boolean
+  deleteSnapshot(repository: String!, snapshot: String!): Boolean
+
+  # ILM
+  putILMPolicy(name: String!, policy: JSON!): ILMPolicy
+  deleteILMPolicy(name: String!): Boolean
+
+  # ML
+  createMlJob(id: String!, analysisConfig: JSON!, dataDescription: JSON!): MlJob
+  openMlJob(id: String!): Boolean
+  closeMlJob(id: String!): Boolean
+  deleteMlJob(id: String!): Boolean
+  createMlDatafeed(id: String!, jobId: String!, indices: [String!]!, query: JSON): MlDatafeed
+  startMlDatafeed(id: String!): Boolean
+  stopMlDatafeed(id: String!): Boolean
+
+  # Transforms
+  createTransform(id: String!, sourceIndex: [String!]!, destIndex: String!, pivotConfig: JSON!): Transform
+  startTransform(id: String!): Boolean
+  stopTransform(id: String!): Boolean
+  deleteTransform(id: String!): Boolean
+
+  # Watcher
+  putWatch(id: String!, trigger: JSON!, input: JSON, condition: JSON, actions: JSON!): WatcherWatch
+  deleteWatch(id: String!): Boolean
+  activateWatch(id: String!): WatchStatus
+  deactivateWatch(id: String!): WatchStatus
+
+  # Security
+  createUser(username: String!, password: String!, roles: [String!]!, fullName: String, email: String): SecurityUser
+  deleteUser(username: String!): Boolean
+  putRole(name: String!, clusterPrivileges: [String], indicesPrivileges: JSON, applicationPrivileges: JSON): SecurityRole
+  deleteRole(name: String!): Boolean
+  createApiKey(name: String!, expiration: String, roleDescriptors: JSON): ApiKey
+  invalidateApiKey(id: String!): Boolean
+
+  # Enrich
+  putEnrichPolicy(name: String!, type: String!, indices: [String!]!, matchField: String!, enrichFields: [String!]!): EnrichPolicy
+  executeEnrichPolicy(name: String!): Enrich
+  deleteEnrichPolicy(name: String!): Boolean
+}
