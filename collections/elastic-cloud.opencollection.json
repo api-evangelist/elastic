@@ -1,0 +1,126 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Elastic Cloud API",
+    "version": "1.0"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "Authorization",
+      "value": "{{Authorization}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Deployments",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List deployments",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.elastic-cloud.com/api/v1/deployments"
+          },
+          "docs": "List deployments"
+        },
+        {
+          "info": {
+            "name": "Create a deployment",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.elastic-cloud.com/api/v1/deployments",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create a deployment"
+        },
+        {
+          "info": {
+            "name": "Get a deployment",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.elastic-cloud.com/api/v1/deployments/:deployment_id",
+            "params": [
+              {
+                "name": "deployment_id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Get a deployment"
+        },
+        {
+          "info": {
+            "name": "Delete a deployment",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.elastic-cloud.com/api/v1/deployments/:deployment_id",
+            "params": [
+              {
+                "name": "deployment_id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Delete a deployment"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "TrafficFilters",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List traffic filter rulesets",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.elastic-cloud.com/api/v1/deployments/traffic-filter/rulesets"
+          },
+          "docs": "List traffic filter rulesets"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Account",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get account information",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.elastic-cloud.com/api/v1/account"
+          },
+          "docs": "Get account information"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

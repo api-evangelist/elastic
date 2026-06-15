@@ -1,0 +1,157 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Kibana API",
+    "version": "9.0"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "Authorization",
+      "value": "{{Authorization}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "SavedObjects",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Find saved objects",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{deployment}.kb.{region}.cloud.es.io:9243/api/saved_objects/_find",
+            "params": [
+              {
+                "name": "type",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "search",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "per_page",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Find saved objects"
+        },
+        {
+          "info": {
+            "name": "Get a saved object",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{deployment}.kb.{region}.cloud.es.io:9243/api/saved_objects/:type/:id",
+            "params": [
+              {
+                "name": "type",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Get a saved object"
+        },
+        {
+          "info": {
+            "name": "Delete a saved object",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://{deployment}.kb.{region}.cloud.es.io:9243/api/saved_objects/:type/:id",
+            "params": [
+              {
+                "name": "type",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Delete a saved object"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "DataViews",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List data views",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{deployment}.kb.{region}.cloud.es.io:9243/api/data_views"
+          },
+          "docs": "List data views"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Spaces",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List Kibana Spaces",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{deployment}.kb.{region}.cloud.es.io:9243/api/spaces/space"
+          },
+          "docs": "List Kibana Spaces"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Status",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get Kibana server status",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{deployment}.kb.{region}.cloud.es.io:9243/api/status"
+          },
+          "docs": "Get Kibana server status"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}
