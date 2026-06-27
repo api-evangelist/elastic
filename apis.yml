@@ -127,5 +127,5 @@ common:
   updated: '2026-05-04'
 - type: Integrations
   url: https://www.elastic.co/integrations
-- type: LLMsTxt
+- type: LlmsText
   url: https://api.elastic-cloud.com/llms.txt
