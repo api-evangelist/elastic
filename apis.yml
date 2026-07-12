@@ -84,6 +84,12 @@ maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com
 common:
+- type: TrustCenter
+  url: security/elastic-trust-center.yml
+- type: DomainSecurity
+  url: security/elastic-domain-security.yml
+- type: Authentication
+  url: authentication/elastic-authentication.yml
 - type: LinkedIn
   url: https://www.linkedin.com/company/elastic-co
 - name: Elastic Website
@@ -129,3 +135,5 @@ common:
   url: https://www.elastic.co/integrations
 - type: LlmsText
   url: https://api.elastic-cloud.com/llms.txt
+- url: https://www.elastic.co/blog/feed
+  type: Blog

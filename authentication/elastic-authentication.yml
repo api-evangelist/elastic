@@ -1,0 +1,25 @@
+generated: '2026-07-11'
+method: derived
+source: openapi/elastic-cloud-openapi.yml, openapi/elastic-elasticsearch-openapi.yml, openapi/elastic-kibana-openapi.yml
+summary:
+  types:
+  - apiKey
+  - http
+  api_key_in:
+  - header
+schemes:
+- name: apiKeyAuth
+  type: apiKey
+  in: header
+  parameter: Authorization
+  description: ApiKey <api_key>
+  sources:
+  - openapi/elastic-cloud-openapi.yml
+  - openapi/elastic-elasticsearch-openapi.yml
+  - openapi/elastic-kibana-openapi.yml
+- name: basicAuth
+  type: http
+  scheme: basic
+  sources:
+  - openapi/elastic-elasticsearch-openapi.yml
+  - openapi/elastic-kibana-openapi.yml
