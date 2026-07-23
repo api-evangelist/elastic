@@ -1,0 +1,123 @@
+openapi: 3.1.0
+info:
+  title: Elastic Cloud Account SavedObjects API
+  description: RESTful API for managing Elastic Cloud hosted deployments. Enables you to perform most operations available in the Elastic Cloud console through API calls, including creating, updating, resizing, and deleting deployments, managing traffic filters, snapshots, and account-level resources.
+  version: '1.0'
+  contact:
+    name: Elastic Cloud Support
+    url: https://www.elastic.co/contact
+  license:
+    name: Elastic License 2.0
+    url: https://www.elastic.co/licensing/elastic-license
+servers:
+- url: https://api.elastic-cloud.com
+  description: Elastic Cloud production
+security:
+- apiKeyAuth: []
+tags:
+- name: SavedObjects
+  description: Manage Kibana saved objects (dashboards, visualizations, searches).
+paths:
+  /api/saved_objects/_find:
+    get:
+      operationId: findSavedObjects
+      summary: Find saved objects
+      tags:
+      - SavedObjects
+      parameters:
+      - name: type
+        in: query
+        schema:
+          type: string
+      - name: search
+        in: query
+        schema:
+          type: string
+      - name: per_page
+        in: query
+        schema:
+          type: integer
+          default: 20
+      responses:
+        '200':
+          description: Saved object search results
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  total:
+                    type: integer
+                  saved_objects:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/SavedObject'
+  /api/saved_objects/{type}/{id}:
+    get:
+      operationId: getSavedObject
+      summary: Get a saved object
+      tags:
+      - SavedObjects
+      parameters:
+      - name: type
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Saved object
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SavedObject'
+    delete:
+      operationId: deleteSavedObject
+      summary: Delete a saved object
+      tags:
+      - SavedObjects
+      parameters:
+      - name: type
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Deleted
+components:
+  schemas:
+    SavedObject:
+      type: object
+      properties:
+        id:
+          type: string
+        type:
+          type: string
+        attributes:
+          type: object
+          additionalProperties: true
+        references:
+          type: array
+          items:
+            type: object
+            additionalProperties: true
+  securitySchemes:
+    apiKeyAuth:
+      type: apiKey
+      in: header
+      name: Authorization
+      description: ApiKey <api_key>
+externalDocs:
+  description: Elastic Cloud API Reference
+  url: https://www.elastic.co/docs/api/doc/cloud

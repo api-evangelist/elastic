@@ -1,0 +1,53 @@
+openapi: 3.1.0
+info:
+  title: Elastic Cloud Account Security API
+  description: RESTful API for managing Elastic Cloud hosted deployments. Enables you to perform most operations available in the Elastic Cloud console through API calls, including creating, updating, resizing, and deleting deployments, managing traffic filters, snapshots, and account-level resources.
+  version: '1.0'
+  contact:
+    name: Elastic Cloud Support
+    url: https://www.elastic.co/contact
+  license:
+    name: Elastic License 2.0
+    url: https://www.elastic.co/licensing/elastic-license
+servers:
+- url: https://api.elastic-cloud.com
+  description: Elastic Cloud production
+security:
+- apiKeyAuth: []
+tags:
+- name: Security
+  description: Roles, users, API keys, and access control.
+paths:
+  /_security/role/{name}:
+    get:
+      operationId: getRole
+      summary: Get a security role
+      description: Returns the named role definition. Roles can be assigned to users and API keys to grant cluster, index, and application privileges.
+      tags:
+      - Security
+      parameters:
+      - name: name
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Role response
+          content:
+            application/json:
+              schema:
+                type: object
+                additionalProperties: true
+        '404':
+          description: Not found
+components:
+  securitySchemes:
+    apiKeyAuth:
+      type: apiKey
+      in: header
+      name: Authorization
+      description: ApiKey <api_key>
+externalDocs:
+  description: Elastic Cloud API Reference
+  url: https://www.elastic.co/docs/api/doc/cloud

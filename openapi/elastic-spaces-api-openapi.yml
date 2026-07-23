@@ -1,0 +1,57 @@
+openapi: 3.1.0
+info:
+  title: Elastic Cloud Account Spaces API
+  description: RESTful API for managing Elastic Cloud hosted deployments. Enables you to perform most operations available in the Elastic Cloud console through API calls, including creating, updating, resizing, and deleting deployments, managing traffic filters, snapshots, and account-level resources.
+  version: '1.0'
+  contact:
+    name: Elastic Cloud Support
+    url: https://www.elastic.co/contact
+  license:
+    name: Elastic License 2.0
+    url: https://www.elastic.co/licensing/elastic-license
+servers:
+- url: https://api.elastic-cloud.com
+  description: Elastic Cloud production
+security:
+- apiKeyAuth: []
+tags:
+- name: Spaces
+  description: Manage Kibana Spaces.
+paths:
+  /api/spaces/space:
+    get:
+      operationId: listSpaces
+      summary: List Kibana Spaces
+      tags:
+      - Spaces
+      responses:
+        '200':
+          description: Spaces list
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Space'
+components:
+  schemas:
+    Space:
+      type: object
+      properties:
+        id:
+          type: string
+        name:
+          type: string
+        description:
+          type: string
+        color:
+          type: string
+  securitySchemes:
+    apiKeyAuth:
+      type: apiKey
+      in: header
+      name: Authorization
+      description: ApiKey <api_key>
+externalDocs:
+  description: Elastic Cloud API Reference
+  url: https://www.elastic.co/docs/api/doc/cloud
