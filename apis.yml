@@ -6,9 +6,22 @@ description: Elastic is a software company that builds search-powered solutions 
   structured and unstructured data in real time. Elastic Cloud delivers managed Elasticsearch
   and Kibana deployments with REST APIs for both data operations and deployment management.
 type: Index
+accessModel:
+  pricing: enterprise
+  onboarding: self-serve
+  trial: false
+  try_now: false
+  public: false
+  label: Enterprise · Self-serve signup
+  confidence: high
+  source:
+  - plans
+  - authentication
+  generated: '2026-07-22'
+  method: derived
 position: Producer
 access: 3rd-Party
-image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/elastic.png
 tags:
 - Search
 - Analytics
@@ -21,63 +34,222 @@ modified: '2026-05-19'
 url: https://raw.githubusercontent.com/api-evangelist/elastic/refs/heads/main/apis.yml
 specificationVersion: '0.19'
 apis:
-- aid: elastic:elasticsearch
-  name: Elasticsearch REST API
-  description: The Elasticsearch REST API powers indexing, search, and cluster administration
-    for the Elasticsearch search and analytics engine. It exposes operations for indexing
-    documents, running queries, managing indices and mappings, snapshots, security
-    roles and API keys, and cluster health.
+- aid: elastic:elastic-account-api
+  name: Elastic Account API
+  description: Account-level information.
   humanURL: https://www.elastic.co/docs/api/doc/elasticsearch
   baseURL: https://api.elastic-cloud.com
-  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
   tags:
-  - Search
-  - Analytics
-  - Indexing
-  - Documents
-  - Cluster
+  - Account
   properties:
+  - type: OpenAPI
+    url: openapi/elastic-account-api-openapi.yml
   - type: Documentation
     url: https://www.elastic.co/docs/api/doc/elasticsearch
-  - type: OpenAPI
-    url: openapi/elastic-elasticsearch-openapi.yml
-  - url: graphql/elastic-graphql.md
-    type: GraphQL
-- aid: elastic:kibana
-  name: Kibana API
-  description: The Kibana REST API manages Kibana resources including saved objects,
-    data views, Spaces, connectors, and alerting rules. Calls are stateless and use
-    the same authentication mechanisms as Elasticsearch.
-  humanURL: https://www.elastic.co/docs/api/doc/kibana
-  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
-  tags:
-  - Visualization
-  - Dashboards
-  - SavedObjects
-  - DataViews
-  properties:
+  - type: GraphQL
+    url: graphql/elastic-graphql.md
   - type: Documentation
     url: https://www.elastic.co/docs/api/doc/kibana
-  - type: OpenAPI
-    url: openapi/elastic-kibana-openapi.yml
-- aid: elastic:elastic-cloud
-  name: Elastic Cloud API
-  description: The Elastic Cloud API manages hosted Elasticsearch and Kibana deployments.
-    It supports creating, updating, resizing, snapshotting, and deleting deployments,
-    plus traffic filter and account-level operations.
-  humanURL: https://www.elastic.co/docs/api/doc/cloud
-  baseURL: https://api.elastic-cloud.com
-  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
-  tags:
-  - Cloud
-  - Deployments
-  - Provisioning
-  - TrafficFilters
-  properties:
   - type: Documentation
     url: https://www.elastic.co/docs/api/doc/cloud
+- aid: elastic:elastic-cluster-api
+  name: Elastic Cluster API
+  description: Cluster health, state, and statistics.
+  humanURL: https://www.elastic.co/docs/api/doc/elasticsearch
+  baseURL: https://api.elastic-cloud.com
+  tags:
+  - Cluster
+  properties:
   - type: OpenAPI
-    url: openapi/elastic-cloud-openapi.yml
+    url: openapi/elastic-cluster-api-openapi.yml
+  - type: Documentation
+    url: https://www.elastic.co/docs/api/doc/elasticsearch
+  - type: GraphQL
+    url: graphql/elastic-graphql.md
+  - type: Documentation
+    url: https://www.elastic.co/docs/api/doc/kibana
+  - type: Documentation
+    url: https://www.elastic.co/docs/api/doc/cloud
+- aid: elastic:elastic-dataviews-api
+  name: Elastic DataViews API
+  description: Manage data views (formerly index patterns).
+  humanURL: https://www.elastic.co/docs/api/doc/elasticsearch
+  baseURL: https://api.elastic-cloud.com
+  tags:
+  - DataViews
+  properties:
+  - type: OpenAPI
+    url: openapi/elastic-dataviews-api-openapi.yml
+  - type: Documentation
+    url: https://www.elastic.co/docs/api/doc/elasticsearch
+  - type: GraphQL
+    url: graphql/elastic-graphql.md
+  - type: Documentation
+    url: https://www.elastic.co/docs/api/doc/kibana
+  - type: Documentation
+    url: https://www.elastic.co/docs/api/doc/cloud
+- aid: elastic:elastic-deployments-api
+  name: Elastic Deployments API
+  description: Manage Elasticsearch and Kibana deployments.
+  humanURL: https://www.elastic.co/docs/api/doc/elasticsearch
+  baseURL: https://api.elastic-cloud.com
+  tags:
+  - Deployments
+  properties:
+  - type: OpenAPI
+    url: openapi/elastic-deployments-api-openapi.yml
+  - type: Documentation
+    url: https://www.elastic.co/docs/api/doc/elasticsearch
+  - type: GraphQL
+    url: graphql/elastic-graphql.md
+  - type: Documentation
+    url: https://www.elastic.co/docs/api/doc/kibana
+  - type: Documentation
+    url: https://www.elastic.co/docs/api/doc/cloud
+- aid: elastic:elastic-documents-api
+  name: Elastic Documents API
+  description: Index, update, retrieve, and delete documents.
+  humanURL: https://www.elastic.co/docs/api/doc/elasticsearch
+  baseURL: https://api.elastic-cloud.com
+  tags:
+  - Documents
+  properties:
+  - type: OpenAPI
+    url: openapi/elastic-documents-api-openapi.yml
+  - type: Documentation
+    url: https://www.elastic.co/docs/api/doc/elasticsearch
+  - type: GraphQL
+    url: graphql/elastic-graphql.md
+  - type: Documentation
+    url: https://www.elastic.co/docs/api/doc/kibana
+  - type: Documentation
+    url: https://www.elastic.co/docs/api/doc/cloud
+- aid: elastic:elastic-indices-api
+  name: Elastic Indices API
+  description: Manage indices, mappings, and settings.
+  humanURL: https://www.elastic.co/docs/api/doc/elasticsearch
+  baseURL: https://api.elastic-cloud.com
+  tags:
+  - Indices
+  properties:
+  - type: OpenAPI
+    url: openapi/elastic-indices-api-openapi.yml
+  - type: Documentation
+    url: https://www.elastic.co/docs/api/doc/elasticsearch
+  - type: GraphQL
+    url: graphql/elastic-graphql.md
+  - type: Documentation
+    url: https://www.elastic.co/docs/api/doc/kibana
+  - type: Documentation
+    url: https://www.elastic.co/docs/api/doc/cloud
+- aid: elastic:elastic-savedobjects-api
+  name: Elastic SavedObjects API
+  description: Manage Kibana saved objects (dashboards, visualizations, searches).
+  humanURL: https://www.elastic.co/docs/api/doc/elasticsearch
+  baseURL: https://api.elastic-cloud.com
+  tags:
+  - SavedObjects
+  properties:
+  - type: OpenAPI
+    url: openapi/elastic-savedobjects-api-openapi.yml
+  - type: Documentation
+    url: https://www.elastic.co/docs/api/doc/elasticsearch
+  - type: GraphQL
+    url: graphql/elastic-graphql.md
+  - type: Documentation
+    url: https://www.elastic.co/docs/api/doc/kibana
+  - type: Documentation
+    url: https://www.elastic.co/docs/api/doc/cloud
+- aid: elastic:elastic-search-api
+  name: Elastic Search API
+  description: Search and query operations across indices.
+  humanURL: https://www.elastic.co/docs/api/doc/elasticsearch
+  baseURL: https://api.elastic-cloud.com
+  tags:
+  - Search
+  properties:
+  - type: OpenAPI
+    url: openapi/elastic-search-api-openapi.yml
+  - type: Documentation
+    url: https://www.elastic.co/docs/api/doc/elasticsearch
+  - type: GraphQL
+    url: graphql/elastic-graphql.md
+  - type: Documentation
+    url: https://www.elastic.co/docs/api/doc/kibana
+  - type: Documentation
+    url: https://www.elastic.co/docs/api/doc/cloud
+- aid: elastic:elastic-security-api
+  name: Elastic Security API
+  description: Roles, users, API keys, and access control.
+  humanURL: https://www.elastic.co/docs/api/doc/elasticsearch
+  baseURL: https://api.elastic-cloud.com
+  tags:
+  - Security
+  properties:
+  - type: OpenAPI
+    url: openapi/elastic-security-api-openapi.yml
+  - type: Documentation
+    url: https://www.elastic.co/docs/api/doc/elasticsearch
+  - type: GraphQL
+    url: graphql/elastic-graphql.md
+  - type: Documentation
+    url: https://www.elastic.co/docs/api/doc/kibana
+  - type: Documentation
+    url: https://www.elastic.co/docs/api/doc/cloud
+- aid: elastic:elastic-spaces-api
+  name: Elastic Spaces API
+  description: Manage Kibana Spaces.
+  humanURL: https://www.elastic.co/docs/api/doc/elasticsearch
+  baseURL: https://api.elastic-cloud.com
+  tags:
+  - Spaces
+  properties:
+  - type: OpenAPI
+    url: openapi/elastic-spaces-api-openapi.yml
+  - type: Documentation
+    url: https://www.elastic.co/docs/api/doc/elasticsearch
+  - type: GraphQL
+    url: graphql/elastic-graphql.md
+  - type: Documentation
+    url: https://www.elastic.co/docs/api/doc/kibana
+  - type: Documentation
+    url: https://www.elastic.co/docs/api/doc/cloud
+- aid: elastic:elastic-status-api
+  name: Elastic Status API
+  description: Kibana server status.
+  humanURL: https://www.elastic.co/docs/api/doc/elasticsearch
+  baseURL: https://api.elastic-cloud.com
+  tags:
+  - Status
+  properties:
+  - type: OpenAPI
+    url: openapi/elastic-status-api-openapi.yml
+  - type: Documentation
+    url: https://www.elastic.co/docs/api/doc/elasticsearch
+  - type: GraphQL
+    url: graphql/elastic-graphql.md
+  - type: Documentation
+    url: https://www.elastic.co/docs/api/doc/kibana
+  - type: Documentation
+    url: https://www.elastic.co/docs/api/doc/cloud
+- aid: elastic:elastic-trafficfilters-api
+  name: Elastic TrafficFilters API
+  description: IP and VPC traffic filter rulesets for deployments.
+  humanURL: https://www.elastic.co/docs/api/doc/elasticsearch
+  baseURL: https://api.elastic-cloud.com
+  tags:
+  - TrafficFilters
+  properties:
+  - type: OpenAPI
+    url: openapi/elastic-trafficfilters-api-openapi.yml
+  - type: Documentation
+    url: https://www.elastic.co/docs/api/doc/elasticsearch
+  - type: GraphQL
+    url: graphql/elastic-graphql.md
+  - type: Documentation
+    url: https://www.elastic.co/docs/api/doc/kibana
+  - type: Documentation
+    url: https://www.elastic.co/docs/api/doc/cloud
 integrations:
 - name: Become a partner
 maintainers:
