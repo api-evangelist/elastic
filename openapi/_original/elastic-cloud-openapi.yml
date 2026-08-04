@@ -1,0 +1,165 @@
+openapi: 3.1.0
+info:
+  title: Elastic Cloud API
+  description: >-
+    RESTful API for managing Elastic Cloud hosted deployments. Enables you to
+    perform most operations available in the Elastic Cloud console through API
+    calls, including creating, updating, resizing, and deleting deployments,
+    managing traffic filters, snapshots, and account-level resources.
+  version: '1.0'
+  contact:
+    name: Elastic Cloud Support
+    url: https://www.elastic.co/contact
+  license:
+    name: Elastic License 2.0
+    url: https://www.elastic.co/licensing/elastic-license
+externalDocs:
+  description: Elastic Cloud API Reference
+  url: https://www.elastic.co/docs/api/doc/cloud
+servers:
+  - url: https://api.elastic-cloud.com
+    description: Elastic Cloud production
+tags:
+  - name: Deployments
+    description: Manage Elasticsearch and Kibana deployments.
+  - name: TrafficFilters
+    description: IP and VPC traffic filter rulesets for deployments.
+  - name: Account
+    description: Account-level information.
+security:
+  - apiKeyAuth: []
+paths:
+  /api/v1/deployments:
+    get:
+      operationId: listDeployments
+      summary: List deployments
+      tags:
+        - Deployments
+      responses:
+        '200':
+          description: Deployment list
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  deployments:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/Deployment'
+    post:
+      operationId: createDeployment
+      summary: Create a deployment
+      tags:
+        - Deployments
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                resources:
+                  type: object
+                  additionalProperties: true
+      responses:
+        '201':
+          description: Created
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Deployment'
+  /api/v1/deployments/{deployment_id}:
+    get:
+      operationId: getDeployment
+      summary: Get a deployment
+      tags:
+        - Deployments
+      parameters:
+        - name: deployment_id
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Deployment
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Deployment'
+        '404':
+          description: Not found
+    delete:
+      operationId: deleteDeployment
+      summary: Delete a deployment
+      tags:
+        - Deployments
+      parameters:
+        - name: deployment_id
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Deleted
+  /api/v1/deployments/traffic-filter/rulesets:
+    get:
+      operationId: listTrafficFilterRulesets
+      summary: List traffic filter rulesets
+      tags:
+        - TrafficFilters
+      responses:
+        '200':
+          description: Rulesets
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  rulesets:
+                    type: array
+                    items:
+                      type: object
+                      additionalProperties: true
+  /api/v1/account:
+    get:
+      operationId: getAccount
+      summary: Get account information
+      tags:
+        - Account
+      responses:
+        '200':
+          description: Account
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  id:
+                    type: string
+                  name:
+                    type: string
+components:
+  securitySchemes:
+    apiKeyAuth:
+      type: apiKey
+      in: header
+      name: Authorization
+      description: ApiKey <api_key>
+  schemas:
+    Deployment:
+      type: object
+      properties:
+        id:
+          type: string
+        name:
+          type: string
+        healthy:
+          type: boolean
+        resources:
+          type: object
+          additionalProperties: true

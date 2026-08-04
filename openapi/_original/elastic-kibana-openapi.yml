@@ -1,0 +1,206 @@
+openapi: 3.1.0
+info:
+  title: Kibana API
+  description: >-
+    REST APIs for managing Kibana resources such as data views, saved objects,
+    connectors, alerts, and Spaces. Calls are stateless; each request must be
+    authenticated and include any required Kibana version header.
+  version: '9.0'
+  contact:
+    name: Elastic
+    url: https://www.elastic.co
+  license:
+    name: Elastic License 2.0
+    url: https://www.elastic.co/licensing/elastic-license
+externalDocs:
+  description: Kibana API Reference
+  url: https://www.elastic.co/docs/api/doc/kibana
+servers:
+  - url: https://{deployment}.kb.{region}.cloud.es.io:9243
+    description: Elastic Cloud Kibana
+    variables:
+      deployment:
+        default: my-deployment
+      region:
+        default: us-east-1
+  - url: http://localhost:5601
+    description: Local Kibana
+tags:
+  - name: SavedObjects
+    description: Manage Kibana saved objects (dashboards, visualizations, searches).
+  - name: DataViews
+    description: Manage data views (formerly index patterns).
+  - name: Spaces
+    description: Manage Kibana Spaces.
+  - name: Status
+    description: Kibana server status.
+security:
+  - apiKeyAuth: []
+  - basicAuth: []
+paths:
+  /api/saved_objects/_find:
+    get:
+      operationId: findSavedObjects
+      summary: Find saved objects
+      tags:
+        - SavedObjects
+      parameters:
+        - name: type
+          in: query
+          schema:
+            type: string
+        - name: search
+          in: query
+          schema:
+            type: string
+        - name: per_page
+          in: query
+          schema:
+            type: integer
+            default: 20
+      responses:
+        '200':
+          description: Saved object search results
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  total:
+                    type: integer
+                  saved_objects:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/SavedObject'
+  /api/saved_objects/{type}/{id}:
+    get:
+      operationId: getSavedObject
+      summary: Get a saved object
+      tags:
+        - SavedObjects
+      parameters:
+        - name: type
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Saved object
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SavedObject'
+    delete:
+      operationId: deleteSavedObject
+      summary: Delete a saved object
+      tags:
+        - SavedObjects
+      parameters:
+        - name: type
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Deleted
+  /api/data_views:
+    get:
+      operationId: listDataViews
+      summary: List data views
+      tags:
+        - DataViews
+      responses:
+        '200':
+          description: Data views
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data_view:
+                    type: array
+                    items:
+                      type: object
+                      additionalProperties: true
+  /api/spaces/space:
+    get:
+      operationId: listSpaces
+      summary: List Kibana Spaces
+      tags:
+        - Spaces
+      responses:
+        '200':
+          description: Spaces list
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Space'
+  /api/status:
+    get:
+      operationId: getStatus
+      summary: Get Kibana server status
+      tags:
+        - Status
+      responses:
+        '200':
+          description: Status response
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  name:
+                    type: string
+                  status:
+                    type: object
+                    additionalProperties: true
+components:
+  securitySchemes:
+    apiKeyAuth:
+      type: apiKey
+      in: header
+      name: Authorization
+    basicAuth:
+      type: http
+      scheme: basic
+  schemas:
+    SavedObject:
+      type: object
+      properties:
+        id:
+          type: string
+        type:
+          type: string
+        attributes:
+          type: object
+          additionalProperties: true
+        references:
+          type: array
+          items:
+            type: object
+            additionalProperties: true
+    Space:
+      type: object
+      properties:
+        id:
+          type: string
+        name:
+          type: string
+        description:
+          type: string
+        color:
+          type: string

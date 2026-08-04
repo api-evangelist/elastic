@@ -1,0 +1,311 @@
+openapi: 3.1.0
+info:
+  title: Elasticsearch REST API
+  description: >-
+    REST APIs for the Elasticsearch search and analytics engine. Provides
+    operations for indexing documents, searching, managing indices, mappings,
+    aliases, security, snapshots, and cluster administration. Used both by the
+    Kibana UI and directly by client applications to ingest, search, and
+    analyze data at scale.
+  version: '9.0'
+  contact:
+    name: Elastic
+    url: https://www.elastic.co
+  license:
+    name: Elastic License 2.0
+    url: https://www.elastic.co/licensing/elastic-license
+externalDocs:
+  description: Elasticsearch REST API Reference
+  url: https://www.elastic.co/docs/api/doc/elasticsearch
+servers:
+  - url: https://{deployment}.es.{region}.cloud.es.io:9243
+    description: Elastic Cloud deployment
+    variables:
+      deployment:
+        default: my-deployment
+        description: Deployment identifier
+      region:
+        default: us-east-1
+        description: Cloud region
+  - url: http://localhost:9200
+    description: Local Elasticsearch
+tags:
+  - name: Search
+    description: Search and query operations across indices.
+  - name: Documents
+    description: Index, update, retrieve, and delete documents.
+  - name: Indices
+    description: Manage indices, mappings, and settings.
+  - name: Cluster
+    description: Cluster health, state, and statistics.
+  - name: Security
+    description: Roles, users, API keys, and access control.
+security:
+  - apiKeyAuth: []
+  - basicAuth: []
+paths:
+  /_search:
+    get:
+      operationId: searchAllIndices
+      summary: Search across all indices
+      description: >-
+        Returns search results across all indices in the cluster matching the
+        supplied query parameters or request body.
+      tags:
+        - Search
+      parameters:
+        - name: q
+          in: query
+          description: Lucene query string
+          schema:
+            type: string
+        - name: size
+          in: query
+          description: Number of hits to return
+          schema:
+            type: integer
+            default: 10
+      responses:
+        '200':
+          description: Search response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SearchResponse'
+  /{index}/_search:
+    get:
+      operationId: searchIndex
+      summary: Search a specific index
+      description: >-
+        Searches documents in the specified index using a query string or
+        request body DSL.
+      tags:
+        - Search
+      parameters:
+        - name: index
+          in: path
+          required: true
+          description: Index name or pattern
+          schema:
+            type: string
+        - name: q
+          in: query
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Search response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SearchResponse'
+  /{index}/_doc/{id}:
+    get:
+      operationId: getDocument
+      summary: Get a document by ID
+      tags:
+        - Documents
+      parameters:
+        - name: index
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Document response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Document'
+        '404':
+          description: Not found
+    put:
+      operationId: indexDocument
+      summary: Index a document with explicit ID
+      tags:
+        - Documents
+      parameters:
+        - name: index
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              additionalProperties: true
+      responses:
+        '201':
+          description: Created
+        '200':
+          description: Updated
+    delete:
+      operationId: deleteDocument
+      summary: Delete a document by ID
+      tags:
+        - Documents
+      parameters:
+        - name: index
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Deleted
+        '404':
+          description: Not found
+  /{index}:
+    put:
+      operationId: createIndex
+      summary: Create an index
+      tags:
+        - Indices
+      parameters:
+        - name: index
+          in: path
+          required: true
+          schema:
+            type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                settings:
+                  type: object
+                  additionalProperties: true
+                mappings:
+                  type: object
+                  additionalProperties: true
+      responses:
+        '200':
+          description: Created
+    delete:
+      operationId: deleteIndex
+      summary: Delete an index
+      tags:
+        - Indices
+      parameters:
+        - name: index
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Deleted
+  /_cluster/health:
+    get:
+      operationId: getClusterHealth
+      summary: Get cluster health
+      tags:
+        - Cluster
+      responses:
+        '200':
+          description: Cluster health response
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  cluster_name:
+                    type: string
+                  status:
+                    type: string
+                    enum: [green, yellow, red]
+                  number_of_nodes:
+                    type: integer
+  /_security/role/{name}:
+    get:
+      operationId: getRole
+      summary: Get a security role
+      description: >-
+        Returns the named role definition. Roles can be assigned to users and
+        API keys to grant cluster, index, and application privileges.
+      tags:
+        - Security
+      parameters:
+        - name: name
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Role response
+          content:
+            application/json:
+              schema:
+                type: object
+                additionalProperties: true
+        '404':
+          description: Not found
+components:
+  securitySchemes:
+    apiKeyAuth:
+      type: apiKey
+      in: header
+      name: Authorization
+      description: ApiKey base64-encoded id:api_key
+    basicAuth:
+      type: http
+      scheme: basic
+  schemas:
+    SearchResponse:
+      type: object
+      properties:
+        took:
+          type: integer
+        timed_out:
+          type: boolean
+        hits:
+          type: object
+          properties:
+            total:
+              type: object
+              properties:
+                value:
+                  type: integer
+                relation:
+                  type: string
+            max_score:
+              type: number
+              nullable: true
+            hits:
+              type: array
+              items:
+                $ref: '#/components/schemas/Document'
+    Document:
+      type: object
+      properties:
+        _index:
+          type: string
+        _id:
+          type: string
+        _score:
+          type: number
+          nullable: true
+        _source:
+          type: object
+          additionalProperties: true

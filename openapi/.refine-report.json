@@ -1,0 +1,36 @@
+{
+  "provider": "elastic",
+  "sources": [
+    "elastic-account-api-openapi.yml",
+    "elastic-cluster-api-openapi.yml",
+    "elastic-dataviews-api-openapi.yml",
+    "elastic-deployments-api-openapi.yml",
+    "elastic-documents-api-openapi.yml",
+    "elastic-indices-api-openapi.yml",
+    "elastic-savedobjects-api-openapi.yml",
+    "elastic-search-api-openapi.yml",
+    "elastic-security-api-openapi.yml",
+    "elastic-spaces-api-openapi.yml",
+    "elastic-status-api-openapi.yml",
+    "elastic-trafficfilters-api-openapi.yml"
+  ],
+  "outputs": [
+    "elastic-account-api-openapi.yml",
+    "elastic-cluster-api-openapi.yml",
+    "elastic-dataviews-api-openapi.yml",
+    "elastic-deployments-api-openapi.yml",
+    "elastic-documents-api-openapi.yml",
+    "elastic-indices-api-openapi.yml",
+    "elastic-savedobjects-api-openapi.yml",
+    "elastic-search-api-openapi.yml",
+    "elastic-security-api-openapi.yml",
+    "elastic-spaces-api-openapi.yml",
+    "elastic-status-api-openapi.yml",
+    "elastic-trafficfilters-api-openapi.yml"
+  ],
+  "archived": [],
+  "errors": [],
+  "warnings": [],
+  "notes": [],
+  "skipped": []
+}
