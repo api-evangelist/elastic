@@ -1,0 +1,126 @@
+{
+  "item": [
+    {
+      "id": "0ca2ae94-a76d-4f11-b3b0-cfc90b877182",
+      "name": "DataViews",
+      "description": {
+        "content": "Manage data views (formerly index patterns).",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "b1ce9f4d-6601-472b-9b93-5c5ec43eabfb",
+          "name": "List data views",
+          "request": {
+            "name": "List data views",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "data_views"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "24b5c681-c947-4725-b315-f5b4cf74290e",
+              "name": "Data views",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "data_views"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data_view\": [\n    {\n      \"key_0\": false\n    },\n    {\n      \"key_0\": true\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.elastic-cloud.com",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "Authorization"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "header"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "f72a8282-3fb6-477b-8cb5-0f68725a0d69",
+    "name": "Elastic Cloud Account DataViews API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "RESTful API for managing Elastic Cloud hosted deployments. Enables you to perform most operations available in the Elastic Cloud console through API calls, including creating, updating, resizing, and deleting deployments, managing traffic filters, snapshots, and account-level resources.\n\nContact Support:\n Name: Elastic Cloud Support",
+      "type": "text/plain"
+    }
+  }
+}

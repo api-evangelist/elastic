@@ -1,0 +1,128 @@
+{
+  "item": [
+    {
+      "id": "2de3d28c-a1f3-40a8-8099-534d2f4dbc1f",
+      "name": "Spaces",
+      "description": {
+        "content": "Manage Kibana Spaces.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "8881b648-abec-46f8-af54-46c62a6f358e",
+          "name": "List Kibana Spaces",
+          "request": {
+            "name": "List Kibana Spaces",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "spaces",
+                "space"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "b9d14f4c-78a9-42d2-b31c-9ea0a678f082",
+              "name": "Spaces list",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "spaces",
+                    "space"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"id\": \"string\",\n    \"name\": \"string\",\n    \"description\": \"string\",\n    \"color\": \"string\"\n  },\n  {\n    \"id\": \"string\",\n    \"name\": \"string\",\n    \"description\": \"string\",\n    \"color\": \"string\"\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.elastic-cloud.com",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "Authorization"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "header"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "f5a7952d-59d5-4b75-bee5-2c6b38ec6abe",
+    "name": "Elastic Cloud Account Spaces API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "RESTful API for managing Elastic Cloud hosted deployments. Enables you to perform most operations available in the Elastic Cloud console through API calls, including creating, updating, resizing, and deleting deployments, managing traffic filters, snapshots, and account-level resources.\n\nContact Support:\n Name: Elastic Cloud Support",
+      "type": "text/plain"
+    }
+  }
+}

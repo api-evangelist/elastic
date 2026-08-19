@@ -1,0 +1,256 @@
+{
+  "item": [
+    {
+      "id": "7b120d27-555f-43e0-895c-18ee7eee567a",
+      "name": "Search",
+      "description": {
+        "content": "Search and query operations across indices.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "bad6b373-7554-4d4f-ab03-c7bcd35864e1",
+          "name": "Search across all indices",
+          "request": {
+            "name": "Search across all indices",
+            "description": {
+              "content": "Returns search results across all indices in the cluster matching the supplied query parameters or request body.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "_search"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "q",
+                  "value": "<string>",
+                  "description": "Lucene query string"
+                },
+                {
+                  "disabled": false,
+                  "key": "size",
+                  "value": "10",
+                  "description": "Number of hits to return"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "8d0aede1-57c2-41e2-9015-7847132fd867",
+              "name": "Search response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "_search"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "q",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "size",
+                      "value": "10"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"took\": 9110,\n  \"timed_out\": true,\n  \"hits\": {\n    \"total\": {\n      \"value\": 8893,\n      \"relation\": \"string\"\n    },\n    \"max_score\": 7665.7186853253725,\n    \"hits\": [\n      {\n        \"_index\": \"string\",\n        \"_id\": \"string\",\n        \"_score\": 3258.3511698986235,\n        \"_source\": {\n          \"key_0\": \"string\",\n          \"key_1\": \"string\"\n        }\n      },\n      {\n        \"_index\": \"string\",\n        \"_id\": \"string\",\n        \"_score\": 3093.3144538292468,\n        \"_source\": {\n          \"key_0\": 4176.396083830427,\n          \"key_1\": false\n        }\n      }\n    ]\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "6c057fbe-68d3-43de-bedb-7b63362eb1f7",
+          "name": "Search a specific index",
+          "request": {
+            "name": "Search a specific index",
+            "description": {
+              "content": "Searches documents in the specified index using a query string or request body DSL.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                ":index",
+                "_search"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "q",
+                  "value": "<string>"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "index",
+                  "description": "(Required) Index name or pattern"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "d82f5894-73ca-4828-aaa3-3b911fdf2302",
+              "name": "Search response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    ":index",
+                    "_search"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "q",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "index",
+                      "description": "(Required) Index name or pattern"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"took\": 9110,\n  \"timed_out\": true,\n  \"hits\": {\n    \"total\": {\n      \"value\": 8893,\n      \"relation\": \"string\"\n    },\n    \"max_score\": 7665.7186853253725,\n    \"hits\": [\n      {\n        \"_index\": \"string\",\n        \"_id\": \"string\",\n        \"_score\": 3258.3511698986235,\n        \"_source\": {\n          \"key_0\": \"string\",\n          \"key_1\": \"string\"\n        }\n      },\n      {\n        \"_index\": \"string\",\n        \"_id\": \"string\",\n        \"_score\": 3093.3144538292468,\n        \"_source\": {\n          \"key_0\": 4176.396083830427,\n          \"key_1\": false\n        }\n      }\n    ]\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.elastic-cloud.com",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "Authorization"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "header"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "7a7f7fb2-3caa-4bf6-8748-c1836259026f",
+    "name": "Elastic Cloud Account Search API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "RESTful API for managing Elastic Cloud hosted deployments. Enables you to perform most operations available in the Elastic Cloud console through API calls, including creating, updating, resizing, and deleting deployments, managing traffic filters, snapshots, and account-level resources.\n\nContact Support:\n Name: Elastic Cloud Support",
+      "type": "text/plain"
+    }
+  }
+}

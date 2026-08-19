@@ -1,0 +1,132 @@
+{
+  "item": [
+    {
+      "id": "44ce9672-ee73-4ff7-b857-204c3a94e1be",
+      "name": "TrafficFilters",
+      "description": {
+        "content": "IP and VPC traffic filter rulesets for deployments.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "95d13850-a92c-4840-af61-06f8154811c1",
+          "name": "List traffic filter rulesets",
+          "request": {
+            "name": "List traffic filter rulesets",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "deployments",
+                "traffic-filter",
+                "rulesets"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "a1be0025-1f49-4ee7-80dd-5ec59cc6ac16",
+              "name": "Rulesets",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "deployments",
+                    "traffic-filter",
+                    "rulesets"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"rulesets\": [\n    {\n      \"key_0\": 1026,\n      \"key_1\": \"string\"\n    },\n    {\n      \"key_0\": 2075.6574254478965,\n      \"key_1\": 6946\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.elastic-cloud.com",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "Authorization"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "header"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "6ecbd27e-5e2d-45ee-b2cf-189c7d6c9bbb",
+    "name": "Elastic Cloud Account TrafficFilters API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "RESTful API for managing Elastic Cloud hosted deployments. Enables you to perform most operations available in the Elastic Cloud console through API calls, including creating, updating, resizing, and deleting deployments, managing traffic filters, snapshots, and account-level resources.\n\nContact Support:\n Name: Elastic Cloud Support",
+      "type": "text/plain"
+    }
+  }
+}
