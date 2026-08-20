@@ -94,6 +94,8 @@ apis:
   humanURL: https://www.elastic.co/docs/api/doc/elasticsearch
   baseURL: https://api.elastic-cloud.com
   tags:
+  - Deployment
+  tags_raw:
   - Deployments
   properties:
   - type: OpenAPI
