@@ -1,6 +1,6 @@
-openapi: 3.1.0
+openapi: 3.2.0
 info:
-  title: Elastic Cloud Account Deployments API
+  title: Elastic Cloud Deployments API
   description: RESTful API for managing Elastic Cloud hosted deployments. Enables you to perform most operations available in the Elastic Cloud console through API calls, including creating, updating, resizing, and deleting deployments, managing traffic filters, snapshots, and account-level resources.
   version: '1.0'
   contact:

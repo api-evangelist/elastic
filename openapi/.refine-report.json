@@ -1,36 +1,45 @@
 {
   "provider": "elastic",
   "sources": [
-    "elastic-account-api-openapi.yml",
-    "elastic-cluster-api-openapi.yml",
-    "elastic-dataviews-api-openapi.yml",
-    "elastic-deployments-api-openapi.yml",
-    "elastic-documents-api-openapi.yml",
-    "elastic-indices-api-openapi.yml",
-    "elastic-savedobjects-api-openapi.yml",
-    "elastic-search-api-openapi.yml",
-    "elastic-security-api-openapi.yml",
-    "elastic-spaces-api-openapi.yml",
-    "elastic-status-api-openapi.yml",
-    "elastic-trafficfilters-api-openapi.yml"
+    "_original/elastic-cloud-openapi.yml",
+    "_original/elastic-elasticsearch-openapi.yml",
+    "_original/elastic-kibana-openapi.yml"
   ],
   "outputs": [
     "elastic-account-api-openapi.yml",
-    "elastic-cluster-api-openapi.yml",
-    "elastic-dataviews-api-openapi.yml",
     "elastic-deployments-api-openapi.yml",
+    "elastic-trafficfilters-api-openapi.yml",
+    "elastic-cluster-api-openapi.yml",
     "elastic-documents-api-openapi.yml",
     "elastic-indices-api-openapi.yml",
-    "elastic-savedobjects-api-openapi.yml",
     "elastic-search-api-openapi.yml",
     "elastic-security-api-openapi.yml",
+    "elastic-dataviews-api-openapi.yml",
+    "elastic-savedobjects-api-openapi.yml",
     "elastic-spaces-api-openapi.yml",
-    "elastic-status-api-openapi.yml",
-    "elastic-trafficfilters-api-openapi.yml"
+    "elastic-status-api-openapi.yml"
   ],
   "archived": [],
   "errors": [],
   "warnings": [],
-  "notes": [],
-  "skipped": []
+  "notes": [
+    "sourced from openapi/_original/ (3 archived document(s)); previously refined output at the top level was skipped rather than re-split",
+    "elastic-cloud-openapi.yml: upgraded openapi 3.1.0 -> OpenAPI 3.2.0",
+    "elastic-elasticsearch-openapi.yml: upgraded openapi 3.1.0 -> OpenAPI 3.2.0",
+    "elastic-kibana-openapi.yml: upgraded openapi 3.1.0 -> OpenAPI 3.2.0"
+  ],
+  "skipped": [
+    "elastic-account-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "elastic-cluster-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "elastic-dataviews-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "elastic-deployments-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "elastic-documents-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "elastic-indices-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "elastic-savedobjects-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "elastic-search-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "elastic-security-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "elastic-spaces-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "elastic-status-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "elastic-trafficfilters-api-openapi.yml: previously refined output, superseded by openapi/_original/"
+  ]
 }
