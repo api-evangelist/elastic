@@ -6,6 +6,20 @@ description: Elastic is a software company that builds search-powered solutions 
   structured and unstructured data in real time. Elastic Cloud delivers managed Elasticsearch
   and Kibana deployments with REST APIs for both data operations and deployment management.
 type: Index
+deliveryModel:
+  model: saas
+  license: Elastic License
+  open_source: false
+  commercial: true
+  callable_host: true
+  label: Hosted service · you call their endpoint
+  confidence: high
+  source:
+  - license
+  - openapi
+  - pricing
+  generated: '2026-08-28'
+  method: derived
 accessModel:
   pricing: enterprise
   onboarding: self-serve
