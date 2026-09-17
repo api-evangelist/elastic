@@ -85,24 +85,6 @@ apis:
     url: https://www.elastic.co/docs/api/doc/kibana
   - type: Documentation
     url: https://www.elastic.co/docs/api/doc/cloud
-- aid: elastic:elastic-dataviews-api
-  name: Elastic DataViews API
-  description: Manage data views (formerly index patterns).
-  humanURL: https://www.elastic.co/docs/api/doc/elasticsearch
-  baseURL: https://api.elastic-cloud.com
-  tags:
-  - DataViews
-  properties:
-  - type: OpenAPI
-    url: openapi/elastic-dataviews-api-openapi.yml
-  - type: Documentation
-    url: https://www.elastic.co/docs/api/doc/elasticsearch
-  - type: GraphQL
-    url: graphql/elastic-graphql.md
-  - type: Documentation
-    url: https://www.elastic.co/docs/api/doc/kibana
-  - type: Documentation
-    url: https://www.elastic.co/docs/api/doc/cloud
 - aid: elastic:elastic-deployments-api
   name: Elastic Deployments API
   description: Manage Elasticsearch and Kibana deployments.
@@ -151,24 +133,6 @@ apis:
   properties:
   - type: OpenAPI
     url: openapi/elastic-indices-api-openapi.yml
-  - type: Documentation
-    url: https://www.elastic.co/docs/api/doc/elasticsearch
-  - type: GraphQL
-    url: graphql/elastic-graphql.md
-  - type: Documentation
-    url: https://www.elastic.co/docs/api/doc/kibana
-  - type: Documentation
-    url: https://www.elastic.co/docs/api/doc/cloud
-- aid: elastic:elastic-savedobjects-api
-  name: Elastic SavedObjects API
-  description: Manage Kibana saved objects (dashboards, visualizations, searches).
-  humanURL: https://www.elastic.co/docs/api/doc/elasticsearch
-  baseURL: https://api.elastic-cloud.com
-  tags:
-  - SavedObjects
-  properties:
-  - type: OpenAPI
-    url: openapi/elastic-savedobjects-api-openapi.yml
   - type: Documentation
     url: https://www.elastic.co/docs/api/doc/elasticsearch
   - type: GraphQL
@@ -259,6 +223,42 @@ apis:
   properties:
   - type: OpenAPI
     url: openapi/elastic-trafficfilters-api-openapi.yml
+  - type: Documentation
+    url: https://www.elastic.co/docs/api/doc/elasticsearch
+  - type: GraphQL
+    url: graphql/elastic-graphql.md
+  - type: Documentation
+    url: https://www.elastic.co/docs/api/doc/kibana
+  - type: Documentation
+    url: https://www.elastic.co/docs/api/doc/cloud
+- aid: elastic:elastic-data-views-api
+  name: Elastic data views API
+  description: Manage data views (formerly index patterns).
+  humanURL: https://www.elastic.co/docs/api/doc/elasticsearch
+  baseURL: https://api.elastic-cloud.com
+  tags:
+  - data views
+  properties:
+  - type: OpenAPI
+    url: openapi/elastic-data-views-api-openapi.yml
+  - type: Documentation
+    url: https://www.elastic.co/docs/api/doc/elasticsearch
+  - type: GraphQL
+    url: graphql/elastic-graphql.md
+  - type: Documentation
+    url: https://www.elastic.co/docs/api/doc/kibana
+  - type: Documentation
+    url: https://www.elastic.co/docs/api/doc/cloud
+- aid: elastic:elastic-saved-objects-api
+  name: Elastic saved objects API
+  description: Manage Kibana saved objects (dashboards, visualizations, searches).
+  humanURL: https://www.elastic.co/docs/api/doc/elasticsearch
+  baseURL: https://api.elastic-cloud.com
+  tags:
+  - saved objects
+  properties:
+  - type: OpenAPI
+    url: openapi/elastic-saved-objects-api-openapi.yml
   - type: Documentation
     url: https://www.elastic.co/docs/api/doc/elasticsearch
   - type: GraphQL
