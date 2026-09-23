@@ -23,7 +23,7 @@ security:
 - apiKeyAuth: []
 - basicAuth: []
 tags:
-- name: DataViews
+- name: data views
   description: Manage data views (formerly index patterns).
 paths:
   /api/data_views:
@@ -31,7 +31,7 @@ paths:
       operationId: listDataViews
       summary: List data views
       tags:
-      - DataViews
+      - data views
       responses:
         '200':
           description: Data views

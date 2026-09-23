@@ -19,23 +19,27 @@
     "elastic-spaces-api-openapi.yml",
     "elastic-status-api-openapi.yml"
   ],
-  "archived": [],
+  "archived": [
+    "deleted 2 superseded output(s) from the previous generation"
+  ],
   "errors": [],
   "warnings": [],
   "notes": [
     "sourced from openapi/_original/ (3 archived document(s)); previously refined output at the top level was skipped rather than re-split",
     "elastic-cloud-openapi.yml: upgraded openapi 3.1.0 -> OpenAPI 3.2.0",
     "elastic-elasticsearch-openapi.yml: upgraded openapi 3.1.0 -> OpenAPI 3.2.0",
-    "elastic-kibana-openapi.yml: upgraded openapi 3.1.0 -> OpenAPI 3.2.0"
+    "elastic-kibana-openapi.yml: upgraded openapi 3.1.0 -> OpenAPI 3.2.0",
+    "superseded outputs removed: elastic-data-views-api-openapi.yml, elastic-saved-objects-api-openapi.yml",
+    "apis.yml register: written (+2 apis, 12 total)"
   ],
   "skipped": [
     "elastic-account-api-openapi.yml: previously refined output, superseded by openapi/_original/",
     "elastic-cluster-api-openapi.yml: previously refined output, superseded by openapi/_original/",
-    "elastic-dataviews-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "elastic-data-views-api-openapi.yml: previously refined output, superseded by openapi/_original/",
     "elastic-deployments-api-openapi.yml: previously refined output, superseded by openapi/_original/",
     "elastic-documents-api-openapi.yml: previously refined output, superseded by openapi/_original/",
     "elastic-indices-api-openapi.yml: previously refined output, superseded by openapi/_original/",
-    "elastic-savedobjects-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "elastic-saved-objects-api-openapi.yml: previously refined output, superseded by openapi/_original/",
     "elastic-search-api-openapi.yml: previously refined output, superseded by openapi/_original/",
     "elastic-security-api-openapi.yml: previously refined output, superseded by openapi/_original/",
     "elastic-spaces-api-openapi.yml: previously refined output, superseded by openapi/_original/",

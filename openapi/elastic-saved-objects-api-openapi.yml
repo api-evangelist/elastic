@@ -23,7 +23,7 @@ security:
 - apiKeyAuth: []
 - basicAuth: []
 tags:
-- name: SavedObjects
+- name: saved objects
   description: Manage Kibana saved objects (dashboards, visualizations, searches).
 paths:
   /api/saved_objects/_find:
@@ -31,7 +31,7 @@ paths:
       operationId: findSavedObjects
       summary: Find saved objects
       tags:
-      - SavedObjects
+      - saved objects
       parameters:
       - name: type
         in: query
@@ -65,7 +65,7 @@ paths:
       operationId: getSavedObject
       summary: Get a saved object
       tags:
-      - SavedObjects
+      - saved objects
       parameters:
       - name: type
         in: path
@@ -88,7 +88,7 @@ paths:
       operationId: deleteSavedObject
       summary: Delete a saved object
       tags:
-      - SavedObjects
+      - saved objects
       parameters:
       - name: type
         in: path
