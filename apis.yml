@@ -44,6 +44,7 @@ tags:
 - Security
 - Visualization
 - Cloud
+- Monitoring
 created: '2025-01-08'
 modified: '2026-05-19'
 url: https://raw.githubusercontent.com/api-evangelist/elastic/refs/heads/main/apis.yml
@@ -61,8 +62,6 @@ apis:
     url: openapi/elastic-account-api-openapi.yml
   - type: Documentation
     url: https://www.elastic.co/docs/api/doc/elasticsearch
-  - type: GraphQL
-    url: graphql/elastic-graphql.md
   - type: Documentation
     url: https://www.elastic.co/docs/api/doc/kibana
   - type: Documentation
@@ -79,8 +78,6 @@ apis:
     url: openapi/elastic-cluster-api-openapi.yml
   - type: Documentation
     url: https://www.elastic.co/docs/api/doc/elasticsearch
-  - type: GraphQL
-    url: graphql/elastic-graphql.md
   - type: Documentation
     url: https://www.elastic.co/docs/api/doc/kibana
   - type: Documentation
@@ -99,8 +96,6 @@ apis:
     url: openapi/elastic-deployments-api-openapi.yml
   - type: Documentation
     url: https://www.elastic.co/docs/api/doc/elasticsearch
-  - type: GraphQL
-    url: graphql/elastic-graphql.md
   - type: Documentation
     url: https://www.elastic.co/docs/api/doc/kibana
   - type: Documentation
@@ -117,8 +112,6 @@ apis:
     url: openapi/elastic-documents-api-openapi.yml
   - type: Documentation
     url: https://www.elastic.co/docs/api/doc/elasticsearch
-  - type: GraphQL
-    url: graphql/elastic-graphql.md
   - type: Documentation
     url: https://www.elastic.co/docs/api/doc/kibana
   - type: Documentation
@@ -135,8 +128,6 @@ apis:
     url: openapi/elastic-indices-api-openapi.yml
   - type: Documentation
     url: https://www.elastic.co/docs/api/doc/elasticsearch
-  - type: GraphQL
-    url: graphql/elastic-graphql.md
   - type: Documentation
     url: https://www.elastic.co/docs/api/doc/kibana
   - type: Documentation
@@ -153,8 +144,6 @@ apis:
     url: openapi/elastic-search-api-openapi.yml
   - type: Documentation
     url: https://www.elastic.co/docs/api/doc/elasticsearch
-  - type: GraphQL
-    url: graphql/elastic-graphql.md
   - type: Documentation
     url: https://www.elastic.co/docs/api/doc/kibana
   - type: Documentation
@@ -171,8 +160,6 @@ apis:
     url: openapi/elastic-security-api-openapi.yml
   - type: Documentation
     url: https://www.elastic.co/docs/api/doc/elasticsearch
-  - type: GraphQL
-    url: graphql/elastic-graphql.md
   - type: Documentation
     url: https://www.elastic.co/docs/api/doc/kibana
   - type: Documentation
@@ -191,8 +178,6 @@ apis:
     url: openapi/elastic-spaces-api-openapi.yml
   - type: Documentation
     url: https://www.elastic.co/docs/api/doc/elasticsearch
-  - type: GraphQL
-    url: graphql/elastic-graphql.md
   - type: Documentation
     url: https://www.elastic.co/docs/api/doc/kibana
   - type: Documentation
@@ -209,8 +194,6 @@ apis:
     url: openapi/elastic-status-api-openapi.yml
   - type: Documentation
     url: https://www.elastic.co/docs/api/doc/elasticsearch
-  - type: GraphQL
-    url: graphql/elastic-graphql.md
   - type: Documentation
     url: https://www.elastic.co/docs/api/doc/kibana
   - type: Documentation
@@ -227,8 +210,6 @@ apis:
     url: openapi/elastic-trafficfilters-api-openapi.yml
   - type: Documentation
     url: https://www.elastic.co/docs/api/doc/elasticsearch
-  - type: GraphQL
-    url: graphql/elastic-graphql.md
   - type: Documentation
     url: https://www.elastic.co/docs/api/doc/kibana
   - type: Documentation
@@ -247,8 +228,6 @@ apis:
     url: openapi/elastic-data-views-api-openapi.yml
   - type: Documentation
     url: https://www.elastic.co/docs/api/doc/elasticsearch
-  - type: GraphQL
-    url: graphql/elastic-graphql.md
   - type: Documentation
     url: https://www.elastic.co/docs/api/doc/kibana
   - type: Documentation
@@ -267,8 +246,6 @@ apis:
     url: openapi/elastic-saved-objects-api-openapi.yml
   - type: Documentation
     url: https://www.elastic.co/docs/api/doc/elasticsearch
-  - type: GraphQL
-    url: graphql/elastic-graphql.md
   - type: Documentation
     url: https://www.elastic.co/docs/api/doc/kibana
   - type: Documentation
