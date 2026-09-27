@@ -170,9 +170,11 @@ apis:
   humanURL: https://www.elastic.co/docs/api/doc/elasticsearch
   baseURL: https://api.elastic-cloud.com
   tags:
+  - Spaces
   - Space
   tags_raw:
   - Spaces
+  - Space
   properties:
   - type: OpenAPI
     url: openapi/elastic-spaces-api-openapi.yml
@@ -220,8 +222,6 @@ apis:
   humanURL: https://www.elastic.co/docs/api/doc/elasticsearch
   baseURL: https://api.elastic-cloud.com
   tags:
-  - DataViews
-  tags_raw:
   - data views
   properties:
   - type: OpenAPI
@@ -238,8 +238,6 @@ apis:
   humanURL: https://www.elastic.co/docs/api/doc/elasticsearch
   baseURL: https://api.elastic-cloud.com
   tags:
-  - SavedObjects
-  tags_raw:
   - saved objects
   properties:
   - type: OpenAPI
