@@ -1,0 +1,38 @@
+generated: '2026-10-03'
+method: generated
+generator: extract-docs-artifacts.py skills (local)
+source: openapi/elasticsearch.json
+skills:
+- file: skills/elastic-indices-create-and-alias.md
+  name: elastic-indices-create-and-alias
+  api: openapi/elasticsearch.json
+  operations:
+  - indices-create
+  - indices-put-alias
+- file: skills/elastic-index-document.md
+  name: elastic-index-document
+  api: openapi/elasticsearch.json
+  operations:
+  - index
+  - get
+- file: skills/elastic-ingest-create-and-simulate-pipeline.md
+  name: elastic-ingest-create-and-simulate-pipeline
+  api: openapi/elasticsearch.json
+  operations:
+  - ingest-put-pipeline
+  - ingest-simulate-1
+- file: skills/elastic-search-async-flow.md
+  name: elastic-search-async-flow
+  api: openapi/elasticsearch.json
+  operations:
+  - async-search-submit
+  - async-search-status
+  - async-search-get
+  - async-search-delete
+- file: skills/elastic-create-get-delete-data-stream.md
+  name: elastic-create-get-delete-data-stream
+  api: openapi/elasticsearch.json
+  operations:
+  - indices-create-data-stream
+  - indices-get-data-stream-1
+  - indices-delete-data-stream

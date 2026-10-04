@@ -1,0 +1,21 @@
+generated: '2026-10-03'
+method: derived
+generator: derive-webhooks.py
+source:
+- openapi/elasticsearch.json
+description: 'Event surface derived from the provider''s own OpenAPI: enum _types.WaitForEvents. No AsyncAPI document is published by the provider;
+  this catalog lists the events the contract names.'
+management_operations: []
+events:
+- event: immediate
+  declared_in: components/schemas/_types.WaitForEvents
+- event: urgent
+  declared_in: components/schemas/_types.WaitForEvents
+- event: high
+  declared_in: components/schemas/_types.WaitForEvents
+- event: normal
+  declared_in: components/schemas/_types.WaitForEvents
+- event: low
+  declared_in: components/schemas/_types.WaitForEvents
+- event: languid
+  declared_in: components/schemas/_types.WaitForEvents

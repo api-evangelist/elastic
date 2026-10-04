@@ -3,7 +3,8 @@
   "sources": [
     "_original/elastic-cloud-openapi.yml",
     "_original/elastic-elasticsearch-openapi.yml",
-    "_original/elastic-kibana-openapi.yml"
+    "_original/elastic-kibana-openapi.yml",
+    "elasticsearch.json"
   ],
   "outputs": [
     "elastic-account-api-openapi.yml",
@@ -17,20 +18,66 @@
     "elastic-dataviews-api-openapi.yml",
     "elastic-savedobjects-api-openapi.yml",
     "elastic-spaces-api-openapi.yml",
-    "elastic-status-api-openapi.yml"
+    "elastic-status-api-openapi.yml",
+    "elastic-analytics-api-openapi.yml",
+    "elastic-cat-api-openapi.yml",
+    "elastic-ccr-api-openapi.yml",
+    "elastic-connector-api-openapi.yml",
+    "elastic-data-stream-api-openapi.yml",
+    "elastic-document-api-openapi.yml",
+    "elastic-enrich-api-openapi.yml",
+    "elastic-eql-api-openapi.yml",
+    "elastic-esql-api-openapi.yml",
+    "elastic-features-api-openapi.yml",
+    "elastic-fleet-api-openapi.yml",
+    "elastic-graph-api-openapi.yml",
+    "elastic-health-report-api-openapi.yml",
+    "elastic-ilm-api-openapi.yml",
+    "elastic-inference-api-openapi.yml",
+    "elastic-info-api-openapi.yml",
+    "elastic-ingest-api-openapi.yml",
+    "elastic-license-api-openapi.yml",
+    "elastic-logstash-api-openapi.yml",
+    "elastic-migration-api-openapi.yml",
+    "elastic-ml-api-openapi.yml",
+    "elastic-ml-anomaly-api-openapi.yml",
+    "elastic-ml-data-frame-api-openapi.yml",
+    "elastic-ml-trained-model-api-openapi.yml",
+    "elastic-query-rules-api-openapi.yml",
+    "elastic-rollup-api-openapi.yml",
+    "elastic-script-api-openapi.yml",
+    "elastic-search-application-api-openapi.yml",
+    "elastic-searchable-snapshots-api-openapi.yml",
+    "elastic-slm-api-openapi.yml",
+    "elastic-snapshot-api-openapi.yml",
+    "elastic-sql-api-openapi.yml",
+    "elastic-synonyms-api-openapi.yml",
+    "elastic-tasks-api-openapi.yml",
+    "elastic-text-structure-api-openapi.yml",
+    "elastic-transform-api-openapi.yml",
+    "elastic-watcher-api-openapi.yml",
+    "elastic-xpack-api-openapi.yml"
   ],
   "archived": [
-    "deleted 2 superseded output(s) from the previous generation"
+    "deleted 2 superseded output(s) from the previous generation",
+    "archived openapi/elasticsearch.json"
   ],
   "errors": [],
-  "warnings": [],
+  "warnings": [
+    "elasticsearch.json: info.version missing"
+  ],
   "notes": [
     "sourced from openapi/_original/ (3 archived document(s)); previously refined output at the top level was skipped rather than re-split",
     "elastic-cloud-openapi.yml: upgraded openapi 3.1.0 -> OpenAPI 3.2.0",
     "elastic-elasticsearch-openapi.yml: upgraded openapi 3.1.0 -> OpenAPI 3.2.0",
     "elastic-kibana-openapi.yml: upgraded openapi 3.1.0 -> OpenAPI 3.2.0",
+    "elasticsearch.json: upgraded openapi 3.0.3 -> OpenAPI 3.2.0",
+    "tag 'Cluster' spans 2 source specs (elastic-elasticsearch-openapi.yml, elasticsearch.json): per-path servers applied",
+    "tag 'Indices' spans 2 source specs (elastic-elasticsearch-openapi.yml, elasticsearch.json): per-path servers applied",
+    "tag 'Search' spans 2 source specs (elastic-elasticsearch-openapi.yml, elasticsearch.json): per-path servers applied",
+    "tag 'Security' spans 2 source specs (elastic-elasticsearch-openapi.yml, elasticsearch.json): per-path servers applied",
     "superseded outputs removed: elastic-data-views-api-openapi.yml, elastic-saved-objects-api-openapi.yml",
-    "apis.yml register: written (+2 apis, 12 total)"
+    "apis.yml register: written (+40 apis, 50 total)"
   ],
   "skipped": [
     "elastic-account-api-openapi.yml: previously refined output, superseded by openapi/_original/",

@@ -1,0 +1,30 @@
+generated: '2026-10-03'
+method: derived
+generator: derive-problem-types.py
+source:
+- openapi/elastic-account-api-openapi.yml
+- openapi/elastic-cluster-api-openapi.yml
+- openapi/elastic-data-views-api-openapi.yml
+- openapi/elastic-deployments-api-openapi.yml
+- openapi/elastic-documents-api-openapi.yml
+- openapi/elastic-indices-api-openapi.yml
+- openapi/elastic-saved-objects-api-openapi.yml
+- openapi/elastic-search-api-openapi.yml
+- openapi/elastic-security-api-openapi.yml
+- openapi/elastic-spaces-api-openapi.yml
+- openapi/elastic-status-api-openapi.yml
+- openapi/elastic-trafficfilters-api-openapi.yml
+format: custom
+envelope:
+  media_type: null
+  schema: null
+coverage:
+  operations: 838
+  statuses_declared: 1
+problems:
+- status: 404
+  title: Not Found
+  description: Not found
+  operations: 4
+  media_types: []
+  schema: null

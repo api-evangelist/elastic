@@ -1,0 +1,31 @@
+generated: '2026-10-03'
+method: searched
+generator: extract-docs-artifacts.py (local)
+source: https://www.elastic.co/docs/release-notes
+sources:
+- https://www.elastic.co/docs/release-notes
+- https://www.elastic.co/docs/release-notes/elasticsearch
+- https://www.elastic.co/docs/release-notes.md
+- https://www.elastic.co/docs/release-notes/elasticsearch/known-issues
+entries:
+- breaking: false
+  highlights:
+  - 'Authorization: Add manage , create_index , read , index , write , delete , permission for third party agent indices kibana_system #156029'
+  - 'Infra/Core: Upgrade Jackson to 2.21.6 #157295 (issue: #141442 )'
+  - 'Machine Learning: Add EuroBERT and Jina v5 ops to graph validation allowlist #3015'
+  - 'Update the PyTorch library to version 2.7.1 #2863'
+- breaking: false
+  highlights:
+  - 'Audit: Add request.raw_body to audit events for protobuf request bodies #158143'
+  - 'Reject oversized request bodies when request-body auditing is enabled #157760'
+  - 'Machine Learning: Add EuroBERT and Jina v5 ops to graph validation allowlist #3015'
+  - 'Update the PyTorch library to version 2.7.1 #2863'
+- breaking: false
+  highlights:
+  - 'FIPS: Update Bouncy Castle FIPS TLS libraries #155937'
+  - 'Infra/Core: Upgrade lz4-java to 1.11.1 #155598'
+  - 'Infra/Plugins: Add policy_base_id field to fleet-agents and fleet-policies index templates #154521'
+  - 'Machine Learning: Add EuroBERT and Jina v5 ops to the graph validation allowlist'
+scheme: major.minor.patch
+current_version: 9.5.4
+docs: https://www.elastic.co/docs/release-notes

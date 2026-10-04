@@ -1,0 +1,1500 @@
+{
+  "@context": {
+    "@vocab": "https://elastic.co/schema#",
+    "schema": "https://schema.org/",
+    "xsd": "http://www.w3.org/2001/XMLSchema#",
+    "dcterms": "http://purl.org/dc/terms/",
+    "elastic": "https://elastic.co/schema#",
+    "Deployment": "elastic:Deployment",
+    "id": {
+      "@id": "elastic:id",
+      "@type": "xsd:string"
+    },
+    "name": {
+      "@id": "elastic:name",
+      "@type": "xsd:string"
+    },
+    "healthy": {
+      "@id": "elastic:healthy",
+      "@type": "xsd:boolean"
+    },
+    "resources": {
+      "@id": "elastic:resources"
+    },
+    "Document": "elastic:Document",
+    "_index": {
+      "@id": "elastic:_index",
+      "@type": "xsd:string"
+    },
+    "_id": {
+      "@id": "elastic:_id",
+      "@type": "xsd:string"
+    },
+    "_score": {
+      "@id": "elastic:_score",
+      "@type": "xsd:decimal"
+    },
+    "_source": {
+      "@id": "elastic:_source"
+    },
+    "SavedObject": "elastic:SavedObject",
+    "type": {
+      "@id": "elastic:type",
+      "@type": "xsd:string"
+    },
+    "attributes": {
+      "@id": "elastic:attributes"
+    },
+    "references": {
+      "@id": "elastic:references",
+      "@container": "@list"
+    },
+    "Space": "elastic:Space",
+    "description": {
+      "@id": "elastic:description",
+      "@type": "xsd:string"
+    },
+    "color": {
+      "@id": "elastic:color",
+      "@type": "xsd:string"
+    },
+    "_types.AcknowledgedResponseBase": "elastic:_types.AcknowledgedResponseBase",
+    "acknowledged": {
+      "@id": "elastic:acknowledged",
+      "@type": "xsd:boolean"
+    },
+    "async_search._types.AsyncSearch": "elastic:async_search._types.AsyncSearch",
+    "aggregations": {
+      "@id": "elastic:aggregations"
+    },
+    "_clusters": {
+      "@id": "elastic:_clusters"
+    },
+    "fields": {
+      "@id": "elastic:fields"
+    },
+    "hits": {
+      "@id": "elastic:hits"
+    },
+    "max_score": {
+      "@id": "elastic:max_score",
+      "@type": "xsd:decimal"
+    },
+    "num_reduce_phases": {
+      "@id": "elastic:num_reduce_phases",
+      "@type": "xsd:decimal"
+    },
+    "profile": {
+      "@id": "elastic:profile"
+    },
+    "pit_id": {
+      "@id": "elastic:pit_id"
+    },
+    "_scroll_id": {
+      "@id": "elastic:_scroll_id"
+    },
+    "_shards": {
+      "@id": "elastic:_shards"
+    },
+    "suggest": {
+      "@id": "elastic:suggest"
+    },
+    "terminated_early": {
+      "@id": "elastic:terminated_early",
+      "@type": "xsd:boolean"
+    },
+    "timed_out": {
+      "@id": "elastic:timed_out",
+      "@type": "xsd:boolean"
+    },
+    "took": {
+      "@id": "elastic:took",
+      "@type": "xsd:decimal"
+    },
+    "_types.aggregations.AggregateBase": "elastic:_types.aggregations.AggregateBase",
+    "meta": {
+      "@id": "elastic:meta"
+    },
+    "_types.aggregations.ArrayPercentilesItem": "elastic:_types.aggregations.ArrayPercentilesItem",
+    "key": {
+      "@id": "elastic:key",
+      "@type": "xsd:decimal"
+    },
+    "value": {
+      "@id": "elastic:value"
+    },
+    "value_as_string": {
+      "@id": "elastic:value_as_string",
+      "@type": "xsd:string"
+    },
+    "_types.aggregations.ChangeType": "elastic:_types.aggregations.ChangeType",
+    "dip": {
+      "@id": "elastic:dip"
+    },
+    "distribution_change": {
+      "@id": "elastic:distribution_change"
+    },
+    "indeterminable": {
+      "@id": "elastic:indeterminable"
+    },
+    "non_stationary": {
+      "@id": "elastic:non_stationary"
+    },
+    "spike": {
+      "@id": "elastic:spike"
+    },
+    "stationary": {
+      "@id": "elastic:stationary"
+    },
+    "step_change": {
+      "@id": "elastic:step_change"
+    },
+    "trend_change": {
+      "@id": "elastic:trend_change"
+    },
+    "_types.aggregations.AbstractChangePoint": "elastic:_types.aggregations.AbstractChangePoint",
+    "p_value": {
+      "@id": "elastic:p_value",
+      "@type": "xsd:decimal"
+    },
+    "change_point": {
+      "@id": "elastic:change_point",
+      "@type": "xsd:decimal"
+    },
+    "_types.aggregations.Indeterminable": "elastic:_types.aggregations.Indeterminable",
+    "reason": {
+      "@id": "elastic:reason",
+      "@type": "xsd:string"
+    },
+    "_types.aggregations.NonStationary": "elastic:_types.aggregations.NonStationary",
+    "r_value": {
+      "@id": "elastic:r_value",
+      "@type": "xsd:decimal"
+    },
+    "trend": {
+      "@id": "elastic:trend",
+      "@type": "xsd:string"
+    },
+    "_types.aggregations.TrendChange": "elastic:_types.aggregations.TrendChange",
+    "_types.aggregations.MultiBucketBase": "elastic:_types.aggregations.MultiBucketBase",
+    "doc_count": {
+      "@id": "elastic:doc_count",
+      "@type": "xsd:decimal"
+    },
+    "_types.aggregations.StandardDeviationBounds": "elastic:_types.aggregations.StandardDeviationBounds",
+    "upper": {
+      "@id": "elastic:upper"
+    },
+    "lower": {
+      "@id": "elastic:lower"
+    },
+    "upper_population": {
+      "@id": "elastic:upper_population"
+    },
+    "lower_population": {
+      "@id": "elastic:lower_population"
+    },
+    "upper_sampling": {
+      "@id": "elastic:upper_sampling"
+    },
+    "lower_sampling": {
+      "@id": "elastic:lower_sampling"
+    },
+    "_types.aggregations.StandardDeviationBoundsAsString": "elastic:_types.aggregations.StandardDeviationBoundsAsString",
+    "_types.TopLeftBottomRightGeoBounds": "elastic:_types.TopLeftBottomRightGeoBounds",
+    "top_left": {
+      "@id": "elastic:top_left"
+    },
+    "bottom_right": {
+      "@id": "elastic:bottom_right"
+    },
+    "_types.LatLonGeoLocation": "elastic:_types.LatLonGeoLocation",
+    "lat": {
+      "@id": "elastic:lat",
+      "@type": "xsd:decimal"
+    },
+    "lon": {
+      "@id": "elastic:lon",
+      "@type": "xsd:decimal"
+    },
+    "_types.GeoHashLocation": "elastic:_types.GeoHashLocation",
+    "geohash": {
+      "@id": "elastic:geohash"
+    },
+    "_types.CartesianPoint": "elastic:_types.CartesianPoint",
+    "x": {
+      "@id": "elastic:x",
+      "@type": "xsd:decimal"
+    },
+    "y": {
+      "@id": "elastic:y",
+      "@type": "xsd:decimal"
+    },
+    "_types.CoordsGeoBounds": "elastic:_types.CoordsGeoBounds",
+    "top": {
+      "@id": "elastic:top",
+      "@type": "xsd:decimal"
+    },
+    "bottom": {
+      "@id": "elastic:bottom",
+      "@type": "xsd:decimal"
+    },
+    "left": {
+      "@id": "elastic:left",
+      "@type": "xsd:decimal"
+    },
+    "right": {
+      "@id": "elastic:right",
+      "@type": "xsd:decimal"
+    },
+    "_types.TopRightBottomLeftGeoBounds": "elastic:_types.TopRightBottomLeftGeoBounds",
+    "top_right": {
+      "@id": "elastic:top_right"
+    },
+    "bottom_left": {
+      "@id": "elastic:bottom_left"
+    },
+    "_types.WktGeoBounds": "elastic:_types.WktGeoBounds",
+    "wkt": {
+      "@id": "elastic:wkt",
+      "@type": "xsd:string"
+    },
+    "_global.search._types.HitsMetadata": "elastic:_global.search._types.HitsMetadata",
+    "total": {
+      "@id": "elastic:total"
+    },
+    "_global.search._types.TotalHits": "elastic:_global.search._types.TotalHits",
+    "relation": {
+      "@id": "elastic:relation"
+    },
+    "_global.search._types.TotalHitsRelation": "elastic:_global.search._types.TotalHitsRelation",
+    "_global.search._types.Hit": "elastic:_global.search._types.Hit",
+    "_explanation": {
+      "@id": "elastic:_explanation"
+    },
+    "highlight": {
+      "@id": "elastic:highlight"
+    },
+    "inner_hits": {
+      "@id": "elastic:inner_hits"
+    },
+    "matched_queries": {
+      "@id": "elastic:matched_queries"
+    },
+    "_nested": {
+      "@id": "elastic:_nested"
+    },
+    "_ignored": {
+      "@id": "elastic:_ignored",
+      "@container": "@list"
+    },
+    "ignored_field_values": {
+      "@id": "elastic:ignored_field_values"
+    },
+    "_shard": {
+      "@id": "elastic:_shard",
+      "@type": "xsd:string"
+    },
+    "_node": {
+      "@id": "elastic:_node",
+      "@type": "xsd:string"
+    },
+    "_routing": {
+      "@id": "elastic:_routing",
+      "@type": "xsd:string"
+    },
+    "_rank": {
+      "@id": "elastic:_rank",
+      "@type": "xsd:decimal"
+    },
+    "_seq_no": {
+      "@id": "elastic:_seq_no"
+    },
+    "_primary_term": {
+      "@id": "elastic:_primary_term",
+      "@type": "xsd:decimal"
+    },
+    "_version": {
+      "@id": "elastic:_version"
+    },
+    "sort": {
+      "@id": "elastic:sort"
+    },
+    "_global.explain.Explanation": "elastic:_global.explain.Explanation",
+    "details": {
+      "@id": "elastic:details",
+      "@container": "@list"
+    },
+    "_global.explain.ExplanationDetail": "elastic:_global.explain.ExplanationDetail",
+    "_global.search._types.InnerHitsResult": "elastic:_global.search._types.InnerHitsResult",
+    "_global.search._types.NestedIdentity": "elastic:_global.search._types.NestedIdentity",
+    "field": {
+      "@id": "elastic:field"
+    },
+    "offset": {
+      "@id": "elastic:offset",
+      "@type": "xsd:decimal"
+    },
+    "_types.aggregations.InferenceFeatureImportance": "elastic:_types.aggregations.InferenceFeatureImportance",
+    "feature_name": {
+      "@id": "elastic:feature_name",
+      "@type": "xsd:string"
+    },
+    "importance": {
+      "@id": "elastic:importance",
+      "@type": "xsd:decimal"
+    },
+    "classes": {
+      "@id": "elastic:classes",
+      "@container": "@list"
+    },
+    "_types.aggregations.InferenceClassImportance": "elastic:_types.aggregations.InferenceClassImportance",
+    "class_name": {
+      "@id": "elastic:class_name",
+      "@type": "xsd:string"
+    },
+    "_types.aggregations.InferenceTopClassEntry": "elastic:_types.aggregations.InferenceTopClassEntry",
+    "class_probability": {
+      "@id": "elastic:class_probability",
+      "@type": "xsd:decimal"
+    },
+    "class_score": {
+      "@id": "elastic:class_score",
+      "@type": "xsd:decimal"
+    },
+    "_types.aggregations.TopMetrics": "elastic:_types.aggregations.TopMetrics",
+    "metrics": {
+      "@id": "elastic:metrics"
+    },
+    "_types.aggregations.MatrixStatsFields": "elastic:_types.aggregations.MatrixStatsFields",
+    "count": {
+      "@id": "elastic:count",
+      "@type": "xsd:decimal"
+    },
+    "mean": {
+      "@id": "elastic:mean",
+      "@type": "xsd:decimal"
+    },
+    "variance": {
+      "@id": "elastic:variance",
+      "@type": "xsd:decimal"
+    },
+    "skewness": {
+      "@id": "elastic:skewness",
+      "@type": "xsd:decimal"
+    },
+    "kurtosis": {
+      "@id": "elastic:kurtosis",
+      "@type": "xsd:decimal"
+    },
+    "covariance": {
+      "@id": "elastic:covariance"
+    },
+    "correlation": {
+      "@id": "elastic:correlation"
+    },
+    "_types.GeoLine": "elastic:_types.GeoLine",
+    "coordinates": {
+      "@id": "elastic:coordinates",
+      "@container": "@list"
+    },
+    "_types.ClusterStatistics": "elastic:_types.ClusterStatistics",
+    "skipped": {
+      "@id": "elastic:skipped",
+      "@type": "xsd:decimal"
+    },
+    "successful": {
+      "@id": "elastic:successful",
+      "@type": "xsd:decimal"
+    },
+    "running": {
+      "@id": "elastic:running",
+      "@type": "xsd:decimal"
+    },
+    "partial": {
+      "@id": "elastic:partial",
+      "@type": "xsd:decimal"
+    },
+    "failed": {
+      "@id": "elastic:failed",
+      "@type": "xsd:decimal"
+    },
+    "_types.ClusterDetails": "elastic:_types.ClusterDetails",
+    "status": {
+      "@id": "elastic:status"
+    },
+    "indices": {
+      "@id": "elastic:indices",
+      "@type": "xsd:string"
+    },
+    "failures": {
+      "@id": "elastic:failures",
+      "@container": "@list"
+    },
+    "_types.ClusterSearchStatus": "elastic:_types.ClusterSearchStatus",
+    "_types.ShardStatistics": "elastic:_types.ShardStatistics",
+    "_types.ShardFailure": "elastic:_types.ShardFailure",
+    "index": {
+      "@id": "elastic:index"
+    },
+    "node": {
+      "@id": "elastic:node",
+      "@type": "xsd:string"
+    },
+    "shard": {
+      "@id": "elastic:shard",
+      "@type": "xsd:decimal"
+    },
+    "primary": {
+      "@id": "elastic:primary",
+      "@type": "xsd:boolean"
+    },
+    "_types.ErrorCause": "elastic:_types.ErrorCause",
+    "stack_trace": {
+      "@id": "elastic:stack_trace",
+      "@type": "xsd:string"
+    },
+    "caused_by": {
+      "@id": "elastic:caused_by"
+    },
+    "root_cause": {
+      "@id": "elastic:root_cause",
+      "@container": "@list"
+    },
+    "suppressed": {
+      "@id": "elastic:suppressed",
+      "@container": "@list"
+    },
+    "_global.search._types.Profile": "elastic:_global.search._types.Profile",
+    "shards": {
+      "@id": "elastic:shards",
+      "@container": "@list"
+    },
+    "_global.search._types.ShardProfile": "elastic:_global.search._types.ShardProfile",
+    "cluster": {
+      "@id": "elastic:cluster",
+      "@type": "xsd:string"
+    },
+    "dfs": {
+      "@id": "elastic:dfs"
+    },
+    "fetch": {
+      "@id": "elastic:fetch"
+    },
+    "node_id": {
+      "@id": "elastic:node_id"
+    },
+    "searches": {
+      "@id": "elastic:searches",
+      "@container": "@list"
+    },
+    "shard_id": {
+      "@id": "elastic:shard_id",
+      "@type": "xsd:decimal"
+    },
+    "_global.search._types.AggregationProfile": "elastic:_global.search._types.AggregationProfile",
+    "breakdown": {
+      "@id": "elastic:breakdown"
+    },
+    "time_in_nanos": {
+      "@id": "elastic:time_in_nanos"
+    },
+    "debug": {
+      "@id": "elastic:debug"
+    },
+    "children": {
+      "@id": "elastic:children",
+      "@container": "@list"
+    },
+    "_global.search._types.AggregationBreakdown": "elastic:_global.search._types.AggregationBreakdown",
+    "build_aggregation": {
+      "@id": "elastic:build_aggregation",
+      "@type": "xsd:decimal"
+    },
+    "build_aggregation_count": {
+      "@id": "elastic:build_aggregation_count",
+      "@type": "xsd:decimal"
+    },
+    "build_leaf_collector": {
+      "@id": "elastic:build_leaf_collector",
+      "@type": "xsd:decimal"
+    },
+    "build_leaf_collector_count": {
+      "@id": "elastic:build_leaf_collector_count",
+      "@type": "xsd:decimal"
+    },
+    "collect": {
+      "@id": "elastic:collect",
+      "@type": "xsd:decimal"
+    },
+    "collect_count": {
+      "@id": "elastic:collect_count",
+      "@type": "xsd:decimal"
+    },
+    "initialize": {
+      "@id": "elastic:initialize",
+      "@type": "xsd:decimal"
+    },
+    "initialize_count": {
+      "@id": "elastic:initialize_count",
+      "@type": "xsd:decimal"
+    },
+    "post_collection": {
+      "@id": "elastic:post_collection",
+      "@type": "xsd:decimal"
+    },
+    "post_collection_count": {
+      "@id": "elastic:post_collection_count",
+      "@type": "xsd:decimal"
+    },
+    "reduce": {
+      "@id": "elastic:reduce",
+      "@type": "xsd:decimal"
+    },
+    "reduce_count": {
+      "@id": "elastic:reduce_count",
+      "@type": "xsd:decimal"
+    },
+    "_global.search._types.AggregationProfileDebug": "elastic:_global.search._types.AggregationProfileDebug",
+    "segments_with_multi_valued_ords": {
+      "@id": "elastic:segments_with_multi_valued_ords",
+      "@type": "xsd:decimal"
+    },
+    "collection_strategy": {
+      "@id": "elastic:collection_strategy",
+      "@type": "xsd:string"
+    },
+    "segments_with_single_valued_ords": {
+      "@id": "elastic:segments_with_single_valued_ords",
+      "@type": "xsd:decimal"
+    },
+    "total_buckets": {
+      "@id": "elastic:total_buckets",
+      "@type": "xsd:decimal"
+    },
+    "built_buckets": {
+      "@id": "elastic:built_buckets",
+      "@type": "xsd:decimal"
+    },
+    "result_strategy": {
+      "@id": "elastic:result_strategy",
+      "@type": "xsd:string"
+    },
+    "has_filter": {
+      "@id": "elastic:has_filter",
+      "@type": "xsd:boolean"
+    },
+    "delegate": {
+      "@id": "elastic:delegate",
+      "@type": "xsd:string"
+    },
+    "delegate_debug": {
+      "@id": "elastic:delegate_debug"
+    },
+    "chars_fetched": {
+      "@id": "elastic:chars_fetched",
+      "@type": "xsd:decimal"
+    },
+    "extract_count": {
+      "@id": "elastic:extract_count",
+      "@type": "xsd:decimal"
+    },
+    "extract_ns": {
+      "@id": "elastic:extract_ns",
+      "@type": "xsd:decimal"
+    },
+    "values_fetched": {
+      "@id": "elastic:values_fetched",
+      "@type": "xsd:decimal"
+    },
+    "collect_analyzed_ns": {
+      "@id": "elastic:collect_analyzed_ns",
+      "@type": "xsd:decimal"
+    },
+    "collect_analyzed_count": {
+      "@id": "elastic:collect_analyzed_count",
+      "@type": "xsd:decimal"
+    },
+    "surviving_buckets": {
+      "@id": "elastic:surviving_buckets",
+      "@type": "xsd:decimal"
+    },
+    "ordinals_collectors_used": {
+      "@id": "elastic:ordinals_collectors_used",
+      "@type": "xsd:decimal"
+    },
+    "ordinals_collectors_overhead_too_high": {
+      "@id": "elastic:ordinals_collectors_overhead_too_high",
+      "@type": "xsd:decimal"
+    },
+    "string_hashing_collectors_used": {
+      "@id": "elastic:string_hashing_collectors_used",
+      "@type": "xsd:decimal"
+    },
+    "numeric_collectors_used": {
+      "@id": "elastic:numeric_collectors_used",
+      "@type": "xsd:decimal"
+    },
+    "empty_collectors_used": {
+      "@id": "elastic:empty_collectors_used",
+      "@type": "xsd:decimal"
+    },
+    "deferred_aggregators": {
+      "@id": "elastic:deferred_aggregators",
+      "@container": "@list"
+    },
+    "segments_with_doc_count_field": {
+      "@id": "elastic:segments_with_doc_count_field",
+      "@type": "xsd:decimal"
+    },
+    "segments_with_deleted_docs": {
+      "@id": "elastic:segments_with_deleted_docs",
+      "@type": "xsd:decimal"
+    },
+    "filters": {
+      "@id": "elastic:filters",
+      "@container": "@list"
+    },
+    "segments_counted": {
+      "@id": "elastic:segments_counted",
+      "@type": "xsd:decimal"
+    },
+    "segments_collected": {
+      "@id": "elastic:segments_collected",
+      "@type": "xsd:decimal"
+    },
+    "map_reducer": {
+      "@id": "elastic:map_reducer",
+      "@type": "xsd:string"
+    },
+    "brute_force_used": {
+      "@id": "elastic:brute_force_used",
+      "@type": "xsd:decimal"
+    },
+    "dynamic_pruning_attempted": {
+      "@id": "elastic:dynamic_pruning_attempted",
+      "@type": "xsd:decimal"
+    },
+    "dynamic_pruning_used": {
+      "@id": "elastic:dynamic_pruning_used",
+      "@type": "xsd:decimal"
+    },
+    "skipped_due_to_no_data": {
+      "@id": "elastic:skipped_due_to_no_data",
+      "@type": "xsd:decimal"
+    },
+    "_global.search._types.AggregationProfileDelegateDebugFilter": "elastic:_global.search._types.AggregationProfileDelegateDebugFilter",
+    "results_from_metadata": {
+      "@id": "elastic:results_from_metadata",
+      "@type": "xsd:decimal"
+    },
+    "query": {
+      "@id": "elastic:query",
+      "@type": "xsd:string"
+    },
+    "specialized_for": {
+      "@id": "elastic:specialized_for",
+      "@type": "xsd:string"
+    },
+    "segments_counted_in_constant_time": {
+      "@id": "elastic:segments_counted_in_constant_time",
+      "@type": "xsd:decimal"
+    },
+    "_global.search._types.DfsProfile": "elastic:_global.search._types.DfsProfile",
+    "statistics": {
+      "@id": "elastic:statistics"
+    },
+    "knn": {
+      "@id": "elastic:knn",
+      "@container": "@list"
+    },
+    "_global.search._types.DfsStatisticsProfile": "elastic:_global.search._types.DfsStatisticsProfile",
+    "time": {
+      "@id": "elastic:time"
+    },
+    "_global.search._types.DfsStatisticsBreakdown": "elastic:_global.search._types.DfsStatisticsBreakdown",
+    "collection_statistics": {
+      "@id": "elastic:collection_statistics",
+      "@type": "xsd:decimal"
+    },
+    "collection_statistics_count": {
+      "@id": "elastic:collection_statistics_count",
+      "@type": "xsd:decimal"
+    },
+    "create_weight": {
+      "@id": "elastic:create_weight",
+      "@type": "xsd:decimal"
+    },
+    "create_weight_count": {
+      "@id": "elastic:create_weight_count",
+      "@type": "xsd:decimal"
+    },
+    "rewrite": {
+      "@id": "elastic:rewrite",
+      "@type": "xsd:decimal"
+    },
+    "rewrite_count": {
+      "@id": "elastic:rewrite_count",
+      "@type": "xsd:decimal"
+    },
+    "term_statistics": {
+      "@id": "elastic:term_statistics",
+      "@type": "xsd:decimal"
+    },
+    "term_statistics_count": {
+      "@id": "elastic:term_statistics_count",
+      "@type": "xsd:decimal"
+    },
+    "_global.search._types.DfsKnnProfile": "elastic:_global.search._types.DfsKnnProfile",
+    "vector_operations_count": {
+      "@id": "elastic:vector_operations_count",
+      "@type": "xsd:decimal"
+    },
+    "rewrite_time": {
+      "@id": "elastic:rewrite_time",
+      "@type": "xsd:decimal"
+    },
+    "collector": {
+      "@id": "elastic:collector",
+      "@container": "@list"
+    },
+    "_global.search._types.KnnQueryProfileResult": "elastic:_global.search._types.KnnQueryProfileResult",
+    "_global.search._types.KnnQueryProfileBreakdown": "elastic:_global.search._types.KnnQueryProfileBreakdown",
+    "advance": {
+      "@id": "elastic:advance",
+      "@type": "xsd:decimal"
+    },
+    "advance_count": {
+      "@id": "elastic:advance_count",
+      "@type": "xsd:decimal"
+    },
+    "build_scorer": {
+      "@id": "elastic:build_scorer",
+      "@type": "xsd:decimal"
+    },
+    "build_scorer_count": {
+      "@id": "elastic:build_scorer_count",
+      "@type": "xsd:decimal"
+    },
+    "compute_max_score": {
+      "@id": "elastic:compute_max_score",
+      "@type": "xsd:decimal"
+    },
+    "compute_max_score_count": {
+      "@id": "elastic:compute_max_score_count",
+      "@type": "xsd:decimal"
+    },
+    "count_weight": {
+      "@id": "elastic:count_weight",
+      "@type": "xsd:decimal"
+    },
+    "count_weight_count": {
+      "@id": "elastic:count_weight_count",
+      "@type": "xsd:decimal"
+    },
+    "match": {
+      "@id": "elastic:match",
+      "@type": "xsd:decimal"
+    },
+    "match_count": {
+      "@id": "elastic:match_count",
+      "@type": "xsd:decimal"
+    },
+    "next_doc": {
+      "@id": "elastic:next_doc",
+      "@type": "xsd:decimal"
+    },
+    "next_doc_count": {
+      "@id": "elastic:next_doc_count",
+      "@type": "xsd:decimal"
+    },
+    "score": {
+      "@id": "elastic:score",
+      "@type": "xsd:decimal"
+    },
+    "score_count": {
+      "@id": "elastic:score_count",
+      "@type": "xsd:decimal"
+    },
+    "set_min_competitive_score": {
+      "@id": "elastic:set_min_competitive_score",
+      "@type": "xsd:decimal"
+    },
+    "set_min_competitive_score_count": {
+      "@id": "elastic:set_min_competitive_score_count",
+      "@type": "xsd:decimal"
+    },
+    "shallow_advance": {
+      "@id": "elastic:shallow_advance",
+      "@type": "xsd:decimal"
+    },
+    "shallow_advance_count": {
+      "@id": "elastic:shallow_advance_count",
+      "@type": "xsd:decimal"
+    },
+    "_global.search._types.KnnCollectorResult": "elastic:_global.search._types.KnnCollectorResult",
+    "_global.search._types.FetchProfile": "elastic:_global.search._types.FetchProfile",
+    "_global.search._types.FetchProfileBreakdown": "elastic:_global.search._types.FetchProfileBreakdown",
+    "load_source": {
+      "@id": "elastic:load_source",
+      "@type": "xsd:decimal"
+    },
+    "load_source_count": {
+      "@id": "elastic:load_source_count",
+      "@type": "xsd:decimal"
+    },
+    "load_stored_fields": {
+      "@id": "elastic:load_stored_fields",
+      "@type": "xsd:decimal"
+    },
+    "load_stored_fields_count": {
+      "@id": "elastic:load_stored_fields_count",
+      "@type": "xsd:decimal"
+    },
+    "next_reader": {
+      "@id": "elastic:next_reader",
+      "@type": "xsd:decimal"
+    },
+    "next_reader_count": {
+      "@id": "elastic:next_reader_count",
+      "@type": "xsd:decimal"
+    },
+    "process_count": {
+      "@id": "elastic:process_count",
+      "@type": "xsd:decimal"
+    },
+    "process": {
+      "@id": "elastic:process",
+      "@type": "xsd:decimal"
+    },
+    "_global.search._types.FetchProfileDebug": "elastic:_global.search._types.FetchProfileDebug",
+    "stored_fields": {
+      "@id": "elastic:stored_fields",
+      "@container": "@list"
+    },
+    "fast_path": {
+      "@id": "elastic:fast_path",
+      "@type": "xsd:decimal"
+    },
+    "_global.search._types.SearchProfile": "elastic:_global.search._types.SearchProfile",
+    "_global.search._types.Collector": "elastic:_global.search._types.Collector",
+    "_global.search._types.QueryProfile": "elastic:_global.search._types.QueryProfile",
+    "_global.search._types.QueryBreakdown": "elastic:_global.search._types.QueryBreakdown",
+    "_global.search._types.CompletionSuggestOption": "elastic:_global.search._types.CompletionSuggestOption",
+    "collate_match": {
+      "@id": "elastic:collate_match",
+      "@type": "xsd:boolean"
+    },
+    "contexts": {
+      "@id": "elastic:contexts"
+    },
+    "text": {
+      "@id": "elastic:text",
+      "@type": "xsd:string"
+    },
+    "_global.search._types.SuggestBase": "elastic:_global.search._types.SuggestBase",
+    "length": {
+      "@id": "elastic:length",
+      "@type": "xsd:decimal"
+    },
+    "_global.search._types.PhraseSuggestOption": "elastic:_global.search._types.PhraseSuggestOption",
+    "highlighted": {
+      "@id": "elastic:highlighted",
+      "@type": "xsd:string"
+    },
+    "_global.search._types.TermSuggestOption": "elastic:_global.search._types.TermSuggestOption",
+    "freq": {
+      "@id": "elastic:freq",
+      "@type": "xsd:decimal"
+    },
+    "async_search._types.AsyncSearchResponseBase": "elastic:async_search._types.AsyncSearchResponseBase",
+    "is_partial": {
+      "@id": "elastic:is_partial",
+      "@type": "xsd:boolean"
+    },
+    "is_running": {
+      "@id": "elastic:is_running",
+      "@type": "xsd:boolean"
+    },
+    "expiration_time": {
+      "@id": "elastic:expiration_time"
+    },
+    "expiration_time_in_millis": {
+      "@id": "elastic:expiration_time_in_millis"
+    },
+    "start_time": {
+      "@id": "elastic:start_time"
+    },
+    "start_time_in_millis": {
+      "@id": "elastic:start_time_in_millis"
+    },
+    "completion_time": {
+      "@id": "elastic:completion_time"
+    },
+    "completion_time_in_millis": {
+      "@id": "elastic:completion_time_in_millis"
+    },
+    "error": {
+      "@id": "elastic:error"
+    },
+    "_types.query_dsl.Operator": "elastic:_types.query_dsl.Operator",
+    "_types.ExpandWildcard": "elastic:_types.ExpandWildcard",
+    "_types.SearchType": "elastic:_types.SearchType",
+    "_types.SuggestMode": "elastic:_types.SuggestMode",
+    "_types.query_dsl.QueryContainer": "elastic:_types.query_dsl.QueryContainer",
+    "bool": {
+      "@id": "elastic:bool"
+    },
+    "boosting": {
+      "@id": "elastic:boosting"
+    },
+    "common": {
+      "@id": "elastic:common"
+    },
+    "combined_fields": {
+      "@id": "elastic:combined_fields"
+    },
+    "constant_score": {
+      "@id": "elastic:constant_score"
+    },
+    "dis_max": {
+      "@id": "elastic:dis_max"
+    },
+    "distance_feature": {
+      "@id": "elastic:distance_feature"
+    },
+    "exists": {
+      "@id": "elastic:exists"
+    },
+    "function_score": {
+      "@id": "elastic:function_score"
+    },
+    "fuzzy": {
+      "@id": "elastic:fuzzy"
+    },
+    "geo_bounding_box": {
+      "@id": "elastic:geo_bounding_box"
+    },
+    "geo_distance": {
+      "@id": "elastic:geo_distance"
+    },
+    "geo_grid": {
+      "@id": "elastic:geo_grid"
+    },
+    "geo_polygon": {
+      "@id": "elastic:geo_polygon"
+    },
+    "geo_shape": {
+      "@id": "elastic:geo_shape"
+    },
+    "has_child": {
+      "@id": "elastic:has_child"
+    },
+    "has_parent": {
+      "@id": "elastic:has_parent"
+    },
+    "ids": {
+      "@id": "elastic:ids"
+    },
+    "intervals": {
+      "@id": "elastic:intervals"
+    },
+    "match_all": {
+      "@id": "elastic:match_all"
+    },
+    "match_bool_prefix": {
+      "@id": "elastic:match_bool_prefix"
+    },
+    "match_none": {
+      "@id": "elastic:match_none"
+    },
+    "match_phrase": {
+      "@id": "elastic:match_phrase"
+    },
+    "match_phrase_prefix": {
+      "@id": "elastic:match_phrase_prefix"
+    },
+    "more_like_this": {
+      "@id": "elastic:more_like_this"
+    },
+    "multi_match": {
+      "@id": "elastic:multi_match"
+    },
+    "nested": {
+      "@id": "elastic:nested"
+    },
+    "parent_id": {
+      "@id": "elastic:parent_id"
+    },
+    "percolate": {
+      "@id": "elastic:percolate"
+    },
+    "pinned": {
+      "@id": "elastic:pinned"
+    },
+    "prefix": {
+      "@id": "elastic:prefix"
+    },
+    "query_string": {
+      "@id": "elastic:query_string"
+    },
+    "range": {
+      "@id": "elastic:range"
+    },
+    "rank_feature": {
+      "@id": "elastic:rank_feature"
+    },
+    "regexp": {
+      "@id": "elastic:regexp"
+    },
+    "rule": {
+      "@id": "elastic:rule"
+    },
+    "script": {
+      "@id": "elastic:script"
+    },
+    "script_score": {
+      "@id": "elastic:script_score"
+    },
+    "semantic": {
+      "@id": "elastic:semantic"
+    },
+    "shape": {
+      "@id": "elastic:shape"
+    },
+    "simple_query_string": {
+      "@id": "elastic:simple_query_string"
+    },
+    "span_containing": {
+      "@id": "elastic:span_containing"
+    },
+    "span_field_masking": {
+      "@id": "elastic:span_field_masking"
+    },
+    "span_first": {
+      "@id": "elastic:span_first"
+    },
+    "span_multi": {
+      "@id": "elastic:span_multi"
+    },
+    "span_near": {
+      "@id": "elastic:span_near"
+    },
+    "span_not": {
+      "@id": "elastic:span_not"
+    },
+    "span_or": {
+      "@id": "elastic:span_or"
+    },
+    "span_term": {
+      "@id": "elastic:span_term"
+    },
+    "span_within": {
+      "@id": "elastic:span_within"
+    },
+    "sparse_vector": {
+      "@id": "elastic:sparse_vector"
+    },
+    "term": {
+      "@id": "elastic:term"
+    },
+    "terms": {
+      "@id": "elastic:terms"
+    },
+    "terms_set": {
+      "@id": "elastic:terms_set"
+    },
+    "text_expansion": {
+      "@id": "elastic:text_expansion"
+    },
+    "weighted_tokens": {
+      "@id": "elastic:weighted_tokens"
+    },
+    "wildcard": {
+      "@id": "elastic:wildcard"
+    },
+    "wrapper": {
+      "@id": "elastic:wrapper"
+    },
+    "_types.query_dsl.QueryBase": "elastic:_types.query_dsl.QueryBase",
+    "boost": {
+      "@id": "elastic:boost",
+      "@type": "xsd:decimal"
+    },
+    "_name": {
+      "@id": "elastic:_name",
+      "@type": "xsd:string"
+    },
+    "_types.query_dsl.CombinedFieldsOperator": "elastic:_types.query_dsl.CombinedFieldsOperator",
+    "_types.query_dsl.CombinedFieldsZeroTerms": "elastic:_types.query_dsl.CombinedFieldsZeroTerms",
+    "_types.query_dsl.FunctionBoostMode": "elastic:_types.query_dsl.FunctionBoostMode",
+    "_types.query_dsl.DecayFunctionBase": "elastic:_types.query_dsl.DecayFunctionBase",
+    "multi_value_mode": {
+      "@id": "elastic:multi_value_mode"
+    },
+    "_types.query_dsl.MultiValueMode": "elastic:_types.query_dsl.MultiValueMode",
+    "_types.query_dsl.DecayFunctionBaseDateMathDuration": "elastic:_types.query_dsl.DecayFunctionBaseDateMathDuration",
+    "_types.query_dsl.DecayFunctionBasedoubledouble": "elastic:_types.query_dsl.DecayFunctionBasedoubledouble",
+    "_types.query_dsl.DecayFunctionBaseGeoLocationDistance": "elastic:_types.query_dsl.DecayFunctionBaseGeoLocationDistance",
+    "_types.query_dsl.FieldValueFactorScoreFunction": "elastic:_types.query_dsl.FieldValueFactorScoreFunction",
+    "factor": {
+      "@id": "elastic:factor",
+      "@type": "xsd:decimal"
+    },
+    "missing": {
+      "@id": "elastic:missing",
+      "@type": "xsd:decimal"
+    },
+    "modifier": {
+      "@id": "elastic:modifier"
+    },
+    "_types.query_dsl.FieldValueFactorModifier": "elastic:_types.query_dsl.FieldValueFactorModifier",
+    "_types.query_dsl.RandomScoreFunction": "elastic:_types.query_dsl.RandomScoreFunction",
+    "seed": {
+      "@id": "elastic:seed"
+    },
+    "_types.query_dsl.ScriptScoreFunction": "elastic:_types.query_dsl.ScriptScoreFunction",
+    "_types.Script": "elastic:_types.Script",
+    "source": {
+      "@id": "elastic:source"
+    },
+    "params": {
+      "@id": "elastic:params"
+    },
+    "lang": {
+      "@id": "elastic:lang"
+    },
+    "options": {
+      "@id": "elastic:options"
+    },
+    "_global.search._types.SearchRequestBody": "elastic:_global.search._types.SearchRequestBody",
+    "collapse": {
+      "@id": "elastic:collapse"
+    },
+    "explain": {
+      "@id": "elastic:explain",
+      "@type": "xsd:boolean"
+    },
+    "ext": {
+      "@id": "elastic:ext"
+    },
+    "from": {
+      "@id": "elastic:from",
+      "@type": "xsd:decimal"
+    },
+    "track_total_hits": {
+      "@id": "elastic:track_total_hits"
+    },
+    "indices_boost": {
+      "@id": "elastic:indices_boost",
+      "@container": "@list"
+    },
+    "docvalue_fields": {
+      "@id": "elastic:docvalue_fields",
+      "@container": "@list"
+    },
+    "rank": {
+      "@id": "elastic:rank"
+    },
+    "min_score": {
+      "@id": "elastic:min_score",
+      "@type": "xsd:decimal"
+    },
+    "post_filter": {
+      "@id": "elastic:post_filter"
+    },
+    "rescore": {
+      "@id": "elastic:rescore"
+    },
+    "retriever": {
+      "@id": "elastic:retriever"
+    },
+    "script_fields": {
+      "@id": "elastic:script_fields"
+    },
+    "search_after": {
+      "@id": "elastic:search_after"
+    },
+    "size": {
+      "@id": "elastic:size",
+      "@type": "xsd:decimal"
+    },
+    "slice": {
+      "@id": "elastic:slice"
+    },
+    "terminate_after": {
+      "@id": "elastic:terminate_after",
+      "@type": "xsd:decimal"
+    },
+    "timeout": {
+      "@id": "elastic:timeout",
+      "@type": "xsd:string"
+    },
+    "track_scores": {
+      "@id": "elastic:track_scores",
+      "@type": "xsd:boolean"
+    },
+    "version": {
+      "@id": "elastic:version",
+      "@type": "xsd:boolean"
+    },
+    "seq_no_primary_term": {
+      "@id": "elastic:seq_no_primary_term",
+      "@type": "xsd:boolean"
+    },
+    "pit": {
+      "@id": "elastic:pit"
+    },
+    "runtime_mappings": {
+      "@id": "elastic:runtime_mappings"
+    },
+    "stats": {
+      "@id": "elastic:stats",
+      "@container": "@list"
+    },
+    "_global.search._types.FieldCollapse": "elastic:_global.search._types.FieldCollapse",
+    "max_concurrent_group_searches": {
+      "@id": "elastic:max_concurrent_group_searches",
+      "@type": "xsd:decimal"
+    },
+    "_global.search._types.InnerHits": "elastic:_global.search._types.InnerHits",
+    "ignore_unmapped": {
+      "@id": "elastic:ignore_unmapped",
+      "@type": "xsd:boolean"
+    },
+    "_types.query_dsl.FieldAndFormat": "elastic:_types.query_dsl.FieldAndFormat",
+    "format": {
+      "@id": "elastic:format",
+      "@type": "xsd:string"
+    },
+    "include_unmapped": {
+      "@id": "elastic:include_unmapped",
+      "@type": "xsd:boolean"
+    },
+    "_global.search._types.HighlighterEncoder": "elastic:_global.search._types.HighlighterEncoder",
+    "_global.search._types.HighlightBase": "elastic:_global.search._types.HighlightBase",
+    "boundary_chars": {
+      "@id": "elastic:boundary_chars",
+      "@type": "xsd:string"
+    },
+    "boundary_max_scan": {
+      "@id": "elastic:boundary_max_scan",
+      "@type": "xsd:decimal"
+    },
+    "boundary_scanner": {
+      "@id": "elastic:boundary_scanner"
+    },
+    "boundary_scanner_locale": {
+      "@id": "elastic:boundary_scanner_locale",
+      "@type": "xsd:string"
+    },
+    "force_source": {
+      "@id": "elastic:force_source",
+      "@type": "xsd:boolean"
+    },
+    "fragmenter": {
+      "@id": "elastic:fragmenter"
+    },
+    "fragment_size": {
+      "@id": "elastic:fragment_size",
+      "@type": "xsd:decimal"
+    },
+    "highlight_filter": {
+      "@id": "elastic:highlight_filter",
+      "@type": "xsd:boolean"
+    },
+    "highlight_query": {
+      "@id": "elastic:highlight_query"
+    },
+    "max_fragment_length": {
+      "@id": "elastic:max_fragment_length",
+      "@type": "xsd:decimal"
+    },
+    "max_analyzed_offset": {
+      "@id": "elastic:max_analyzed_offset",
+      "@type": "xsd:decimal"
+    },
+    "no_match_size": {
+      "@id": "elastic:no_match_size",
+      "@type": "xsd:decimal"
+    },
+    "number_of_fragments": {
+      "@id": "elastic:number_of_fragments",
+      "@type": "xsd:decimal"
+    },
+    "order": {
+      "@id": "elastic:order"
+    },
+    "phrase_limit": {
+      "@id": "elastic:phrase_limit",
+      "@type": "xsd:decimal"
+    },
+    "post_tags": {
+      "@id": "elastic:post_tags",
+      "@container": "@list"
+    },
+    "pre_tags": {
+      "@id": "elastic:pre_tags",
+      "@container": "@list"
+    },
+    "require_field_match": {
+      "@id": "elastic:require_field_match",
+      "@type": "xsd:boolean"
+    },
+    "tags_schema": {
+      "@id": "elastic:tags_schema"
+    },
+    "_global.search._types.BoundaryScanner": "elastic:_global.search._types.BoundaryScanner",
+    "_global.search._types.HighlighterFragmenter": "elastic:_global.search._types.HighlighterFragmenter",
+    "_global.search._types.HighlighterOrder": "elastic:_global.search._types.HighlighterOrder",
+    "_global.search._types.HighlighterTagsSchema": "elastic:_global.search._types.HighlighterTagsSchema",
+    "_types.ScriptField": "elastic:_types.ScriptField",
+    "ignore_failure": {
+      "@id": "elastic:ignore_failure",
+      "@type": "xsd:boolean"
+    },
+    "_types.SortOptions": "elastic:_types.SortOptions",
+    "_doc": {
+      "@id": "elastic:_doc"
+    },
+    "_geo_distance": {
+      "@id": "elastic:_geo_distance"
+    },
+    "_script": {
+      "@id": "elastic:_script"
+    },
+    "_types.ScoreSort": "elastic:_types.ScoreSort",
+    "_types.SortOrder": "elastic:_types.SortOrder",
+    "_types.GeoDistanceSort": "elastic:_types.GeoDistanceSort",
+    "mode": {
+      "@id": "elastic:mode"
+    },
+    "distance_type": {
+      "@id": "elastic:distance_type"
+    },
+    "unit": {
+      "@id": "elastic:unit"
+    },
+    "_types.SortMode": "elastic:_types.SortMode",
+    "_types.GeoDistanceType": "elastic:_types.GeoDistanceType",
+    "_types.DistanceUnit": "elastic:_types.DistanceUnit",
+    "_types.NestedSortValue": "elastic:_types.NestedSortValue",
+    "filter": {
+      "@id": "elastic:filter"
+    },
+    "max_children": {
+      "@id": "elastic:max_children",
+      "@type": "xsd:decimal"
+    },
+    "path": {
+      "@id": "elastic:path"
+    },
+    "_types.ScriptSort": "elastic:_types.ScriptSort",
+    "_types.ScriptSortType": "elastic:_types.ScriptSortType",
+    "_global.search._types.SourceFilter": "elastic:_global.search._types.SourceFilter",
+    "exclude_vectors": {
+      "@id": "elastic:exclude_vectors",
+      "@type": "xsd:boolean"
+    },
+    "excludes": {
+      "@id": "elastic:excludes"
+    },
+    "includes": {
+      "@id": "elastic:includes"
+    },
+    "_types.KnnSearch": "elastic:_types.KnnSearch",
+    "query_vector": {
+      "@id": "elastic:query_vector"
+    },
+    "query_vector_builder": {
+      "@id": "elastic:query_vector_builder"
+    },
+    "k": {
+      "@id": "elastic:k",
+      "@type": "xsd:decimal"
+    },
+    "num_candidates": {
+      "@id": "elastic:num_candidates",
+      "@type": "xsd:decimal"
+    },
+    "visit_percentage": {
+      "@id": "elastic:visit_percentage",
+      "@type": "xsd:decimal"
+    },
+    "similarity": {
+      "@id": "elastic:similarity",
+      "@type": "xsd:decimal"
+    },
+    "rescore_vector": {
+      "@id": "elastic:rescore_vector"
+    },
+    "_types.QueryVectorBuilder": "elastic:_types.QueryVectorBuilder",
+    "text_embedding": {
+      "@id": "elastic:text_embedding"
+    },
+    "_types.TextEmbedding": "elastic:_types.TextEmbedding",
+    "model_id": {
+      "@id": "elastic:model_id",
+      "@type": "xsd:string"
+    },
+    "model_text": {
+      "@id": "elastic:model_text",
+      "@type": "xsd:string"
+    },
+    "_types.RescoreVector": "elastic:_types.RescoreVector",
+    "oversample": {
+      "@id": "elastic:oversample",
+      "@type": "xsd:decimal"
+    },
+    "_types.RankContainer": "elastic:_types.RankContainer",
+    "rrf": {
+      "@id": "elastic:rrf"
+    },
+    "_global.search._types.RescoreQuery": "elastic:_global.search._types.RescoreQuery",
+    "rescore_query": {
+      "@id": "elastic:rescore_query"
+    },
+    "query_weight": {
+      "@id": "elastic:query_weight",
+      "@type": "xsd:decimal"
+    },
+    "rescore_query_weight": {
+      "@id": "elastic:rescore_query_weight",
+      "@type": "xsd:decimal"
+    },
+    "score_mode": {
+      "@id": "elastic:score_mode"
+    },
+    "_global.search._types.ScoreMode": "elastic:_global.search._types.ScoreMode",
+    "_global.search._types.LearningToRank": "elastic:_global.search._types.LearningToRank",
+    "_global.search._types.ScriptRescore": "elastic:_global.search._types.ScriptRescore",
+    "_types.RetrieverContainer": "elastic:_types.RetrieverContainer",
+    "standard": {
+      "@id": "elastic:standard"
+    },
+    "text_similarity_reranker": {
+      "@id": "elastic:text_similarity_reranker"
+    },
+    "rescorer": {
+      "@id": "elastic:rescorer"
+    },
+    "linear": {
+      "@id": "elastic:linear"
+    },
+    "diversify": {
+      "@id": "elastic:diversify"
+    },
+    "_types.RetrieverBase": "elastic:_types.RetrieverBase"
+  },
+  "@type": "schema:Dataset",
+  "schema:name": "Elastic API JSON-LD context",
+  "schema:description": "A JSON-LD @context for the objects Elastic's own API contract declares: one class per component schema, one property per declared field, typed from the contract. Derived by script (derive-json-ld.py, 2026-10-03) from openapi/elastic-account-api-openapi.yml, openapi/elastic-cluster-api-openapi.yml, openapi/elastic-data-views-api-openapi.yml.",
+  "dcterms:created": "2026-10-03",
+  "dcterms:source": [
+    "openapi/elastic-account-api-openapi.yml",
+    "openapi/elastic-cluster-api-openapi.yml",
+    "openapi/elastic-data-views-api-openapi.yml",
+    "openapi/elastic-deployments-api-openapi.yml",
+    "openapi/elastic-documents-api-openapi.yml"
+  ]
+}

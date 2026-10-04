@@ -1,11 +1,13 @@
 aid: elastic
+
 name: Elastic
-description: Elastic is a software company that builds search-powered solutions for
-  observability, security, and search use cases. The Elastic Stack (Elasticsearch,
-  Kibana, and related tools) lets organizations ingest, search, analyze, and visualize
-  structured and unstructured data in real time. Elastic Cloud delivers managed Elasticsearch
-  and Kibana deployments with REST APIs for both data operations and deployment management.
+
+description: Elastic is a software company that builds search-powered solutions for observability, security, and search use cases. The Elastic
+  Stack (Elasticsearch, Kibana, and related tools) lets organizations ingest, search, analyze, and visualize structured and unstructured data
+  in real time. Elastic Cloud delivers managed Elasticsearch and Kibana deployments with REST APIs for both data operations and deployment management.
+
 type: Index
+
 deliveryModel:
   model: saas
   license: Elastic License
@@ -20,6 +22,7 @@ deliveryModel:
   - pricing
   generated: '2026-08-28'
   method: derived
+
 accessModel:
   pricing: enterprise
   onboarding: unknown
@@ -34,9 +37,13 @@ accessModel:
   - security
   generated: '2026-09-03'
   method: derived
+
 position: Producing
+
 access: 3rd-Party
+
 image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/elastic.png
+
 tags:
 - Search
 - Analytics
@@ -45,10 +52,142 @@ tags:
 - Visualization
 - Cloud
 - Monitoring
+
 created: '2025-01-08'
+
 modified: '2026-05-19'
+
 url: https://raw.githubusercontent.com/api-evangelist/elastic/refs/heads/main/apis.yml
+
 specificationVersion: '0.23'
+
+maintainers:
+- FN: Kin Lane
+  email: kin@apievangelist.com
+
+common:
+- type: FinOps
+  url: finops/elastic-finops.yml
+- type: RateLimits
+  url: rate-limits/elastic-rate-limits.yml
+- type: Plans
+  url: plans/elastic-plans-pricing.yml
+- type: Spectral
+  url: rules/elastic-rules.yml
+- type: Spectral
+  url: rules/elastic-jsonschema-spectral-rules.yml
+- type: JSONLD
+  url: json-ld/elastic-context.jsonld
+- type: Vocabulary
+  url: vocabulary/elastic-vocabulary.yml
+- type: AgentSkill
+  url: skills/_index.yml
+- type: Webhooks
+  url: asyncapi/elastic-webhooks.yml
+- type: DataModel
+  url: data-model/elastic-data-model.yml
+- type: ChangeLog
+  url: changelog/elastic-changelog.yml
+- type: Compliance
+  url: https://www.elastic.co/trust
+- type: ErrorCatalog
+  url: errors/elastic-problem-types.yml
+- type: Conformance
+  url: conformance/elastic-conformance.yml
+- type: LLMsTxt
+  url: llms/elastic-llms.txt
+- type: SecurityTxt
+  url: well-known/elastic-status-security.txt
+- type: SecurityTxt
+  url: well-known/elastic-cloud-security.txt
+- type: SecurityTxt
+  url: well-known/elastic-api-security.txt
+- type: WellKnown
+  url: well-known/elastic-well-known.yml
+- type: Hosts
+  url: hosts/elastic-hosts.yml
+- type: Vendors
+  url: vendors/elastic-vendors.yml
+- type: SDKs
+  url: packages/elastic-packages.yml
+- type: Packages
+  url: packages/elastic-packages.yml
+- type: TermsOfService
+  url: https://www.elastic.co/legal/terms-of-use
+- type: StatusPage
+  url: https://status.elastic.co/
+- type: SignUp
+  url: https://partners.elastic.co/English/register_email.aspx
+- type: Security
+  url: https://www.elastic.co/security
+- type: Roadmap
+  url: https://www.elastic.co/cloud/serverless/roadmap
+- type: PrivacyPolicy
+  url: https://www.elastic.co/legal/privacy-statement
+- type: Newsroom
+  url: https://www.elastic.co/about/press
+- type: Leadership
+  url: https://www.elastic.co/about/leadership
+- type: ChangeLog
+  url: https://www.elastic.co/whats-new
+- type: GettingStarted
+  url: https://www.elastic.co/docs/troubleshoot/elasticsearch/security/trb-security-setup
+- type: AgenticAccess
+  url: agentic-access/elastic-agentic-access.yml
+- type: TrustCenter
+  url: security/elastic-trust-center.yml
+- type: DomainSecurity
+  url: security/elastic-domain-security.yml
+- type: Authentication
+  url: authentication/elastic-authentication.yml
+- type: LinkedIn
+  url: https://www.linkedin.com/company/elastic-co
+- name: Elastic Website
+  url: https://www.elastic.co
+  type: Website
+- name: Elastic Documentation
+  url: https://www.elastic.co/guide/index.html
+  type: Documentation
+- name: Elastic GitHub Organization
+  url: https://github.com/elastic
+  type: GitHub
+- name: Elastic Cloud Console
+  url: https://cloud.elastic.co
+  type: Console
+- name: Elastic Pricing
+  url: https://www.elastic.co/pricing
+  type: Pricing
+- name: Elastic License
+  url: https://www.elastic.co/licensing/elastic-license
+  type: License
+- type: Features
+  data:
+  - 'Elastic Cloud Hosted: resource-based with Standard/Gold/Platinum/Enterprise tiers'
+  - 'Elastic Serverless: VCU + storage usage-based for Search/Observability/Security'
+  - 'Self-managed: license-based for on-prem deployment'
+  - 'Multi-cloud: AWS, GCP, Azure'
+  - REST API for Elasticsearch, Kibana, APM
+  - Bulk indexing API for high-throughput ingest
+  - Throughput scales with cluster hardware
+  - OAuth + API keys + JWT realm
+  - Watcher for alerting on rules
+  - ES|QL query language
+  - Vector search with kNN
+  - ELSER (Elastic Learned Sparse Encoder) for semantic search
+  - Cross-cluster search/replication
+  - Hot/Warm/Cold/Frozen data tiers
+  - Index Lifecycle Management (ILM)
+  - 'Compliance: SOC 2, HIPAA, FedRAMP (Enterprise)'
+  sources:
+  - https://www.elastic.co/pricing
+  updated: '2026-05-04'
+- type: Integrations
+  url: https://www.elastic.co/integrations
+- type: LlmsText
+  url: https://api.elastic-cloud.com/llms.txt
+- url: https://www.elastic.co/blog/feed
+  type: Blog
+
 apis:
 - aid: elastic:elastic-account-api
   name: Elastic Account API
@@ -100,6 +239,8 @@ apis:
     url: https://www.elastic.co/docs/api/doc/kibana
   - type: Documentation
     url: https://www.elastic.co/docs/api/doc/cloud
+  - type: JSONSchema
+    url: json-schema/elastic-deployment-schema.json
 - aid: elastic:elastic-documents-api
   name: Elastic Documents API
   description: Index, update, retrieve, and delete documents.
@@ -116,6 +257,8 @@ apis:
     url: https://www.elastic.co/docs/api/doc/kibana
   - type: Documentation
     url: https://www.elastic.co/docs/api/doc/cloud
+  - type: JSONSchema
+    url: json-schema/elastic-document-schema.json
 - aid: elastic:elastic-indices-api
   name: Elastic Indices API
   description: Manage indices, mappings, and settings.
@@ -184,6 +327,8 @@ apis:
     url: https://www.elastic.co/docs/api/doc/kibana
   - type: Documentation
     url: https://www.elastic.co/docs/api/doc/cloud
+  - type: JSONSchema
+    url: json-schema/elastic-space-schema.json
 - aid: elastic:elastic-status-api
   name: Elastic Status API
   description: Kibana server status.
@@ -216,6 +361,774 @@ apis:
     url: https://www.elastic.co/docs/api/doc/kibana
   - type: Documentation
     url: https://www.elastic.co/docs/api/doc/cloud
+- aid: elastic:elastic-analytics-api
+  name: Elastic Analytics API
+  description: >-
+    The behavioral analytics APIs let you create and manage analytics collections and view their data.
+    Use them to analyze users' search and click behavior, improve result relevance, and identify content
+    gaps.
+  humanURL: https://www.elastic.co/docs/api/doc/elasticsearch
+  baseURL: https://api.elastic-cloud.com
+  tags:
+  - analytics
+  properties:
+  - type: OpenAPI
+    url: openapi/elastic-analytics-api-openapi.yml
+  - type: Documentation
+    url: https://www.elastic.co/docs/api/doc/elasticsearch
+  - type: Documentation
+    url: https://www.elastic.co/docs/api/doc/kibana
+  - type: Documentation
+    url: https://www.elastic.co/docs/api/doc/cloud
+  - type: JSONSchema
+    url: json-schema/elastic-saved-object-schema.json
+- aid: elastic:elastic-cat-api
+  name: Elastic Cat API
+  description: >-
+    The compact and aligned text (CAT) APIs aim are intended only for human consumption using the Kibana
+    console or command line. They are not intended for use by applications. For application consumption,
+    it's recommend to use a corresponding JSON API.
+
+
+    All the cat commands accept a query string parameter `help` to see all the headers and info they provide,
+    and the `/_cat` command alone lists all the available commands.
+  humanURL: https://www.elastic.co/docs/api/doc/elasticsearch
+  baseURL: https://api.elastic-cloud.com
+  tags:
+  - cat
+  properties:
+  - type: OpenAPI
+    url: openapi/elastic-cat-api-openapi.yml
+  - type: Documentation
+    url: https://www.elastic.co/docs/api/doc/elasticsearch
+  - type: Documentation
+    url: https://www.elastic.co/docs/api/doc/kibana
+  - type: Documentation
+    url: https://www.elastic.co/docs/api/doc/cloud
+  - type: JSONSchema
+    url: json-schema/elastic-saved-object-schema.json
+- aid: elastic:elastic-ccr-api
+  name: Elastic Ccr API
+  description: >-
+    The cross-cluster replication (CCR) APIs let you run replication operations, such as creating and
+    managing follower indices or auto-follow patterns. Use CCR to replicate indices across clusters to
+    maintain search availability during outages, reduce indexing impact, and lower search latency by serving
+    requests closer to users.
+  humanURL: https://www.elastic.co/docs/api/doc/elasticsearch
+  baseURL: https://api.elastic-cloud.com
+  tags:
+  - ccr
+  properties:
+  - type: OpenAPI
+    url: openapi/elastic-ccr-api-openapi.yml
+  - type: Documentation
+    url: https://www.elastic.co/docs/api/doc/elasticsearch
+  - type: Documentation
+    url: https://www.elastic.co/docs/api/doc/kibana
+  - type: Documentation
+    url: https://www.elastic.co/docs/api/doc/cloud
+  - type: JSONSchema
+    url: json-schema/elastic-saved-object-schema.json
+- aid: elastic:elastic-connector-api
+  name: Elastic Connector API
+  description: >-
+    The connector and sync jobs APIs provide a convenient way to create and manage Elastic connectors
+    and sync jobs in an internal index.
+
+
+    Connectors are Elasticsearch integrations for syncing content from third-party data sources, which
+    can be deployed on Elastic Cloud or hosted on your own infrastructure.
+
+
+    This API provides an alternative to relying solely on Kibana UI for connector and sync job management.
+    The API comes with a set of validations and assertions to ensure that the state representation in
+    the internal index remains valid.
+
+
+    This API requires the `manage_connector` privilege or, for read-only endpoints, the `monitor_connector`
+    privilege.
+  humanURL: https://www.elastic.co/docs/api/doc/elasticsearch
+  baseURL: https://api.elastic-cloud.com
+  tags:
+  - connector
+  properties:
+  - type: OpenAPI
+    url: openapi/elastic-connector-api-openapi.yml
+  - type: Documentation
+    url: https://www.elastic.co/docs/api/doc/elasticsearch
+  - type: Documentation
+    url: https://www.elastic.co/docs/api/doc/kibana
+  - type: Documentation
+    url: https://www.elastic.co/docs/api/doc/cloud
+  - type: JSONSchema
+    url: json-schema/elastic-saved-object-schema.json
+- aid: elastic:elastic-data-stream-api
+  name: Elastic data stream API
+  description: >-
+    The data stream APIs enable you to create and manage data streams and data stream lifecycles. A data
+    stream lets you store append-only time series data across multiple indices while giving you a single
+    named resource for requests. Data streams are well-suited for logs, events, metrics, and other continuously
+    generated data.
+  humanURL: https://www.elastic.co/docs/api/doc/elasticsearch
+  baseURL: https://api.elastic-cloud.com
+  tags:
+  - data stream
+  properties:
+  - type: OpenAPI
+    url: openapi/elastic-data-stream-api-openapi.yml
+  - type: Documentation
+    url: https://www.elastic.co/docs/api/doc/elasticsearch
+  - type: Documentation
+    url: https://www.elastic.co/docs/api/doc/kibana
+  - type: Documentation
+    url: https://www.elastic.co/docs/api/doc/cloud
+  - type: JSONSchema
+    url: json-schema/elastic-saved-object-schema.json
+- aid: elastic:elastic-document-api
+  name: Elastic Document API
+  description: The document APIs enable you to create and manage documents in an Elasticsearch index.
+  humanURL: https://www.elastic.co/docs/api/doc/elasticsearch
+  baseURL: https://api.elastic-cloud.com
+  tags:
+  - document
+  properties:
+  - type: OpenAPI
+    url: openapi/elastic-document-api-openapi.yml
+  - type: Documentation
+    url: https://www.elastic.co/docs/api/doc/elasticsearch
+  - type: Documentation
+    url: https://www.elastic.co/docs/api/doc/kibana
+  - type: Documentation
+    url: https://www.elastic.co/docs/api/doc/cloud
+  - type: JSONSchema
+    url: json-schema/elastic-saved-object-schema.json
+- aid: elastic:elastic-enrich-api
+  name: Elastic Enrich API
+  description: >-
+    The enrich APIs enable you to manage enrich policies. An enrich policy is a set of configuration options
+    used to add the right enrich data to the right incoming documents.
+  humanURL: https://www.elastic.co/docs/api/doc/elasticsearch
+  baseURL: https://api.elastic-cloud.com
+  tags:
+  - enrich
+  properties:
+  - type: OpenAPI
+    url: openapi/elastic-enrich-api-openapi.yml
+  - type: Documentation
+    url: https://www.elastic.co/docs/api/doc/elasticsearch
+  - type: Documentation
+    url: https://www.elastic.co/docs/api/doc/kibana
+  - type: Documentation
+    url: https://www.elastic.co/docs/api/doc/cloud
+  - type: JSONSchema
+    url: json-schema/elastic-saved-object-schema.json
+- aid: elastic:elastic-eql-api
+  name: Elastic Eql API
+  description: >-
+    Event Query Language (EQL) is a query language for event-based time series data, such as logs, metrics,
+    and traces.
+  humanURL: https://www.elastic.co/docs/api/doc/elasticsearch
+  baseURL: https://api.elastic-cloud.com
+  tags:
+  - eql
+  properties:
+  - type: OpenAPI
+    url: openapi/elastic-eql-api-openapi.yml
+  - type: Documentation
+    url: https://www.elastic.co/docs/api/doc/elasticsearch
+  - type: Documentation
+    url: https://www.elastic.co/docs/api/doc/kibana
+  - type: Documentation
+    url: https://www.elastic.co/docs/api/doc/cloud
+  - type: JSONSchema
+    url: json-schema/elastic-saved-object-schema.json
+- aid: elastic:elastic-esql-api
+  name: Elastic Esql API
+  description: >-
+    The Elasticsearch Query Language (ES|QL) provides a powerful way to filter, transform, and analyze
+    data stored in Elasticsearch, and in the future in other runtimes.
+  humanURL: https://www.elastic.co/docs/api/doc/elasticsearch
+  baseURL: https://api.elastic-cloud.com
+  tags:
+  - esql
+  properties:
+  - type: OpenAPI
+    url: openapi/elastic-esql-api-openapi.yml
+  - type: Documentation
+    url: https://www.elastic.co/docs/api/doc/elasticsearch
+  - type: Documentation
+    url: https://www.elastic.co/docs/api/doc/kibana
+  - type: Documentation
+    url: https://www.elastic.co/docs/api/doc/cloud
+  - type: JSONSchema
+    url: json-schema/elastic-saved-object-schema.json
+- aid: elastic:elastic-features-api
+  name: Elastic Features API
+  description: >-
+    The features APIs retrieve information about the features that are currently enabled and available
+    on the node.
+  humanURL: https://www.elastic.co/docs/api/doc/elasticsearch
+  baseURL: https://api.elastic-cloud.com
+  tags:
+  - features
+  properties:
+  - type: OpenAPI
+    url: openapi/elastic-features-api-openapi.yml
+  - type: Documentation
+    url: https://www.elastic.co/docs/api/doc/elasticsearch
+  - type: Documentation
+    url: https://www.elastic.co/docs/api/doc/kibana
+  - type: Documentation
+    url: https://www.elastic.co/docs/api/doc/cloud
+  - type: JSONSchema
+    url: json-schema/elastic-saved-object-schema.json
+- aid: elastic:elastic-fleet-api
+  name: Elastic Fleet API
+  description: >-
+    The Fleet APIs support Fleet's use of Elasticsearch as a data store for internal agent and action
+    data.
+  humanURL: https://www.elastic.co/docs/api/doc/elasticsearch
+  baseURL: https://api.elastic-cloud.com
+  tags:
+  - fleet
+  properties:
+  - type: OpenAPI
+    url: openapi/elastic-fleet-api-openapi.yml
+  - type: Documentation
+    url: https://www.elastic.co/docs/api/doc/elasticsearch
+  - type: Documentation
+    url: https://www.elastic.co/docs/api/doc/kibana
+  - type: Documentation
+    url: https://www.elastic.co/docs/api/doc/cloud
+  - type: JSONSchema
+    url: json-schema/elastic-saved-object-schema.json
+- aid: elastic:elastic-graph-api
+  name: Elastic Graph API
+  description: >-
+    The graph explore API enables you to extract and summarize information about the documents and terms
+    in an Elasticsearch index.
+  humanURL: https://www.elastic.co/docs/api/doc/elasticsearch
+  baseURL: https://api.elastic-cloud.com
+  tags:
+  - graph
+  properties:
+  - type: OpenAPI
+    url: openapi/elastic-graph-api-openapi.yml
+  - type: Documentation
+    url: https://www.elastic.co/docs/api/doc/elasticsearch
+  - type: Documentation
+    url: https://www.elastic.co/docs/api/doc/kibana
+  - type: Documentation
+    url: https://www.elastic.co/docs/api/doc/cloud
+  - type: JSONSchema
+    url: json-schema/elastic-saved-object-schema.json
+- aid: elastic:elastic-health-report-api
+  name: Elastic Health Report API
+  description: >-
+    The cluster - health API provides you a report with the health status of an Elasticsearch cluster.
+  humanURL: https://www.elastic.co/docs/api/doc/elasticsearch
+  baseURL: https://api.elastic-cloud.com
+  tags:
+  - health_report
+  properties:
+  - type: OpenAPI
+    url: openapi/elastic-health-report-api-openapi.yml
+  - type: Documentation
+    url: https://www.elastic.co/docs/api/doc/elasticsearch
+  - type: Documentation
+    url: https://www.elastic.co/docs/api/doc/kibana
+  - type: Documentation
+    url: https://www.elastic.co/docs/api/doc/cloud
+  - type: JSONSchema
+    url: json-schema/elastic-saved-object-schema.json
+- aid: elastic:elastic-ilm-api
+  name: Elastic Ilm API
+  description: >-
+    You can use the index lifecycle management (ILM) APIs to create and manage policies to automatically
+    manage the lifecycle of your Elasticsearch indices.
+  humanURL: https://www.elastic.co/docs/api/doc/elasticsearch
+  baseURL: https://api.elastic-cloud.com
+  tags:
+  - ilm
+  properties:
+  - type: OpenAPI
+    url: openapi/elastic-ilm-api-openapi.yml
+  - type: Documentation
+    url: https://www.elastic.co/docs/api/doc/elasticsearch
+  - type: Documentation
+    url: https://www.elastic.co/docs/api/doc/kibana
+  - type: Documentation
+    url: https://www.elastic.co/docs/api/doc/cloud
+  - type: JSONSchema
+    url: json-schema/elastic-saved-object-schema.json
+- aid: elastic:elastic-inference-api
+  name: Elastic Inference API
+  description: >-
+    Inference APIs enable you to use certain services, such as built-in machine learning models (ELSER,
+    E5), models uploaded through Eland, Cohere, OpenAI, Azure, Google AI Studio or Hugging Face. For built-in
+    models and models uploaded through Eland, the inference APIs offer an alternative way to use and manage
+    trained models. However, if you do not plan to use the inference APIs to use these models or if you
+    want to use non-NLP models, use the machine learning trained model APIs.
+  humanURL: https://www.elastic.co/docs/api/doc/elasticsearch
+  baseURL: https://api.elastic-cloud.com
+  tags:
+  - inference
+  properties:
+  - type: OpenAPI
+    url: openapi/elastic-inference-api-openapi.yml
+  - type: Documentation
+    url: https://www.elastic.co/docs/api/doc/elasticsearch
+  - type: Documentation
+    url: https://www.elastic.co/docs/api/doc/kibana
+  - type: Documentation
+    url: https://www.elastic.co/docs/api/doc/cloud
+  - type: JSONSchema
+    url: json-schema/elastic-saved-object-schema.json
+- aid: elastic:elastic-info-api
+  name: Elastic Info API
+  description: Get basic information about the cluster.
+  humanURL: https://www.elastic.co/docs/api/doc/elasticsearch
+  baseURL: https://api.elastic-cloud.com
+  tags:
+  - info
+  properties:
+  - type: OpenAPI
+    url: openapi/elastic-info-api-openapi.yml
+  - type: Documentation
+    url: https://www.elastic.co/docs/api/doc/elasticsearch
+  - type: Documentation
+    url: https://www.elastic.co/docs/api/doc/kibana
+  - type: Documentation
+    url: https://www.elastic.co/docs/api/doc/cloud
+  - type: JSONSchema
+    url: json-schema/elastic-saved-object-schema.json
+- aid: elastic:elastic-ingest-api
+  name: Elastic Ingest API
+  description: >-
+    Ingest APIs enable you to manage tasks and resources related to ingest pipelines and processors.
+  humanURL: https://www.elastic.co/docs/api/doc/elasticsearch
+  baseURL: https://api.elastic-cloud.com
+  tags:
+  - ingest
+  properties:
+  - type: OpenAPI
+    url: openapi/elastic-ingest-api-openapi.yml
+  - type: Documentation
+    url: https://www.elastic.co/docs/api/doc/elasticsearch
+  - type: Documentation
+    url: https://www.elastic.co/docs/api/doc/kibana
+  - type: Documentation
+    url: https://www.elastic.co/docs/api/doc/cloud
+  - type: JSONSchema
+    url: json-schema/elastic-saved-object-schema.json
+- aid: elastic:elastic-license-api
+  name: Elastic License API
+  description: Licensing APIs enable you to manage your licenses.
+  humanURL: https://www.elastic.co/docs/api/doc/elasticsearch
+  baseURL: https://api.elastic-cloud.com
+  tags:
+  - license
+  properties:
+  - type: OpenAPI
+    url: openapi/elastic-license-api-openapi.yml
+  - type: Documentation
+    url: https://www.elastic.co/docs/api/doc/elasticsearch
+  - type: Documentation
+    url: https://www.elastic.co/docs/api/doc/kibana
+  - type: Documentation
+    url: https://www.elastic.co/docs/api/doc/cloud
+  - type: JSONSchema
+    url: json-schema/elastic-saved-object-schema.json
+- aid: elastic:elastic-logstash-api
+  name: Elastic Logstash API
+  description: >-
+    Logstash APIs enable you to manage pipelines that are used by Logstash Central Management.
+  humanURL: https://www.elastic.co/docs/api/doc/elasticsearch
+  baseURL: https://api.elastic-cloud.com
+  tags:
+  - logstash
+  properties:
+  - type: OpenAPI
+    url: openapi/elastic-logstash-api-openapi.yml
+  - type: Documentation
+    url: https://www.elastic.co/docs/api/doc/elasticsearch
+  - type: Documentation
+    url: https://www.elastic.co/docs/api/doc/kibana
+  - type: Documentation
+    url: https://www.elastic.co/docs/api/doc/cloud
+  - type: JSONSchema
+    url: json-schema/elastic-saved-object-schema.json
+- aid: elastic:elastic-migration-api
+  name: Elastic Migration API
+  description: The migration APIs power Kibana's Upgrade Assistant feature.
+  humanURL: https://www.elastic.co/docs/api/doc/elasticsearch
+  baseURL: https://api.elastic-cloud.com
+  tags:
+  - migration
+  properties:
+  - type: OpenAPI
+    url: openapi/elastic-migration-api-openapi.yml
+  - type: Documentation
+    url: https://www.elastic.co/docs/api/doc/elasticsearch
+  - type: Documentation
+    url: https://www.elastic.co/docs/api/doc/kibana
+  - type: Documentation
+    url: https://www.elastic.co/docs/api/doc/cloud
+  - type: JSONSchema
+    url: json-schema/elastic-saved-object-schema.json
+- aid: elastic:elastic-ml-anomaly-api
+  name: Elastic ml anomaly API
+  description: >-
+    The machine learning anomaly detection APIs enable you to perform anomaly detection activities.
+  humanURL: https://www.elastic.co/docs/api/doc/elasticsearch
+  baseURL: https://api.elastic-cloud.com
+  tags:
+  - ml anomaly
+  properties:
+  - type: OpenAPI
+    url: openapi/elastic-ml-anomaly-api-openapi.yml
+  - type: Documentation
+    url: https://www.elastic.co/docs/api/doc/elasticsearch
+  - type: Documentation
+    url: https://www.elastic.co/docs/api/doc/kibana
+  - type: Documentation
+    url: https://www.elastic.co/docs/api/doc/cloud
+  - type: JSONSchema
+    url: json-schema/elastic-saved-object-schema.json
+- aid: elastic:elastic-ml-api
+  name: Elastic Ml API
+  description: >-
+    Perform machine learning activities, such as anomaly detection, data frame analytics, and natural
+    language processing tasks.
+  humanURL: https://www.elastic.co/docs/api/doc/elasticsearch
+  baseURL: https://api.elastic-cloud.com
+  tags:
+  - ml
+  properties:
+  - type: OpenAPI
+    url: openapi/elastic-ml-api-openapi.yml
+  - type: Documentation
+    url: https://www.elastic.co/docs/api/doc/elasticsearch
+  - type: Documentation
+    url: https://www.elastic.co/docs/api/doc/kibana
+  - type: Documentation
+    url: https://www.elastic.co/docs/api/doc/cloud
+  - type: JSONSchema
+    url: json-schema/elastic-saved-object-schema.json
+- aid: elastic:elastic-ml-data-frame-api
+  name: Elastic ml data frame API
+  description: >-
+    The machine learning data frame analytics APIs enable you to perform data frame analytics activities.
+  humanURL: https://www.elastic.co/docs/api/doc/elasticsearch
+  baseURL: https://api.elastic-cloud.com
+  tags:
+  - ml data frame
+  properties:
+  - type: OpenAPI
+    url: openapi/elastic-ml-data-frame-api-openapi.yml
+  - type: Documentation
+    url: https://www.elastic.co/docs/api/doc/elasticsearch
+  - type: Documentation
+    url: https://www.elastic.co/docs/api/doc/kibana
+  - type: Documentation
+    url: https://www.elastic.co/docs/api/doc/cloud
+  - type: JSONSchema
+    url: json-schema/elastic-saved-object-schema.json
+- aid: elastic:elastic-ml-trained-model-api
+  name: Elastic ml trained model API
+  description: >-
+    The machine learning trained models APIs enable you to perform model management operations.
+  humanURL: https://www.elastic.co/docs/api/doc/elasticsearch
+  baseURL: https://api.elastic-cloud.com
+  tags:
+  - ml trained model
+  properties:
+  - type: OpenAPI
+    url: openapi/elastic-ml-trained-model-api-openapi.yml
+  - type: Documentation
+    url: https://www.elastic.co/docs/api/doc/elasticsearch
+  - type: Documentation
+    url: https://www.elastic.co/docs/api/doc/kibana
+  - type: Documentation
+    url: https://www.elastic.co/docs/api/doc/cloud
+  - type: JSONSchema
+    url: json-schema/elastic-saved-object-schema.json
+- aid: elastic:elastic-query-rules-api
+  name: Elastic Query Rules API
+  description: >-
+    Query rules enable you to configure per-query rules that are applied at query time to queries that
+    match the specific rule. Query rules are organized into rulesets, collections of query rules that
+    are matched against incoming queries. Query rules are applied using the rule query. If a query matches
+    one or more rules in the ruleset, the query is re-written to apply the rules before searching. This
+    allows pinning documents for only queries that match a specific term. Alternatively, you can use the
+    Query Rules UI to manage query rules.
+  humanURL: https://www.elastic.co/docs/api/doc/elasticsearch
+  baseURL: https://api.elastic-cloud.com
+  tags:
+  - query_rules
+  properties:
+  - type: OpenAPI
+    url: openapi/elastic-query-rules-api-openapi.yml
+  - type: Documentation
+    url: https://www.elastic.co/docs/api/doc/elasticsearch
+  - type: Documentation
+    url: https://www.elastic.co/docs/api/doc/kibana
+  - type: Documentation
+    url: https://www.elastic.co/docs/api/doc/cloud
+  - type: JSONSchema
+    url: json-schema/elastic-saved-object-schema.json
+- aid: elastic:elastic-rollup-api
+  name: Elastic Rollup API
+  description: >-
+    The rollup APIs enable you to create, manage, and retrieve information about rollup jobs.
+  humanURL: https://www.elastic.co/docs/api/doc/elasticsearch
+  baseURL: https://api.elastic-cloud.com
+  tags:
+  - rollup
+  properties:
+  - type: OpenAPI
+    url: openapi/elastic-rollup-api-openapi.yml
+  - type: Documentation
+    url: https://www.elastic.co/docs/api/doc/elasticsearch
+  - type: Documentation
+    url: https://www.elastic.co/docs/api/doc/kibana
+  - type: Documentation
+    url: https://www.elastic.co/docs/api/doc/cloud
+  - type: JSONSchema
+    url: json-schema/elastic-saved-object-schema.json
+- aid: elastic:elastic-script-api
+  name: Elastic Script API
+  description: >-
+    Use the script support APIs to get a list of supported script contexts and languages. Use the stored
+    script APIs to manage stored scripts and search templates.
+  humanURL: https://www.elastic.co/docs/api/doc/elasticsearch
+  baseURL: https://api.elastic-cloud.com
+  tags:
+  - script
+  properties:
+  - type: OpenAPI
+    url: openapi/elastic-script-api-openapi.yml
+  - type: Documentation
+    url: https://www.elastic.co/docs/api/doc/elasticsearch
+  - type: Documentation
+    url: https://www.elastic.co/docs/api/doc/kibana
+  - type: Documentation
+    url: https://www.elastic.co/docs/api/doc/cloud
+  - type: JSONSchema
+    url: json-schema/elastic-saved-object-schema.json
+- aid: elastic:elastic-search-application-api
+  name: Elastic Search Application API
+  description: >-
+    The search application APIs provide a convenient way to leverage the power of Elasticsearch for your
+    search applications.
+  humanURL: https://www.elastic.co/docs/api/doc/elasticsearch
+  baseURL: https://api.elastic-cloud.com
+  tags:
+  - search_application
+  properties:
+  - type: OpenAPI
+    url: openapi/elastic-search-application-api-openapi.yml
+  - type: Documentation
+    url: https://www.elastic.co/docs/api/doc/elasticsearch
+  - type: Documentation
+    url: https://www.elastic.co/docs/api/doc/kibana
+  - type: Documentation
+    url: https://www.elastic.co/docs/api/doc/cloud
+  - type: JSONSchema
+    url: json-schema/elastic-saved-object-schema.json
+- aid: elastic:elastic-searchable-snapshots-api
+  name: Elastic Searchable Snapshots API
+  description: The searchable snapshots APIs are used to mount snapshots as searchable indices.
+  humanURL: https://www.elastic.co/docs/api/doc/elasticsearch
+  baseURL: https://api.elastic-cloud.com
+  tags:
+  - searchable_snapshots
+  properties:
+  - type: OpenAPI
+    url: openapi/elastic-searchable-snapshots-api-openapi.yml
+  - type: Documentation
+    url: https://www.elastic.co/docs/api/doc/elasticsearch
+  - type: Documentation
+    url: https://www.elastic.co/docs/api/doc/kibana
+  - type: Documentation
+    url: https://www.elastic.co/docs/api/doc/cloud
+  - type: JSONSchema
+    url: json-schema/elastic-saved-object-schema.json
+- aid: elastic:elastic-slm-api
+  name: Elastic Slm API
+  description: >-
+    Snapshot lifecycle management (SLM) enables you to automatically take snapshots and control how long
+    they are kept.
+  humanURL: https://www.elastic.co/docs/api/doc/elasticsearch
+  baseURL: https://api.elastic-cloud.com
+  tags:
+  - slm
+  properties:
+  - type: OpenAPI
+    url: openapi/elastic-slm-api-openapi.yml
+  - type: Documentation
+    url: https://www.elastic.co/docs/api/doc/elasticsearch
+  - type: Documentation
+    url: https://www.elastic.co/docs/api/doc/kibana
+  - type: Documentation
+    url: https://www.elastic.co/docs/api/doc/cloud
+  - type: JSONSchema
+    url: json-schema/elastic-saved-object-schema.json
+- aid: elastic:elastic-snapshot-api
+  name: Elastic Snapshot API
+  description: >-
+    The snapshot and restore APIs are used to take snapshots of running clusters. Snapshots are backups
+    of individual indices or entire clusters.
+  humanURL: https://www.elastic.co/docs/api/doc/elasticsearch
+  baseURL: https://api.elastic-cloud.com
+  tags:
+  - snapshot
+  properties:
+  - type: OpenAPI
+    url: openapi/elastic-snapshot-api-openapi.yml
+  - type: Documentation
+    url: https://www.elastic.co/docs/api/doc/elasticsearch
+  - type: Documentation
+    url: https://www.elastic.co/docs/api/doc/kibana
+  - type: Documentation
+    url: https://www.elastic.co/docs/api/doc/cloud
+  - type: JSONSchema
+    url: json-schema/elastic-saved-object-schema.json
+- aid: elastic:elastic-sql-api
+  name: Elastic Sql API
+  description: >-
+    Elasticsearch's SQL APIs enable you to run SQL queries on Elasticsearch indices and data streams.
+  humanURL: https://www.elastic.co/docs/api/doc/elasticsearch
+  baseURL: https://api.elastic-cloud.com
+  tags:
+  - sql
+  properties:
+  - type: OpenAPI
+    url: openapi/elastic-sql-api-openapi.yml
+  - type: Documentation
+    url: https://www.elastic.co/docs/api/doc/elasticsearch
+  - type: Documentation
+    url: https://www.elastic.co/docs/api/doc/kibana
+  - type: Documentation
+    url: https://www.elastic.co/docs/api/doc/cloud
+  - type: JSONSchema
+    url: json-schema/elastic-saved-object-schema.json
+- aid: elastic:elastic-synonyms-api
+  name: Elastic Synonyms API
+  description: >-
+    The synonyms management API provides a convenient way to define and manage synonyms in an internal
+    system index. Related synonyms can be grouped in a "synonyms set". Create as many synonym sets as
+    you need.
+  humanURL: https://www.elastic.co/docs/api/doc/elasticsearch
+  baseURL: https://api.elastic-cloud.com
+  tags:
+  - synonyms
+  properties:
+  - type: OpenAPI
+    url: openapi/elastic-synonyms-api-openapi.yml
+  - type: Documentation
+    url: https://www.elastic.co/docs/api/doc/elasticsearch
+  - type: Documentation
+    url: https://www.elastic.co/docs/api/doc/kibana
+  - type: Documentation
+    url: https://www.elastic.co/docs/api/doc/cloud
+  - type: JSONSchema
+    url: json-schema/elastic-saved-object-schema.json
+- aid: elastic:elastic-tasks-api
+  name: Elastic Tasks API
+  description: >-
+    The task management APIs enable you to get information about the tasks currently running on one or
+    more nodes in the cluster.
+  humanURL: https://www.elastic.co/docs/api/doc/elasticsearch
+  baseURL: https://api.elastic-cloud.com
+  tags:
+  - tasks
+  properties:
+  - type: OpenAPI
+    url: openapi/elastic-tasks-api-openapi.yml
+  - type: Documentation
+    url: https://www.elastic.co/docs/api/doc/elasticsearch
+  - type: Documentation
+    url: https://www.elastic.co/docs/api/doc/kibana
+  - type: Documentation
+    url: https://www.elastic.co/docs/api/doc/cloud
+  - type: JSONSchema
+    url: json-schema/elastic-saved-object-schema.json
+- aid: elastic:elastic-text-structure-api
+  name: Elastic Text Structure API
+  description: >-
+    The text structure APIs enable you to find the structure of a text field in an Elasticsearch index.
+  humanURL: https://www.elastic.co/docs/api/doc/elasticsearch
+  baseURL: https://api.elastic-cloud.com
+  tags:
+  - text_structure
+  properties:
+  - type: OpenAPI
+    url: openapi/elastic-text-structure-api-openapi.yml
+  - type: Documentation
+    url: https://www.elastic.co/docs/api/doc/elasticsearch
+  - type: Documentation
+    url: https://www.elastic.co/docs/api/doc/kibana
+  - type: Documentation
+    url: https://www.elastic.co/docs/api/doc/cloud
+  - type: JSONSchema
+    url: json-schema/elastic-saved-object-schema.json
+- aid: elastic:elastic-transform-api
+  name: Elastic Transform API
+  description: The transform APIs enable you to create and manage transforms.
+  humanURL: https://www.elastic.co/docs/api/doc/elasticsearch
+  baseURL: https://api.elastic-cloud.com
+  tags:
+  - transform
+  properties:
+  - type: OpenAPI
+    url: openapi/elastic-transform-api-openapi.yml
+  - type: Documentation
+    url: https://www.elastic.co/docs/api/doc/elasticsearch
+  - type: Documentation
+    url: https://www.elastic.co/docs/api/doc/kibana
+  - type: Documentation
+    url: https://www.elastic.co/docs/api/doc/cloud
+  - type: JSONSchema
+    url: json-schema/elastic-saved-object-schema.json
+- aid: elastic:elastic-watcher-api
+  name: Elastic Watcher API
+  description: >-
+    You can use Watcher to watch for changes or anomalies in your data and perform the necessary actions
+    in response.
+  humanURL: https://www.elastic.co/docs/api/doc/elasticsearch
+  baseURL: https://api.elastic-cloud.com
+  tags:
+  - watcher
+  properties:
+  - type: OpenAPI
+    url: openapi/elastic-watcher-api-openapi.yml
+  - type: Documentation
+    url: https://www.elastic.co/docs/api/doc/elasticsearch
+  - type: Documentation
+    url: https://www.elastic.co/docs/api/doc/kibana
+  - type: Documentation
+    url: https://www.elastic.co/docs/api/doc/cloud
+  - type: JSONSchema
+    url: json-schema/elastic-saved-object-schema.json
+- aid: elastic:elastic-xpack-api
+  name: Elastic Xpack API
+  description: The usage API provides usage information about the installed X-Pack features.
+  humanURL: https://www.elastic.co/docs/api/doc/elasticsearch
+  baseURL: https://api.elastic-cloud.com
+  tags:
+  - xpack
+  properties:
+  - type: OpenAPI
+    url: openapi/elastic-xpack-api-openapi.yml
+  - type: Documentation
+    url: https://www.elastic.co/docs/api/doc/elasticsearch
+  - type: Documentation
+    url: https://www.elastic.co/docs/api/doc/kibana
+  - type: Documentation
+    url: https://www.elastic.co/docs/api/doc/cloud
+  - type: JSONSchema
+    url: json-schema/elastic-saved-object-schema.json
 - aid: elastic:elastic-data-views-api
   name: Elastic data views API
   description: Manage data views (formerly index patterns).
@@ -232,6 +1145,8 @@ apis:
     url: https://www.elastic.co/docs/api/doc/kibana
   - type: Documentation
     url: https://www.elastic.co/docs/api/doc/cloud
+  - type: JSONSchema
+    url: json-schema/elastic-saved-object-schema.json
 - aid: elastic:elastic-saved-objects-api
   name: Elastic saved objects API
   description: Manage Kibana saved objects (dashboards, visualizations, searches).
@@ -248,64 +1163,13 @@ apis:
     url: https://www.elastic.co/docs/api/doc/kibana
   - type: Documentation
     url: https://www.elastic.co/docs/api/doc/cloud
+  - type: JSONSchema
+    url: json-schema/elastic-saved-object-schema.json
 integrations:
 - name: Become a partner
-maintainers:
-- FN: Kin Lane
-  email: kin@apievangelist.com
-common:
-- type: AgenticAccess
-  url: agentic-access/elastic-agentic-access.yml
-- type: TrustCenter
-  url: security/elastic-trust-center.yml
-- type: DomainSecurity
-  url: security/elastic-domain-security.yml
-- type: Authentication
-  url: authentication/elastic-authentication.yml
-- type: LinkedIn
-  url: https://www.linkedin.com/company/elastic-co
-- name: Elastic Website
-  url: https://www.elastic.co
-  type: Website
-- name: Elastic Documentation
-  url: https://www.elastic.co/guide/index.html
-  type: Documentation
-- name: Elastic GitHub Organization
-  url: https://github.com/elastic
-  type: GitHub
-- name: Elastic Cloud Console
-  url: https://cloud.elastic.co
-  type: Console
-- name: Elastic Pricing
-  url: https://www.elastic.co/pricing
-  type: Pricing
-- name: Elastic License
-  url: https://www.elastic.co/licensing/elastic-license
-  type: License
-- type: Features
-  data:
-  - 'Elastic Cloud Hosted: resource-based with Standard/Gold/Platinum/Enterprise tiers'
-  - 'Elastic Serverless: VCU + storage usage-based for Search/Observability/Security'
-  - 'Self-managed: license-based for on-prem deployment'
-  - 'Multi-cloud: AWS, GCP, Azure'
-  - REST API for Elasticsearch, Kibana, APM
-  - Bulk indexing API for high-throughput ingest
-  - Throughput scales with cluster hardware
-  - OAuth + API keys + JWT realm
-  - Watcher for alerting on rules
-  - ES|QL query language
-  - Vector search with kNN
-  - ELSER (Elastic Learned Sparse Encoder) for semantic search
-  - Cross-cluster search/replication
-  - Hot/Warm/Cold/Frozen data tiers
-  - Index Lifecycle Management (ILM)
-  - 'Compliance: SOC 2, HIPAA, FedRAMP (Enterprise)'
-  sources:
-  - https://www.elastic.co/pricing
-  updated: '2026-05-04'
-- type: Integrations
-  url: https://www.elastic.co/integrations
-- type: LlmsText
-  url: https://api.elastic-cloud.com/llms.txt
-- url: https://www.elastic.co/blog/feed
-  type: Blog
+x-enrichment:
+  date: '2026-10-03'
+  status: enriched
+  artifacts_added: 25
+  pass: modular-v1
+  engine: identity=local,contract=local,surfaces=local,docs=local,regulatory=local

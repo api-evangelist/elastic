@@ -1,0 +1,7 @@
+generated: '2026-10-03'
+method: derived
+source: https://www.elastic.co/blog/elasticsearch-mcp-server-aws-marketplace
+deployment:
+  mode: none
+  verified: derived
+  auth: unknown
