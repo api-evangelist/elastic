@@ -1,13 +1,11 @@
 aid: elastic
-
 name: Elastic
-
-description: Elastic is a software company that builds search-powered solutions for observability, security, and search use cases. The Elastic
-  Stack (Elasticsearch, Kibana, and related tools) lets organizations ingest, search, analyze, and visualize structured and unstructured data
-  in real time. Elastic Cloud delivers managed Elasticsearch and Kibana deployments with REST APIs for both data operations and deployment management.
-
+description: Elastic is a software company that builds search-powered solutions for observability, security,
+  and search use cases. The Elastic Stack (Elasticsearch, Kibana, and related tools) lets organizations
+  ingest, search, analyze, and visualize structured and unstructured data in real time. Elastic Cloud
+  delivers managed Elasticsearch and Kibana deployments with REST APIs for both data operations and deployment
+  management.
 type: Index
-
 deliveryModel:
   model: saas
   license: Elastic License
@@ -22,7 +20,6 @@ deliveryModel:
   - pricing
   generated: '2026-08-28'
   method: derived
-
 accessModel:
   pricing: enterprise
   onboarding: unknown
@@ -37,13 +34,9 @@ accessModel:
   - security
   generated: '2026-09-03'
   method: derived
-
 position: Producing
-
 access: 3rd-Party
-
 image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/elastic.png
-
 tags:
 - Search
 - Analytics
@@ -52,19 +45,13 @@ tags:
 - Visualization
 - Cloud
 - Monitoring
-
 created: '2025-01-08'
-
 modified: '2026-05-19'
-
 url: https://raw.githubusercontent.com/api-evangelist/elastic/refs/heads/main/apis.yml
-
 specificationVersion: '0.23'
-
 maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com
-
 common:
 - type: FinOps
   url: finops/elastic-finops.yml
@@ -187,7 +174,9 @@ common:
   url: https://api.elastic-cloud.com/llms.txt
 - url: https://www.elastic.co/blog/feed
   type: Blog
-
+- type: CapabilityMap
+  url: capabilities/elastic-capability-edges.yml
+  name: Elastic Business Capability Map
 apis:
 - aid: elastic:elastic-account-api
   name: Elastic Account API
@@ -363,10 +352,9 @@ apis:
     url: https://www.elastic.co/docs/api/doc/cloud
 - aid: elastic:elastic-analytics-api
   name: Elastic Analytics API
-  description: >-
-    The behavioral analytics APIs let you create and manage analytics collections and view their data.
-    Use them to analyze users' search and click behavior, improve result relevance, and identify content
-    gaps.
+  description: The behavioral analytics APIs let you create and manage analytics collections and view
+    their data. Use them to analyze users' search and click behavior, improve result relevance, and identify
+    content gaps.
   humanURL: https://www.elastic.co/docs/api/doc/elasticsearch
   baseURL: https://api.elastic-cloud.com
   tags:
@@ -384,14 +372,13 @@ apis:
     url: json-schema/elastic-saved-object-schema.json
 - aid: elastic:elastic-cat-api
   name: Elastic Cat API
-  description: >-
-    The compact and aligned text (CAT) APIs aim are intended only for human consumption using the Kibana
-    console or command line. They are not intended for use by applications. For application consumption,
-    it's recommend to use a corresponding JSON API.
+  description: 'The compact and aligned text (CAT) APIs aim are intended only for human consumption using
+    the Kibana console or command line. They are not intended for use by applications. For application
+    consumption, it''s recommend to use a corresponding JSON API.
 
 
     All the cat commands accept a query string parameter `help` to see all the headers and info they provide,
-    and the `/_cat` command alone lists all the available commands.
+    and the `/_cat` command alone lists all the available commands.'
   humanURL: https://www.elastic.co/docs/api/doc/elasticsearch
   baseURL: https://api.elastic-cloud.com
   tags:
@@ -409,11 +396,10 @@ apis:
     url: json-schema/elastic-saved-object-schema.json
 - aid: elastic:elastic-ccr-api
   name: Elastic Ccr API
-  description: >-
-    The cross-cluster replication (CCR) APIs let you run replication operations, such as creating and
-    managing follower indices or auto-follow patterns. Use CCR to replicate indices across clusters to
-    maintain search availability during outages, reduce indexing impact, and lower search latency by serving
-    requests closer to users.
+  description: The cross-cluster replication (CCR) APIs let you run replication operations, such as creating
+    and managing follower indices or auto-follow patterns. Use CCR to replicate indices across clusters
+    to maintain search availability during outages, reduce indexing impact, and lower search latency by
+    serving requests closer to users.
   humanURL: https://www.elastic.co/docs/api/doc/elasticsearch
   baseURL: https://api.elastic-cloud.com
   tags:
@@ -431,9 +417,8 @@ apis:
     url: json-schema/elastic-saved-object-schema.json
 - aid: elastic:elastic-connector-api
   name: Elastic Connector API
-  description: >-
-    The connector and sync jobs APIs provide a convenient way to create and manage Elastic connectors
-    and sync jobs in an internal index.
+  description: 'The connector and sync jobs APIs provide a convenient way to create and manage Elastic
+    connectors and sync jobs in an internal index.
 
 
     Connectors are Elasticsearch integrations for syncing content from third-party data sources, which
@@ -446,7 +431,7 @@ apis:
 
 
     This API requires the `manage_connector` privilege or, for read-only endpoints, the `monitor_connector`
-    privilege.
+    privilege.'
   humanURL: https://www.elastic.co/docs/api/doc/elasticsearch
   baseURL: https://api.elastic-cloud.com
   tags:
@@ -464,11 +449,10 @@ apis:
     url: json-schema/elastic-saved-object-schema.json
 - aid: elastic:elastic-data-stream-api
   name: Elastic data stream API
-  description: >-
-    The data stream APIs enable you to create and manage data streams and data stream lifecycles. A data
-    stream lets you store append-only time series data across multiple indices while giving you a single
-    named resource for requests. Data streams are well-suited for logs, events, metrics, and other continuously
-    generated data.
+  description: The data stream APIs enable you to create and manage data streams and data stream lifecycles.
+    A data stream lets you store append-only time series data across multiple indices while giving you
+    a single named resource for requests. Data streams are well-suited for logs, events, metrics, and
+    other continuously generated data.
   humanURL: https://www.elastic.co/docs/api/doc/elasticsearch
   baseURL: https://api.elastic-cloud.com
   tags:
@@ -504,9 +488,8 @@ apis:
     url: json-schema/elastic-saved-object-schema.json
 - aid: elastic:elastic-enrich-api
   name: Elastic Enrich API
-  description: >-
-    The enrich APIs enable you to manage enrich policies. An enrich policy is a set of configuration options
-    used to add the right enrich data to the right incoming documents.
+  description: The enrich APIs enable you to manage enrich policies. An enrich policy is a set of configuration
+    options used to add the right enrich data to the right incoming documents.
   humanURL: https://www.elastic.co/docs/api/doc/elasticsearch
   baseURL: https://api.elastic-cloud.com
   tags:
@@ -524,9 +507,8 @@ apis:
     url: json-schema/elastic-saved-object-schema.json
 - aid: elastic:elastic-eql-api
   name: Elastic Eql API
-  description: >-
-    Event Query Language (EQL) is a query language for event-based time series data, such as logs, metrics,
-    and traces.
+  description: Event Query Language (EQL) is a query language for event-based time series data, such as
+    logs, metrics, and traces.
   humanURL: https://www.elastic.co/docs/api/doc/elasticsearch
   baseURL: https://api.elastic-cloud.com
   tags:
@@ -544,9 +526,8 @@ apis:
     url: json-schema/elastic-saved-object-schema.json
 - aid: elastic:elastic-esql-api
   name: Elastic Esql API
-  description: >-
-    The Elasticsearch Query Language (ES|QL) provides a powerful way to filter, transform, and analyze
-    data stored in Elasticsearch, and in the future in other runtimes.
+  description: The Elasticsearch Query Language (ES|QL) provides a powerful way to filter, transform,
+    and analyze data stored in Elasticsearch, and in the future in other runtimes.
   humanURL: https://www.elastic.co/docs/api/doc/elasticsearch
   baseURL: https://api.elastic-cloud.com
   tags:
@@ -564,9 +545,8 @@ apis:
     url: json-schema/elastic-saved-object-schema.json
 - aid: elastic:elastic-features-api
   name: Elastic Features API
-  description: >-
-    The features APIs retrieve information about the features that are currently enabled and available
-    on the node.
+  description: The features APIs retrieve information about the features that are currently enabled and
+    available on the node.
   humanURL: https://www.elastic.co/docs/api/doc/elasticsearch
   baseURL: https://api.elastic-cloud.com
   tags:
@@ -584,9 +564,8 @@ apis:
     url: json-schema/elastic-saved-object-schema.json
 - aid: elastic:elastic-fleet-api
   name: Elastic Fleet API
-  description: >-
-    The Fleet APIs support Fleet's use of Elasticsearch as a data store for internal agent and action
-    data.
+  description: The Fleet APIs support Fleet's use of Elasticsearch as a data store for internal agent
+    and action data.
   humanURL: https://www.elastic.co/docs/api/doc/elasticsearch
   baseURL: https://api.elastic-cloud.com
   tags:
@@ -604,9 +583,8 @@ apis:
     url: json-schema/elastic-saved-object-schema.json
 - aid: elastic:elastic-graph-api
   name: Elastic Graph API
-  description: >-
-    The graph explore API enables you to extract and summarize information about the documents and terms
-    in an Elasticsearch index.
+  description: The graph explore API enables you to extract and summarize information about the documents
+    and terms in an Elasticsearch index.
   humanURL: https://www.elastic.co/docs/api/doc/elasticsearch
   baseURL: https://api.elastic-cloud.com
   tags:
@@ -624,8 +602,8 @@ apis:
     url: json-schema/elastic-saved-object-schema.json
 - aid: elastic:elastic-health-report-api
   name: Elastic Health Report API
-  description: >-
-    The cluster - health API provides you a report with the health status of an Elasticsearch cluster.
+  description: The cluster - health API provides you a report with the health status of an Elasticsearch
+    cluster.
   humanURL: https://www.elastic.co/docs/api/doc/elasticsearch
   baseURL: https://api.elastic-cloud.com
   tags:
@@ -643,9 +621,8 @@ apis:
     url: json-schema/elastic-saved-object-schema.json
 - aid: elastic:elastic-ilm-api
   name: Elastic Ilm API
-  description: >-
-    You can use the index lifecycle management (ILM) APIs to create and manage policies to automatically
-    manage the lifecycle of your Elasticsearch indices.
+  description: You can use the index lifecycle management (ILM) APIs to create and manage policies to
+    automatically manage the lifecycle of your Elasticsearch indices.
   humanURL: https://www.elastic.co/docs/api/doc/elasticsearch
   baseURL: https://api.elastic-cloud.com
   tags:
@@ -663,12 +640,11 @@ apis:
     url: json-schema/elastic-saved-object-schema.json
 - aid: elastic:elastic-inference-api
   name: Elastic Inference API
-  description: >-
-    Inference APIs enable you to use certain services, such as built-in machine learning models (ELSER,
-    E5), models uploaded through Eland, Cohere, OpenAI, Azure, Google AI Studio or Hugging Face. For built-in
-    models and models uploaded through Eland, the inference APIs offer an alternative way to use and manage
-    trained models. However, if you do not plan to use the inference APIs to use these models or if you
-    want to use non-NLP models, use the machine learning trained model APIs.
+  description: Inference APIs enable you to use certain services, such as built-in machine learning models
+    (ELSER, E5), models uploaded through Eland, Cohere, OpenAI, Azure, Google AI Studio or Hugging Face.
+    For built-in models and models uploaded through Eland, the inference APIs offer an alternative way
+    to use and manage trained models. However, if you do not plan to use the inference APIs to use these
+    models or if you want to use non-NLP models, use the machine learning trained model APIs.
   humanURL: https://www.elastic.co/docs/api/doc/elasticsearch
   baseURL: https://api.elastic-cloud.com
   tags:
@@ -704,8 +680,7 @@ apis:
     url: json-schema/elastic-saved-object-schema.json
 - aid: elastic:elastic-ingest-api
   name: Elastic Ingest API
-  description: >-
-    Ingest APIs enable you to manage tasks and resources related to ingest pipelines and processors.
+  description: Ingest APIs enable you to manage tasks and resources related to ingest pipelines and processors.
   humanURL: https://www.elastic.co/docs/api/doc/elasticsearch
   baseURL: https://api.elastic-cloud.com
   tags:
@@ -741,8 +716,7 @@ apis:
     url: json-schema/elastic-saved-object-schema.json
 - aid: elastic:elastic-logstash-api
   name: Elastic Logstash API
-  description: >-
-    Logstash APIs enable you to manage pipelines that are used by Logstash Central Management.
+  description: Logstash APIs enable you to manage pipelines that are used by Logstash Central Management.
   humanURL: https://www.elastic.co/docs/api/doc/elasticsearch
   baseURL: https://api.elastic-cloud.com
   tags:
@@ -778,8 +752,7 @@ apis:
     url: json-schema/elastic-saved-object-schema.json
 - aid: elastic:elastic-ml-anomaly-api
   name: Elastic ml anomaly API
-  description: >-
-    The machine learning anomaly detection APIs enable you to perform anomaly detection activities.
+  description: The machine learning anomaly detection APIs enable you to perform anomaly detection activities.
   humanURL: https://www.elastic.co/docs/api/doc/elasticsearch
   baseURL: https://api.elastic-cloud.com
   tags:
@@ -797,9 +770,8 @@ apis:
     url: json-schema/elastic-saved-object-schema.json
 - aid: elastic:elastic-ml-api
   name: Elastic Ml API
-  description: >-
-    Perform machine learning activities, such as anomaly detection, data frame analytics, and natural
-    language processing tasks.
+  description: Perform machine learning activities, such as anomaly detection, data frame analytics, and
+    natural language processing tasks.
   humanURL: https://www.elastic.co/docs/api/doc/elasticsearch
   baseURL: https://api.elastic-cloud.com
   tags:
@@ -817,8 +789,8 @@ apis:
     url: json-schema/elastic-saved-object-schema.json
 - aid: elastic:elastic-ml-data-frame-api
   name: Elastic ml data frame API
-  description: >-
-    The machine learning data frame analytics APIs enable you to perform data frame analytics activities.
+  description: The machine learning data frame analytics APIs enable you to perform data frame analytics
+    activities.
   humanURL: https://www.elastic.co/docs/api/doc/elasticsearch
   baseURL: https://api.elastic-cloud.com
   tags:
@@ -836,8 +808,7 @@ apis:
     url: json-schema/elastic-saved-object-schema.json
 - aid: elastic:elastic-ml-trained-model-api
   name: Elastic ml trained model API
-  description: >-
-    The machine learning trained models APIs enable you to perform model management operations.
+  description: The machine learning trained models APIs enable you to perform model management operations.
   humanURL: https://www.elastic.co/docs/api/doc/elasticsearch
   baseURL: https://api.elastic-cloud.com
   tags:
@@ -855,13 +826,12 @@ apis:
     url: json-schema/elastic-saved-object-schema.json
 - aid: elastic:elastic-query-rules-api
   name: Elastic Query Rules API
-  description: >-
-    Query rules enable you to configure per-query rules that are applied at query time to queries that
-    match the specific rule. Query rules are organized into rulesets, collections of query rules that
-    are matched against incoming queries. Query rules are applied using the rule query. If a query matches
-    one or more rules in the ruleset, the query is re-written to apply the rules before searching. This
-    allows pinning documents for only queries that match a specific term. Alternatively, you can use the
-    Query Rules UI to manage query rules.
+  description: Query rules enable you to configure per-query rules that are applied at query time to queries
+    that match the specific rule. Query rules are organized into rulesets, collections of query rules
+    that are matched against incoming queries. Query rules are applied using the rule query. If a query
+    matches one or more rules in the ruleset, the query is re-written to apply the rules before searching.
+    This allows pinning documents for only queries that match a specific term. Alternatively, you can
+    use the Query Rules UI to manage query rules.
   humanURL: https://www.elastic.co/docs/api/doc/elasticsearch
   baseURL: https://api.elastic-cloud.com
   tags:
@@ -879,8 +849,7 @@ apis:
     url: json-schema/elastic-saved-object-schema.json
 - aid: elastic:elastic-rollup-api
   name: Elastic Rollup API
-  description: >-
-    The rollup APIs enable you to create, manage, and retrieve information about rollup jobs.
+  description: The rollup APIs enable you to create, manage, and retrieve information about rollup jobs.
   humanURL: https://www.elastic.co/docs/api/doc/elasticsearch
   baseURL: https://api.elastic-cloud.com
   tags:
@@ -898,9 +867,8 @@ apis:
     url: json-schema/elastic-saved-object-schema.json
 - aid: elastic:elastic-script-api
   name: Elastic Script API
-  description: >-
-    Use the script support APIs to get a list of supported script contexts and languages. Use the stored
-    script APIs to manage stored scripts and search templates.
+  description: Use the script support APIs to get a list of supported script contexts and languages. Use
+    the stored script APIs to manage stored scripts and search templates.
   humanURL: https://www.elastic.co/docs/api/doc/elasticsearch
   baseURL: https://api.elastic-cloud.com
   tags:
@@ -918,9 +886,8 @@ apis:
     url: json-schema/elastic-saved-object-schema.json
 - aid: elastic:elastic-search-application-api
   name: Elastic Search Application API
-  description: >-
-    The search application APIs provide a convenient way to leverage the power of Elasticsearch for your
-    search applications.
+  description: The search application APIs provide a convenient way to leverage the power of Elasticsearch
+    for your search applications.
   humanURL: https://www.elastic.co/docs/api/doc/elasticsearch
   baseURL: https://api.elastic-cloud.com
   tags:
@@ -956,9 +923,8 @@ apis:
     url: json-schema/elastic-saved-object-schema.json
 - aid: elastic:elastic-slm-api
   name: Elastic Slm API
-  description: >-
-    Snapshot lifecycle management (SLM) enables you to automatically take snapshots and control how long
-    they are kept.
+  description: Snapshot lifecycle management (SLM) enables you to automatically take snapshots and control
+    how long they are kept.
   humanURL: https://www.elastic.co/docs/api/doc/elasticsearch
   baseURL: https://api.elastic-cloud.com
   tags:
@@ -976,9 +942,8 @@ apis:
     url: json-schema/elastic-saved-object-schema.json
 - aid: elastic:elastic-snapshot-api
   name: Elastic Snapshot API
-  description: >-
-    The snapshot and restore APIs are used to take snapshots of running clusters. Snapshots are backups
-    of individual indices or entire clusters.
+  description: The snapshot and restore APIs are used to take snapshots of running clusters. Snapshots
+    are backups of individual indices or entire clusters.
   humanURL: https://www.elastic.co/docs/api/doc/elasticsearch
   baseURL: https://api.elastic-cloud.com
   tags:
@@ -996,8 +961,8 @@ apis:
     url: json-schema/elastic-saved-object-schema.json
 - aid: elastic:elastic-sql-api
   name: Elastic Sql API
-  description: >-
-    Elasticsearch's SQL APIs enable you to run SQL queries on Elasticsearch indices and data streams.
+  description: Elasticsearch's SQL APIs enable you to run SQL queries on Elasticsearch indices and data
+    streams.
   humanURL: https://www.elastic.co/docs/api/doc/elasticsearch
   baseURL: https://api.elastic-cloud.com
   tags:
@@ -1015,10 +980,9 @@ apis:
     url: json-schema/elastic-saved-object-schema.json
 - aid: elastic:elastic-synonyms-api
   name: Elastic Synonyms API
-  description: >-
-    The synonyms management API provides a convenient way to define and manage synonyms in an internal
-    system index. Related synonyms can be grouped in a "synonyms set". Create as many synonym sets as
-    you need.
+  description: The synonyms management API provides a convenient way to define and manage synonyms in
+    an internal system index. Related synonyms can be grouped in a "synonyms set". Create as many synonym
+    sets as you need.
   humanURL: https://www.elastic.co/docs/api/doc/elasticsearch
   baseURL: https://api.elastic-cloud.com
   tags:
@@ -1036,9 +1000,8 @@ apis:
     url: json-schema/elastic-saved-object-schema.json
 - aid: elastic:elastic-tasks-api
   name: Elastic Tasks API
-  description: >-
-    The task management APIs enable you to get information about the tasks currently running on one or
-    more nodes in the cluster.
+  description: The task management APIs enable you to get information about the tasks currently running
+    on one or more nodes in the cluster.
   humanURL: https://www.elastic.co/docs/api/doc/elasticsearch
   baseURL: https://api.elastic-cloud.com
   tags:
@@ -1056,8 +1019,8 @@ apis:
     url: json-schema/elastic-saved-object-schema.json
 - aid: elastic:elastic-text-structure-api
   name: Elastic Text Structure API
-  description: >-
-    The text structure APIs enable you to find the structure of a text field in an Elasticsearch index.
+  description: The text structure APIs enable you to find the structure of a text field in an Elasticsearch
+    index.
   humanURL: https://www.elastic.co/docs/api/doc/elasticsearch
   baseURL: https://api.elastic-cloud.com
   tags:
@@ -1093,9 +1056,8 @@ apis:
     url: json-schema/elastic-saved-object-schema.json
 - aid: elastic:elastic-watcher-api
   name: Elastic Watcher API
-  description: >-
-    You can use Watcher to watch for changes or anomalies in your data and perform the necessary actions
-    in response.
+  description: You can use Watcher to watch for changes or anomalies in your data and perform the necessary
+    actions in response.
   humanURL: https://www.elastic.co/docs/api/doc/elasticsearch
   baseURL: https://api.elastic-cloud.com
   tags:
