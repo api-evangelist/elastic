@@ -222,6 +222,8 @@ apis:
   humanURL: https://www.elastic.co/docs/api/doc/elasticsearch
   baseURL: https://api.elastic-cloud.com
   tags:
+  - DataViews
+  tags_raw:
   - data views
   properties:
   - type: OpenAPI
@@ -238,6 +240,8 @@ apis:
   humanURL: https://www.elastic.co/docs/api/doc/elasticsearch
   baseURL: https://api.elastic-cloud.com
   tags:
+  - SavedObjects
+  tags_raw:
   - saved objects
   properties:
   - type: OpenAPI
@@ -254,6 +258,9 @@ maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com
 common:
+- type: CapabilityMap
+  url: capabilities/elastic-capability-edges.yml
+  name: Elastic Business Capability Map
 - type: AgenticAccess
   url: agentic-access/elastic-agentic-access.yml
 - type: TrustCenter
