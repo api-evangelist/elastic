@@ -177,6 +177,12 @@ common:
 - type: CapabilityMap
   url: capabilities/elastic-capability-edges.yml
   name: Elastic Business Capability Map
+- type: SpectralRules
+  url: https://github.com/elastic/apm-server/blob/c1dc5a1569eb2da398194bf64012c66387ddcae3/docs/spec/openapi/.spectral.yaml
+- type: SpectralRules
+  url: https://github.com/elastic/docs-actions/blob/6424787358d5b21453778294bfc93f97e3a0ae2f/openapi/lint/ruleset.yaml
+- type: SpectralRules
+  url: https://github.com/elastic/elasticsearch-specification/blob/108d535461e94dc3b74d8a246149359406fbb5b4/docs/linters/.spectral.yaml
 apis:
 - aid: elastic:elastic-account-api
   name: Elastic Account API
