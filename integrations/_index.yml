@@ -5335,7 +5335,7 @@
     node_path: Elastic/ElasticSecurity
     trigger: false
     builder: n8n (built-in node)
-  status: pending-generation
+  status: not-a-workflow
   arazzo: null
 - slug: elastic-pipedream
   label: Pipedream
@@ -5361,7 +5361,7 @@
     actions: true
     sources: false
     builder: Pipedream repo (component)
-  status: pending-generation
+  status: not-a-workflow
   arazzo: null
 - slug: elastic-fedramp
   label: FedRAMP
