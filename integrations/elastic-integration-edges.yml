@@ -35,6 +35,7 @@ checked:
 - artifact-hub/integrations/artifact-hub-integration-edges.yml
 - https://github.com/docker-library/official-images
 - https://hub.docker.com/v2/repositories/library/?page_size=100
+- hugging-face/integrations/hugging-face-integration-edges.yml
 marketplace_apps:
 - marketplace: own
   channel: partner-built
@@ -8866,6 +8867,43 @@ edges:
     detected: '2026-10-22'
   detected_by: sweep-red-hat-certified-ecosystem.py
   first_seen: '2026-10-22'
+- partner_name: Docker Official Images
+  partner: docker-hub
+  partner_match: register
+  type: register
+  channel: standard-directory
+  relationship: standard-participant
+  direction: partner-built
+  evidence: https://hub.docker.com/_/elasticsearch
+  category: Docker Official Images programme (upstream-maintained official container image)
+  contract_reference:
+    register: Docker Official Images (hub.docker.com/v2/repositories/library/ + github.com/docker-library/official-images/library/<image>
+      manifests)
+    standard: Docker Official Images
+    spec_file: null
+    role: official-image-upstream-maintainer
+    registered_name: elastic
+    github_org: elastic
+    matched_domain: elastic.co
+    matched_by: domain+name-among-holders
+    identity_leg: org-profile-site
+    images:
+    - elasticsearch
+    - kibana
+    - logstash
+    certified_products:
+    - product: Docker Official Image
+      product_type: container image
+      standard: Docker Official Images
+      lapsed: false
+    signal_note: 'the image''s GitRepo is owned by this provider''s GitHub organisation (identity: the org''s own
+      profile website or its maintainers'' e-mail domain, held in domain_lookup, name-gated); every update is reviewed
+      by Docker''s docker-library team against the Official Images guidelines. certified_products = ONE entry for
+      the product type; image and pull counts are context, never counted'
+    detected_by: sweep-docker-hub-verified-publishers.py
+    detected: '2026-10-23'
+  detected_by: sweep-docker-hub-verified-publishers.py
+  first_seen: '2026-10-23'
 - partner_name: Eclipse Foundation (open-vsx)
   partner: eclipse
   partner_match: mirror
@@ -8974,43 +9012,29 @@ edges:
   badges:
   - 'Verified publisher (Artifact Hub official: publisher owns the software)'
   - 'Verified publisher (Artifact Hub verified publisher: repository ownership proven)'
-- partner_name: Docker Official Images
-  partner: docker-hub
-  partner_match: register
-  type: register
-  channel: standard-directory
-  relationship: standard-participant
-  direction: partner-built
-  evidence: https://hub.docker.com/_/elasticsearch
-  category: Docker Official Images programme (upstream-maintained official container image)
-  contract_reference:
-    register: Docker Official Images (hub.docker.com/v2/repositories/library/ + github.com/docker-library/official-images/library/<image>
-      manifests)
-    standard: Docker Official Images
-    spec_file: null
-    role: official-image-upstream-maintainer
-    registered_name: elastic
-    github_org: elastic
-    matched_domain: elastic.co
-    matched_by: domain+name-among-holders
-    identity_leg: org-profile-site
-    images:
-    - elasticsearch
-    - kibana
-    - logstash
-    certified_products:
-    - product: Docker Official Image
-      product_type: container image
-      standard: Docker Official Images
-      lapsed: false
-    signal_note: 'the image''s GitRepo is owned by this provider''s GitHub organisation (identity: the org''s own
-      profile website or its maintainers'' e-mail domain, held in domain_lookup, name-gated); every update is reviewed
-      by Docker''s docker-library team against the Official Images guidelines. certified_products = ONE entry for
-      the product type; image and pull counts are context, never counted'
-    detected_by: sweep-docker-hub-verified-publishers.py
-    detected: '2026-10-23'
-  detected_by: sweep-docker-hub-verified-publishers.py
-  first_seen: '2026-10-23'
+- partner_name: Hugging Face (hugging-face-hub)
+  partner: hugging-face
+  partner_match: mirror
+  mirror_match: domain+name-among-holders
+  type: marketplace
+  relationship: platform-app
+  direction: third-party
+  channel: partner-built
+  marketplace: hugging-face-hub
+  evidence: https://huggingface.co/elastic
+  mirror_of: hugging-face/integrations/hugging-face-integration-edges.yml
+  apps:
+  - elastic/distilbert-base-uncased-finetuned-conll03-english
+  - elastic/distilbert-base-cased-finetuned-conll03-english
+  - elastic/multilingual-e5-small-optimized
+  - elastic/multilingual-e5-small
+  - elastic
+  listing_count: 2
+  detected: '2026-10-23'
+  detected_by: mirror-platform-listings.py
+  category: Hugging Face Hub models
+  badges:
+  - Verified publisher (Hugging Face verified organisation)
 source:
 - https://github.com/open-telemetry/opentelemetry.io/blob/main/data/ecosystem/vendors.yaml
 - https://github.com/open-telemetry/opentelemetry.io/blob/main/data/registry/
